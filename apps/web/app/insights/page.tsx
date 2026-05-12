@@ -1,12 +1,14 @@
 import { getArticleCollection, formatArticleDate } from "@repo/content";
+import { createPageMetadata } from "@repo/seo";
 import { Body, Caption, Container, Display, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Engineering Insights | Al Marfa Technologies",
+export const metadata = createPageMetadata({
   description:
     "Architecture-focused frontend engineering insights from Al Marfa Technologies.",
-};
+  pathname: "/insights",
+  title: "Engineering Insights",
+});
 
 export default function InsightsPage() {
   const articles = getArticleCollection("insights");

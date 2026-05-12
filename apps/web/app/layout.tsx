@@ -1,6 +1,14 @@
 import "./globals.css";
+import {
+  createOrganizationSchema,
+  createPageMetadata,
+  createWebSiteSchema,
+  siteConfig,
+} from "@repo/seo";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
+import { JsonLdScript } from "./_components/json-ld";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -15,10 +23,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://almarfa.technology"),
-  title: "Al Marfa Technologies",
-  description:
-    "Enterprise frontend architecture, design systems, and scalable UI platform strategy.",
+  metadataBase: new URL(siteConfig.siteUrl),
+  ...createPageMetadata(),
 };
 
 export default function RootLayout({
@@ -28,7 +34,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <JsonLdScript data={[createOrganizationSchema(), createWebSiteSchema()]} />
+        {children}
+      </body>
     </html>
   );
 }

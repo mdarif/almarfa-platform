@@ -1,8 +1,15 @@
 import { getArticleCollection, formatArticleDate } from "@repo/content";
+import { createPageMetadata } from "@repo/seo";
 import { Body, Caption, Container, Grid, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
 import { HeroSection } from "@/components/sections/hero";
+
+export const metadata = createPageMetadata({
+  description:
+    "Enterprise frontend architecture, design systems, Storybook governance, and shared UI platform strategy.",
+  pathname: "/",
+});
 
 const expertiseAreas = [
   {
