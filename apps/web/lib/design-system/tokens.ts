@@ -1,25 +1,34 @@
 export const tokens = {
   colors: {
-    background: "#0B1120",
-    surface: "#111827",
-    surfaceElevated: "#172033",
+    background: "var(--color-background)",
+    foreground: "var(--color-foreground)",
+    foregroundSecondary: "var(--color-foreground-secondary)",
+    foregroundMuted: "var(--color-foreground-muted)",
+    accent: "var(--color-accent)",
+    border: "var(--color-border)",
+    surface: "var(--color-surface)",
+    surfaceRaised: "var(--color-surface-raised)",
+    surfaceMuted: "var(--color-surface-muted)",
+  },
 
-    textPrimary: "#F8FAFC",
-    textSecondary: "#CBD5E1",
-    textMuted: "#94A3B8",
-
-    borderSubtle: "#1E293B",
-
-    accent: "#14B8A6",
-    accentSoft: "#0F766E",
+  layout: {
+    page: "max-w-page mx-auto px-layout-sm md:px-layout-md lg:px-layout-lg",
+    content:
+      "max-w-content mx-auto px-layout-sm md:px-layout-md lg:px-layout-lg",
+    narrow: "max-w-narrow mx-auto px-layout-sm md:px-layout-md lg:px-layout-lg",
   },
 
   spacing: {
-    section: "py-24 md:py-32",
-    container: "max-w-7xl mx-auto px-6 lg:px-8",
+    section: "py-section",
+    sectionCompact: "py-section-compact",
+    sectionSpacious: "py-section-spacious",
   },
 
-  radius: {
-    card: "1.25rem",
+  typography: {
+    display: "text-display leading-display font-semibold tracking-normal",
+    heading: "text-heading leading-heading font-semibold tracking-normal",
+    subheading: "text-subheading leading-subheading font-medium tracking-normal",
+    body: "text-body leading-body tracking-normal",
+    caption: "text-caption leading-caption font-medium uppercase tracking-[0.08em]",
   },
-};
+} as const;

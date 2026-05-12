@@ -1,14 +1,24 @@
 import "./globals.css";
-import { GeistSans } from "geist/font/sans";
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
 
-export const metadata = {
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://almarfa.technology"),
   title: "Al Marfa Technologies",
   description:
-    "Enterprise Frontend Platforms, Design Systems, and Scalable UI Architecture.",
+    "Enterprise frontend architecture, design systems, and scalable UI platform strategy.",
 };
 
 export default function RootLayout({
@@ -17,10 +27,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn(GeistSans.className, "font-sans", geist.variable)}>
-      <body className="bg-[#0B1120] text-slate-50 antialiased">
-        {children}
-      </body>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

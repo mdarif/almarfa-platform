@@ -1,22 +1,30 @@
-import { Container } from "@/components/layout/container";
-import { Section } from "@/components/layout/section";
+import { Body, Caption, Container, Display, Section, Stack } from "@repo/ui";
 
 export function HeroSection() {
   return (
-    <Section>
-      <Container>
-        <div className="max-w-4xl">
-          <h1 className="heading-hero max-w-5xl">
-            Enterprise Frontend Platforms &
-            Design Systems
-          </h1>
+    <Section spacing="spacious">
+      <Container as="header" size="content">
+        <Stack gap="md" className="max-w-measure-wide">
+          <Caption as="p" tone="accent">
+            Al Marfa Technologies
+          </Caption>
 
-          <p className="body-large mt-10 max-w-xl">
-            Al Marfa Technologies helps engineering organizations
-            build scalable frontend ecosystems, developer platforms,
-            and shared UI infrastructure.
-          </p>
-        </div>
+          <Display>
+            Enterprise frontend architecture for systems that need to scale.
+          </Display>
+
+          <Body measure="content" size="large">
+            We help engineering organizations design durable frontend platforms,
+            govern design systems, and evolve shared UI infrastructure with
+            architectural discipline.
+          </Body>
+
+          <Body measure="narrow" tone="muted">
+            Built for teams that value semantic structure, maintainable delivery,
+            and frontend decisions that compound into long-term technical
+            authority.
+          </Body>
+        </Stack>
       </Container>
     </Section>
   );

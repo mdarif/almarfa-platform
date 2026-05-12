@@ -1,0 +1,51 @@
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-foreground-secondary: var(--color-foreground-secondary);
+  --color-foreground-muted: var(--color-foreground-muted);
+  --color-accent: var(--color-accent);
+  --color-accent-foreground: var(--color-accent-foreground);
+  --color-border: var(--color-border);
+  --color-ring: var(--color-ring);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-surface-muted: var(--color-surface-muted);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --text-display: clamp(3rem, 6vw, 5.75rem);
+  --text-heading: clamp(2rem, 4vw, 3.5rem);
+  --text-subheading: clamp(1.125rem, 2vw, 1.375rem);
+  --text-body: 1rem;
+  --text-caption: 0.75rem;
+
+  --leading-display: 0.98;
+  --leading-heading: 1.06;
+  --leading-subheading: 1.55;
+  --leading-body: 1.8;
+  --leading-caption: 1.4;
+
+  --spacing-layout-sm: 1.5rem;
+  --spacing-layout-md: 2.5rem;
+  --spacing-layout-lg: 4rem;
+  --spacing-section-compact: clamp(4rem, 8vw, 6rem);
+  --spacing-section: clamp(6rem, 11vw, 9rem);
+  --spacing-section-spacious: clamp(7.5rem, 14vw, 12rem);
+  --spacing-rhythm-xs: 0.75rem;
+  --spacing-rhythm-sm: 1.25rem;
+  --spacing-rhythm-md: 2rem;
+  --spacing-rhythm-lg: 3rem;
+  --spacing-rhythm-xl: 4.5rem;
+  --spacing-grid-sm: 1.25rem;
+  --spacing-grid-md: 2rem;
+  --spacing-grid-lg: 3rem;
+  --spacing-grid-xl: 4.5rem;
+
+  --container-page: 76rem;
+  --container-content: 68rem;
+  --container-narrow: 48rem;
+  --container-measure-narrow: 38rem;
+  --container-measure: 46rem;
+  --container-measure-wide: 58rem;
+}

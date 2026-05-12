@@ -3,7 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx"
+    ".": "./src/index.ts",
+    "./styles/tokens.css": "./src/styles/tokens.css",
+    "./components/layout/container": "./src/components/layout/container.tsx",
+    "./components/layout/grid": "./src/components/layout/grid.tsx",
+    "./components/layout/section": "./src/components/layout/section.tsx",
+    "./components/layout/stack": "./src/components/layout/stack.tsx",
+    "./components/typography/body": "./src/components/typography/body.tsx",
+    "./components/typography/caption": "./src/components/typography/caption.tsx",
+    "./components/typography/display": "./src/components/typography/display.tsx",
+    "./components/typography/heading": "./src/components/typography/heading.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
