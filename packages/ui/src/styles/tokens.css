@@ -1,3 +1,4 @@
+/* Shared Tailwind theme tokens for editorial rhythm, readable measures, and calm surfaces. */
 @theme inline {
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);

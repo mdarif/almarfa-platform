@@ -1,6 +1,7 @@
 export type TextMeasure = "none" | "narrow" | "content" | "wide";
 export type TextTone = "primary" | "secondary" | "muted" | "accent";
 
+// Typography primitives map semantic props to token-backed Tailwind utilities.
 export const toneClassNames: Record<TextTone, string> = {
   primary: "text-foreground",
   secondary: "text-foreground-secondary",

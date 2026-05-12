@@ -1,3 +1,4 @@
+// Root exports are the intended public surface for application composition.
 export { Container } from "./components/layout/container";
 export { Grid } from "./components/layout/grid";
 export { Section } from "./components/layout/section";
