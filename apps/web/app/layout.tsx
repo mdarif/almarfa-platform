@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 
 import { JsonLdScript } from "./_components/json-ld";
+import { PlatformShell } from "@/components/layout/platform-shell";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,7 +37,7 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
         <JsonLdScript data={[createOrganizationSchema(), createWebSiteSchema()]} />
-        {children}
+        <PlatformShell>{children}</PlatformShell>
       </body>
     </html>
   );
