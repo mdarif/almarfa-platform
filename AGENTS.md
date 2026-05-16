@@ -71,3 +71,12 @@ Avoid:
 - operational complexity
 - unnecessary backend systems
 - high-maintenance infrastructure
+
+Never modify:
+- node_modules
+- .pnpm-store
+- .next
+- generated cache artifacts
+- dependency internals
+
+Restrict changes to application and package source files unless explicitly instructed.

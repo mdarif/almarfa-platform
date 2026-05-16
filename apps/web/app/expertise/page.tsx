@@ -2,7 +2,7 @@ import { createPageMetadata } from "@repo/seo";
 import { Body, Caption, Container, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
-import { AUTHORITY_CLUSTERS } from "@/lib/platform";
+import { EXPERTISE_LIST, getExpertisePath } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
   description:
@@ -21,9 +21,6 @@ export default function ExpertisePage() {
   );
 }
 
-/**
- * Positioning - explains the cluster model
- */
 function PositioningSection() {
   return (
     <Section spacing="default">
@@ -45,37 +42,32 @@ function PositioningSection() {
   );
 }
 
-/**
- * Authority clusters - linked to individual pages
- */
 function ClustersSection() {
-  const clusters = Object.values(AUTHORITY_CLUSTERS);
-
   return (
     <Section spacing="default">
       <Container size="content">
         <Stack gap="xl">
           <Stack gap="md" className="max-w-measure-wide">
-            <Caption tone="accent">Authority Areas</Caption>
+            <Caption tone="accent">Authority areas</Caption>
             <Heading>
               Technical knowledge domains we focus on and develop.
             </Heading>
           </Stack>
 
           <ol className="border-t border-border" aria-label="Authority clusters">
-            {clusters.map((cluster) => (
-              <li className="border-b border-border py-rhythm-lg" key={cluster.id}>
+            {EXPERTISE_LIST.map((area) => (
+              <li className="border-b border-border py-rhythm-lg" key={area.slug}>
                 <Stack gap="md">
-                  <Link href={`/expertise/${cluster.slug}`} className="group">
+                  <Link href={getExpertisePath(area.slug)} className="group">
                     <Heading
                       as="h3"
                       className="text-[clamp(1.375rem,2.5vw,2rem)] group-hover:text-accent transition-colors"
                       measure="narrow"
                     >
-                      {cluster.label}
+                      {area.label}
                     </Heading>
                   </Link>
-                  <Body measure="content">{cluster.description}</Body>
+                  <Body measure="content">{area.shortDescription}</Body>
                 </Stack>
               </li>
             ))}
@@ -86,29 +78,25 @@ function ClustersSection() {
   );
 }
 
-/**
- * Related content - link to services and insights
- */
 function RelatedSection() {
   return (
     <Section spacing="default">
       <Container size="content">
         <div className="border-t border-border pt-rhythm-lg">
           <Stack gap="lg">
-            <Heading as="h3">Explore More</Heading>
+            <Heading as="h2">
+              Explore further
+            </Heading>
             <Stack gap="md">
-              <div>
-                <Body className="mb-rhythm-sm font-medium">Related Services</Body>
+              <Body measure="content">
                 <Link href="/services" className="text-accent hover:opacity-75 transition-opacity">
-                  View our service offerings →
+                  Architecture advisory services
                 </Link>
-              </div>
-              <div>
-                <Body className="mb-rhythm-sm font-medium">Implementation Insights</Body>
+                {" · "}
                 <Link href="/insights" className="text-accent hover:opacity-75 transition-opacity">
-                  Read our insights and articles →
+                  Implementation insights
                 </Link>
-              </div>
+              </Body>
             </Stack>
           </Stack>
         </div>

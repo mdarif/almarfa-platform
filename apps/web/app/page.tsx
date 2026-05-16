@@ -3,51 +3,15 @@ import { createPageMetadata } from "@repo/seo";
 import { Body, Caption, Container, Grid, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
+import { ArticleExpertiseLinks } from "@/components/content";
 import { HeroSection } from "@/components/sections/hero";
+import { EXPERTISE_LIST, getExpertisePath } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
   description:
     "Enterprise frontend architecture, design systems, Storybook governance, and shared UI platform strategy.",
   pathname: "/",
 });
-
-const expertiseAreas = [
-  {
-    description:
-      "Designing frontend systems that can support multiple teams, delivery streams, and product surfaces without losing architectural coherence.",
-    title: "Frontend Architecture",
-  },
-  {
-    description:
-      "Building shared UI foundations with clear ownership, durable primitives, documentation, and adoption paths that teams can trust.",
-    title: "Design Systems",
-  },
-  {
-    description:
-      "Treating Storybook as governed platform infrastructure for component contracts, visual states, accessibility review, and shared understanding.",
-    title: "Storybook Ecosystems",
-  },
-  {
-    description:
-      "Structuring Nx workspaces around explicit boundaries, reusable libraries, and delivery workflows that remain understandable as systems grow.",
-    title: "Nx Monorepos",
-  },
-  {
-    description:
-      "Creating frontend platform capabilities that reduce repeated decisions and help product teams move with more confidence.",
-    title: "Platform Engineering",
-  },
-  {
-    description:
-      "Establishing review models, standards, and change practices that keep shared frontend systems reliable over time.",
-    title: "Frontend Governance",
-  },
-  {
-    description:
-      "Improving the workflows, conventions, and feedback loops that shape how engineers build, test, document, and ship frontend systems.",
-    title: "Developer Experience Engineering",
-  },
-] as const;
 
 const platformPrinciples = [
   "Scalable frontend ecosystems need clear package boundaries, shared language, and a realistic model for ownership.",
@@ -89,17 +53,21 @@ function ExpertiseAreasSection() {
           </Stack>
 
           <ol className="border-t border-border" aria-label="Expertise areas">
-            {expertiseAreas.map((area) => (
-              <li className="border-b border-border py-rhythm-lg" key={area.title}>
+            {EXPERTISE_LIST.map((area) => (
+              <li className="border-b border-border py-rhythm-lg" key={area.slug}>
                 <Grid columns="two" gap="lg">
-                  <Heading
-                    as="h3"
-                    className="text-[clamp(1.375rem,2.5vw,2rem)]"
-                    measure="narrow"
-                  >
-                    {area.title}
-                  </Heading>
-                  <Body measure="content">{area.description}</Body>
+                  <Link href={getExpertisePath(area.slug)} className="group">
+                    <Heading
+                      as="h3"
+                      className="text-[clamp(1.375rem,2.5vw,2rem)] group-hover:text-accent transition-colors"
+                      measure="narrow"
+                    >
+                      {area.label}
+                    </Heading>
+                  </Link>
+                  <Body measure="content">
+                    {area.serviceDescription ?? area.shortDescription}
+                  </Body>
                 </Grid>
               </li>
             ))}
@@ -172,6 +140,8 @@ function InsightsPreviewSection({
                   {formatArticleDate(article.frontmatter.publishedAt)}
                 </time>
               </Caption>
+
+              <ArticleExpertiseLinks article={article} />
 
               <Heading as="h3" measure="content">
                 <Link

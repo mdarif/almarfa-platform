@@ -2,10 +2,18 @@ import type { ArticleSummary } from "@repo/content";
 
 import { createCanonicalUrl, siteConfig } from "../utils/url";
 
-export function createInsightsRssFeed(articles: readonly ArticleSummary[]) {
-  const items = articles
-    .map((article) => {
+export type InsightsRssItem = {
+  article: ArticleSummary;
+  categories?: readonly string[];
+};
+
+export function createInsightsRssFeed(items: readonly InsightsRssItem[]) {
+  const rssItems = items
+    .map(({ article, categories = [] }) => {
       const url = createCanonicalUrl(`/insights/${article.slug}`);
+      const categoryTags = categories
+        .map((category) => `<category>${escapeXml(category)}</category>`)
+        .join("");
 
       return [
         "<item>",
@@ -14,6 +22,7 @@ export function createInsightsRssFeed(articles: readonly ArticleSummary[]) {
         `<guid>${url}</guid>`,
         `<description>${escapeXml(article.frontmatter.description)}</description>`,
         `<pubDate>${new Date(article.frontmatter.publishedAt).toUTCString()}</pubDate>`,
+        categoryTags,
         "</item>",
       ].join("");
     })
@@ -21,13 +30,13 @@ export function createInsightsRssFeed(articles: readonly ArticleSummary[]) {
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<rss version="2.0">',
+    '<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">',
     "<channel>",
     `<title>${escapeXml(siteConfig.name)} Engineering Insights</title>`,
     `<link>${createCanonicalUrl("/insights")}</link>`,
     `<description>${escapeXml("Architecture-focused frontend engineering insights from Al Marfa Technologies.")}</description>`,
     "<language>en</language>",
-    items,
+    rssItems,
     "</channel>",
     "</rss>",
   ].join("");

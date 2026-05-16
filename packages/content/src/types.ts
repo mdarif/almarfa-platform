@@ -8,6 +8,8 @@ export type ArticleFrontmatter = {
   author?: string;
   category: string;
   tags: string[];
+  /** Expertise taxonomy slugs — drives semantic clustering and cross-linking */
+  clusters?: string[];
   readingTime?: string;
 };
 

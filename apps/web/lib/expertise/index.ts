@@ -1,0 +1,32 @@
+export {
+  AUTHORITY_CLUSTERS,
+  AUTHORITY_CLUSTER_VALUES,
+  CONTENT_RELATIONSHIPS,
+  EXPERTISE_AREAS,
+  EXPERTISE_BY_SLUG,
+  EXPERTISE_LIST,
+  EXPERTISE_SLUGS,
+  NAVIGATION,
+  PLATFORM_POSITIONING,
+  type AuthorityClusterId,
+  type ExpertiseDefinition,
+  type ExpertiseSlug,
+} from "./taxonomy";
+
+export {
+  getAllExpertiseSlugs,
+  getArticleClusterLabels,
+  getArticleExpertiseSlugs,
+  getArticleSemanticKeywords,
+  getExpertiseBySlug,
+  getExpertiseMetadata,
+  getExpertisePath,
+  getInsightsForExpertise,
+  getPrimaryExpertiseSlug,
+  getRelatedExpertise,
+  getRelatedInsightsForArticle,
+  groupInsightsByExpertise,
+  isExpertiseSlug,
+  resolveArticleExpertiseSlugs,
+  type InsightsByExpertiseGroup,
+} from "./queries";

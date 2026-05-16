@@ -14,11 +14,11 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-surface/50 mt-rhythm-4xl">
       <Container size="page" className="py-rhythm-3xl">
-        <Stack gap="4xl">
+        <Stack gap="xl">
           {/* Platform Positioning */}
           <Stack gap="lg" className="max-w-prose">
             <h2 className="text-sm font-semibold tracking-wide">Al Marfa Technologies</h2>
-            <Body tone="secondary" size="small">
+            <Body tone="secondary">
               {PLATFORM_POSITIONING.tagline}
             </Body>
           </Stack>

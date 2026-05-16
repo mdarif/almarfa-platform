@@ -53,7 +53,7 @@ function ExpectationsSection() {
           <Caption tone="accent">How This Works</Caption>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-rhythm-xl">
             <Stack gap="md" className="max-w-measure-narrow">
-              <Heading as="h3" size="sm">What happens next</Heading>
+              <Heading as="h3">What happens next</Heading>
               <ul className="space-y-rhythm-sm">
                 <li className="flex gap-rhythm-sm">
                   <span className="text-accent font-semibold flex-shrink-0">→</span>
@@ -83,7 +83,7 @@ function ExpectationsSection() {
             </Stack>
 
             <Stack gap="md" className="max-w-measure-narrow">
-              <Heading as="h3" size="sm">What this is not</Heading>
+              <Heading as="h3">What this is not</Heading>
               <ul className="space-y-rhythm-sm">
                 <li className="flex gap-rhythm-sm">
                   <span className="text-text/50 font-semibold flex-shrink-0">×</span>
@@ -131,7 +131,7 @@ function InquirySection() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-rhythm-4xl">
             {/* Email option */}
             <Stack gap="md" className="max-w-measure-narrow">
-              <Heading as="h3" size="sm">Direct email</Heading>
+              <Heading as="h3">Direct email</Heading>
               <Body measure="content">
                 If you prefer email, reach out directly with a brief description
                 of your platform challenges.
@@ -143,7 +143,7 @@ function InquirySection() {
 
             {/* Contact form */}
             <Stack gap="md" className="max-w-measure-narrow">
-              <Heading as="h3" size="sm">Inquiry form</Heading>
+              <Heading as="h3">Inquiry form</Heading>
               <ContactForm />
             </Stack>
           </div>

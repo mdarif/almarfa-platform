@@ -4,6 +4,12 @@
 node_modules
 .pnp
 .pnp.js
+.pnpm-store
+.next
+.turbo
+dist
+build
+coverage
 
 # Local env files
 .env

@@ -1,7 +1,8 @@
 /**
- * Content Components
- * Public exports for wayfinding and semantic linking
+ * Content components — wayfinding and semantic linking.
  */
 
-export { RelatedTopicsSection, RelatedClusterTopics, ExpertiseContext } from "./related-topics";
+export { ArticleExpertiseLinks } from "./article-expertise-links";
+export { ExpertiseTopicNav } from "./expertise-topic-nav";
+export { RelatedTopicsSection, ExpertiseContext } from "./related-topics";
 export type { RelatedTopic } from "./related-topics";

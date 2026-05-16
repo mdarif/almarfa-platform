@@ -68,8 +68,13 @@ function normalizeFrontmatter(
     author: optionalString(values, "author"),
     category: requiredString(values, "category"),
     tags: arrayValue(values.tags),
+    clusters: optionalArray(values.clusters),
     readingTime: optionalString(values, "readingTime"),
   };
+}
+
+function optionalArray(value: FrontmatterValue | undefined) {
+  return Array.isArray(value) && value.length > 0 ? value : undefined;
 }
 
 function requiredString(

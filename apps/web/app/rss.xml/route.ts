@@ -1,10 +1,18 @@
 import { getArticleCollection } from "@repo/content";
 import { createInsightsRssFeed } from "@repo/seo";
 
+import { getArticleClusterLabels } from "@/lib/expertise";
+
 export const dynamic = "force-static";
 
 export function GET() {
-  const feed = createInsightsRssFeed(getArticleCollection("insights"));
+  const articles = getArticleCollection("insights");
+  const feed = createInsightsRssFeed(
+    articles.map((article) => ({
+      article,
+      categories: getArticleClusterLabels(article),
+    })),
+  );
 
   return new Response(feed, {
     headers: {

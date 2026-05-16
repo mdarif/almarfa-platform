@@ -349,11 +349,12 @@ The platform should now feel:
 - ✅ Global shell layout (header + main + footer)
 - ✅ Breadcrumb system for article navigation
 - ✅ Related topics component for cross-linking
-- 🔄 Integrate taxonomy with article frontmatter
-- 🔄 Update article pages with breadcrumbs
-- 🔄 Implement related topics display
-- 🔄 Create expertise cluster landing pages
-- 🔄 Add structured data (JSON-LD)
+- ✅ Integrate taxonomy with article frontmatter
+- ✅ Update article pages with breadcrumbs and cluster links
+- ✅ Implement related topics display (overlap-based)
+- ✅ Create expertise cluster landing pages
+- ✅ Add structured data (JSON-LD) for articles and expertise
+- ✅ Insights index links to expertise hubs (topic nav + per-article clusters)
 - 🔄 Performance audit and refinement
 
 ---

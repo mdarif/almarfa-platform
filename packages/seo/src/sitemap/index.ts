@@ -17,11 +17,41 @@ export function createStaticSitemapEntries(): SitemapEntry[] {
       url: createCanonicalUrl("/"),
     },
     {
+      changeFrequency: "monthly",
+      priority: 0.9,
+      url: createCanonicalUrl("/expertise"),
+    },
+    {
+      changeFrequency: "monthly",
+      priority: 0.85,
+      url: createCanonicalUrl("/services"),
+    },
+    {
+      changeFrequency: "monthly",
+      priority: 0.7,
+      url: createCanonicalUrl("/about"),
+    },
+    {
+      changeFrequency: "monthly",
+      priority: 0.7,
+      url: createCanonicalUrl("/contact"),
+    },
+    {
       changeFrequency: "weekly",
       priority: 0.8,
       url: createCanonicalUrl("/insights"),
     },
   ];
+}
+
+export function createExpertiseSitemapEntries(
+  slugs: readonly string[],
+): SitemapEntry[] {
+  return slugs.map((slug) => ({
+    changeFrequency: "monthly",
+    priority: 0.8,
+    url: createCanonicalUrl(`/expertise/${slug}`),
+  }));
 }
 
 export function createArticleSitemapEntries(
