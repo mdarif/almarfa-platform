@@ -66,7 +66,7 @@ Five foundational pages have been created to complete the platform's primary nav
 - Related section — Links to other expertise areas
 
 **Key Features:**
-- Dynamic routing generates all 8 pages from `AUTHORITY_CLUSTERS` data
+- Dynamic routing generates all 8 pages from `EXPERTISE_LIST` data
 - Each cluster has custom content explaining its relevance
 - Breadcrumbs improve wayfinding and SEO
 - Semantic interlinking to other expertise areas

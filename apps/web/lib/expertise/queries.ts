@@ -133,6 +133,14 @@ export function resolveArticleExpertiseSlugs(article: ArticleSummary): Expertise
   const explicit = article.frontmatter.clusters ?? [];
 
   if (explicit.length > 0) {
+    const invalidSlugs = explicit.filter((slug) => !isExpertiseSlug(slug));
+
+    if (invalidSlugs.length > 0) {
+      throw new Error(
+        `Invalid expertise cluster slug(s) in ${article.slug}: ${invalidSlugs.join(", ")}`,
+      );
+    }
+
     return explicit.filter(isExpertiseSlug);
   }
 

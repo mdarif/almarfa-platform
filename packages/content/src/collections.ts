@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 import { parseMdxFile } from "./frontmatter";
-import { slugFromFilename } from "./slug";
+import { slugFromFilename, slugify } from "./slug";
 import type { Article, ArticleCollection } from "./types";
 
 const collectionDirectoryNames: Record<ArticleCollection, string> = {
@@ -54,6 +54,7 @@ function readArticleFile(
   const filePath = path.join(getCollectionDirectory(collection), filename);
   const { body, frontmatter } = parseMdxFile(readFileSync(filePath, "utf8"));
   const slug = slugFromFilename(filename);
+  validateArticleSlug(filename, slug);
 
   return {
     body,
@@ -67,6 +68,14 @@ function readArticleFile(
     path: filePath,
     slug,
   };
+}
+
+function validateArticleSlug(filename: string, slug: string) {
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) || slugify(slug) !== slug) {
+    throw new Error(
+      `Invalid content filename: ${filename}. Use canonical kebab-case slugs.`,
+    );
+  }
 }
 
 function getCollectionDirectory(collection: ArticleCollection) {

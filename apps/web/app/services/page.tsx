@@ -2,7 +2,7 @@ import { createPageMetadata } from "@repo/seo";
 import { Body, Caption, Container, Grid, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
-import { EXPERTISE_AREAS } from "@/lib/platform";
+import { EXPERTISE_AREAS } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
   description:
@@ -56,7 +56,7 @@ function ExpertiseAreasSection() {
           <Stack gap="md" className="max-w-measure-wide">
             <Caption tone="accent">Focus Areas</Caption>
             <Heading>
-              Seven expertise domains that compound your platform's effectiveness.
+              Seven expertise domains that compound your platform&apos;s effectiveness.
             </Heading>
           </Stack>
 
@@ -102,7 +102,7 @@ function EngagementModelSection() {
               <Body measure="content">
                 Our advisory focuses on the operating models, governance patterns,
                 and architectural clarity that make platforms sustainable. We help
-                you think through the decisions that shape your systems' evolution.
+                you think through the decisions that shape your systems&apos; evolution.
               </Body>
             </Stack>
 

@@ -9,8 +9,6 @@ import {
   getArticleExpertiseSlugs,
   getArticleSemanticKeywords,
   getExpertiseBySlug,
-  getPrimaryExpertiseSlug,
-  getRelatedExpertise,
   isExpertiseSlug,
   type ExpertiseSlug,
 } from "./expertise";

@@ -4,7 +4,7 @@
  * Global layout structure providing:
  * - Header with primary navigation
  * - Footer with semantic structure
- * - Main content area
+ * - Flexible page content area
  * 
  * Supports responsive behavior while maintaining
  * calm, editorial composition.
@@ -21,7 +21,7 @@ export function PlatformShell({ children }: PlatformShellProps) {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1">{children}</main>
+      <div className="flex-1">{children}</div>
       <Footer />
     </div>
   );

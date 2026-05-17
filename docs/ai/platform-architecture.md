@@ -261,7 +261,7 @@ apps/web/
     content/             # New
       related-topics.tsx
     layout/
-      platform-shell.tsx # New
+      platform-shell.tsx # Header/footer shell; routes own their main landmark
       container.tsx      # Re-exported from @repo/ui
       section.tsx        # Re-exported from @repo/ui
   lib/
@@ -346,7 +346,7 @@ The platform should now feel:
 - ✅ Platform taxonomy defined (8 clusters, expertise areas)
 - ✅ Header component with primary navigation
 - ✅ Footer with semantic cluster organization
-- ✅ Global shell layout (header + main + footer)
+- ✅ Global shell layout (header + footer; routes own their main landmark)
 - ✅ Breadcrumb system for article navigation
 - ✅ Related topics component for cross-linking
 - ✅ Integrate taxonomy with article frontmatter

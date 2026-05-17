@@ -1,5 +1,5 @@
 import { getArticleCollection, formatArticleDate } from "@repo/content";
-import { createPageMetadata } from "@repo/seo";
+import { createPageMetadata, siteConfig } from "@repo/seo";
 import { Body, Caption, Container, Grid, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
@@ -185,9 +185,9 @@ function ContactSection() {
           </Body>
           <Link
             className="mt-rhythm-sm inline-flex w-fit text-sm font-medium text-accent underline-offset-4 hover:underline"
-            href="mailto:hello@almarfa.technology"
+            href={`mailto:${siteConfig.contactEmail}`}
           >
-            hello@almarfa.technology
+            {siteConfig.contactEmail}
           </Link>
         </Stack>
       </Container>

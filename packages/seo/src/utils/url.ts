@@ -1,4 +1,5 @@
 export type SiteConfig = {
+  contactEmail: string;
   description: string;
   locale: string;
   name: string;
@@ -7,6 +8,7 @@ export type SiteConfig = {
 };
 
 export const siteConfig: SiteConfig = {
+  contactEmail: "hello@almarfa.technology",
   description:
     "Enterprise frontend architecture, design systems, and scalable UI platform strategy.",
   locale: "en_US",

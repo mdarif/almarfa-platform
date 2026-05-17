@@ -254,11 +254,11 @@ relatedInsights:
 ### 4. SEO Structured Data
 
 ```tsx
-import { getArticleSchema, getBreadcrumbSchema } from "@/lib/content-utils";
+import { createArticleSchema, createBreadcrumbSchema } from "@repo/seo";
 
 const schemas = [
-  getArticleSchema(metadata, url),
-  getBreadcrumbSchema(breadcrumbs),
+  createArticleSchema(article),
+  createBreadcrumbSchema(breadcrumbs),
 ];
 ```
 

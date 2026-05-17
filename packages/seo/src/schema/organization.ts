@@ -5,6 +5,7 @@ export function createOrganizationSchema(): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    email: siteConfig.contactEmail,
     name: siteConfig.name,
     url: createCanonicalUrl("/"),
   };

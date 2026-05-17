@@ -251,6 +251,32 @@ export const EXPERTISE_BY_SLUG: Record<ExpertiseSlug, ExpertiseDefinition> = {
 
 export const EXPERTISE_LIST = EXPERTISE_SLUGS.map((slug) => EXPERTISE_BY_SLUG[slug]);
 
+export const EXPERTISE_NAVIGATION_GROUPS = [
+  {
+    label: "Architecture",
+    slugs: ["frontend-architecture", "design-systems"] as const,
+  },
+  {
+    label: "Platforms",
+    slugs: [
+      "storybook-ecosystems",
+      "nx-monorepos",
+      "frontend-governance",
+    ] as const,
+  },
+  {
+    label: "Operations",
+    slugs: [
+      "platform-engineering",
+      "developer-experience-engineering",
+      "angular-enterprise-patterns",
+    ] as const,
+  },
+] satisfies readonly {
+  label: string;
+  slugs: readonly ExpertiseSlug[];
+}[];
+
 /** @deprecated Use EXPERTISE_BY_SLUG — retained for existing imports */
 export const AUTHORITY_CLUSTERS = {
   FRONTEND_ARCHITECTURE: pickCluster("frontend-architecture"),

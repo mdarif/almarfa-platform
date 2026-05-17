@@ -322,7 +322,7 @@ All use: Root layout with PlatformShell
 ### Data Flow
 
 ```
-platform.ts (AUTHORITY_CLUSTERS, EXPERTISE_AREAS)
+expertise/taxonomy.ts (EXPERTISE_LIST, EXPERTISE_AREAS, EXPERTISE_NAVIGATION_GROUPS)
     ↓
 Used by:
   ├─ Header (nav items)

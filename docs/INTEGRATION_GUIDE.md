@@ -164,16 +164,13 @@ relatedInsights:
 
 ### Validation
 
-Use content utilities to validate:
+Content validation runs during static content loading. Invalid dates, filenames,
+or expertise cluster slugs should fail the build rather than drift silently.
 
 ```tsx
-import { validateArticleMetadata } from "@/lib/content-utils";
+import { getArticleCollection } from "@repo/content";
 
-const isValid = validateArticleMetadata({
-  title: "...",
-  description: "...",
-  clusters: ["STORYBOOK", "DESIGN_SYSTEMS"],
-});
+const insights = getArticleCollection("insights");
 ```
 
 ---
@@ -183,16 +180,16 @@ const isValid = validateArticleMetadata({
 ### Generate Breadcrumb Schema
 
 ```tsx
-import { getBreadcrumbSchema } from "@/lib/content-utils";
+import { createBreadcrumbSchema } from "@repo/seo";
 import { JsonLdScript } from "./_components/json-ld";
 
 const breadcrumbs = [
-  { label: "Insights", href: "/insights" },
-  { label: "Storybook", href: "/insights/storybook" },
-  { label: "Governance Patterns", isActive: true },
+  { name: "Insights", url: "https://almarfa.technology/insights" },
+  { name: "Storybook", url: "https://almarfa.technology/expertise/storybook-ecosystems" },
+  { name: "Governance Patterns", url: "https://almarfa.technology/insights/article-slug" },
 ];
 
-const schema = getBreadcrumbSchema(breadcrumbs);
+const schema = createBreadcrumbSchema(breadcrumbs);
 
 export default function ArticlePage() {
   return (
@@ -207,18 +204,11 @@ export default function ArticlePage() {
 ### Generate Article Schema
 
 ```tsx
-import { getArticleSchema } from "@/lib/content-utils";
+import { createArticleSchema } from "@repo/seo";
 
-const articleSchema = getArticleSchema(
-  {
-    title: "Article Title",
-    description: "Article description",
-    date: "2024-01-15",
-    clusters: ["STORYBOOK"],
-  },
-  "https://almarfa.com/insights/article-slug",
-  "Author Name"
-);
+const articleSchema = createArticleSchema(article, {
+  about: ["Storybook Ecosystems"],
+});
 ```
 
 ---
@@ -228,24 +218,24 @@ const articleSchema = getArticleSchema(
 ### Access Cluster Information
 
 ```tsx
-import { AUTHORITY_CLUSTERS, getAuthorityCluster } from "@/lib/platform";
+import { EXPERTISE_LIST, getExpertiseBySlug } from "@/lib/expertise";
 
 // Get all clusters
-const allClusters = Object.values(AUTHORITY_CLUSTERS);
+const allClusters = EXPERTISE_LIST;
 
 // Get specific cluster
-const storybook = getAuthorityCluster("storybook");
+const storybook = getExpertiseBySlug("storybook-ecosystems");
 console.log(storybook.label); // "Storybook Ecosystems"
-console.log(storybook.slug);  // "storybook"
+console.log(storybook.slug);  // "storybook-ecosystems"
 ```
 
 ### Get Related Expertise Areas
 
 ```tsx
-import { getRelatedExpertiseAreas } from "@/lib/content-utils";
+import { getRelatedExpertise } from "@/lib/expertise";
 
-const expertise = getRelatedExpertiseAreas(["storybook", "design-systems"]);
-// Returns expertise areas that cover these clusters
+const expertise = getRelatedExpertise("storybook-ecosystems");
+// Returns semantically related expertise areas
 ```
 
 ---
@@ -260,7 +250,7 @@ The header automatically displays:
 Services | Expertise | Insights | About | Contact
 ```
 
-These are defined in `NAVIGATION.primary` in `lib/platform.ts`.
+These are defined in `NAVIGATION.primary` in `lib/expertise/taxonomy.ts`.
 
 ### Footer Navigation
 
@@ -279,7 +269,7 @@ The footer displays clusters organized in 4 sections:
 
 ```tsx
 import { Container, Section, Stack, Heading, Body } from "@repo/ui";
-import { EXPERTISE_AREAS } from "@/lib/platform";
+import { EXPERTISE_AREAS } from "@/lib/expertise";
 
 export default function FrontendArchitecturePage() {
   const area = EXPERTISE_AREAS.find(a => a.slug === "frontend-architecture");
@@ -302,11 +292,11 @@ export default function FrontendArchitecturePage() {
 ### Expertise Pages
 
 ```tsx
-import { getAuthorityCluster } from "@/lib/platform";
+import { getExpertiseBySlug } from "@/lib/expertise";
 import { RelatedTopicsSection } from "@/components/content";
 
 export default function ExpertisePage({ params }: { params: { slug: string } }) {
-  const cluster = getAuthorityCluster(params.slug);
+  const cluster = getExpertiseBySlug(params.slug);
   
   if (!cluster) return <div>Not found</div>;
   

@@ -60,14 +60,17 @@ function unwrapQuotedValue(value: string) {
 function normalizeFrontmatter(
   values: Record<string, FrontmatterValue>,
 ): ArticleFrontmatter {
+  const publishedAt = requiredDate(values, "publishedAt");
+  const updatedAt = optionalDate(values, "updatedAt");
+
   return {
     title: requiredString(values, "title"),
     description: requiredString(values, "description"),
-    publishedAt: requiredString(values, "publishedAt"),
-    updatedAt: optionalString(values, "updatedAt"),
+    publishedAt,
+    updatedAt,
     author: optionalString(values, "author"),
     category: requiredString(values, "category"),
-    tags: arrayValue(values.tags),
+    tags: requiredArray(values, "tags"),
     clusters: optionalArray(values.clusters),
     readingTime: optionalString(values, "readingTime"),
   };
@@ -98,6 +101,54 @@ function optionalString(
   return typeof value === "string" && value.length > 0 ? value : undefined;
 }
 
+function requiredDate(
+  values: Record<string, FrontmatterValue>,
+  key: string,
+) {
+  const value = requiredString(values, key);
+  assertIsoDate(value, key);
+  return value;
+}
+
+function optionalDate(
+  values: Record<string, FrontmatterValue>,
+  key: string,
+) {
+  const value = optionalString(values, key);
+
+  if (value) {
+    assertIsoDate(value, key);
+  }
+
+  return value;
+}
+
 function arrayValue(value: FrontmatterValue | undefined) {
   return Array.isArray(value) ? value : [];
+}
+
+function requiredArray(
+  values: Record<string, FrontmatterValue>,
+  key: string,
+) {
+  const value = arrayValue(values[key]);
+
+  if (value.length === 0) {
+    throw new Error(`Missing required frontmatter field: ${key}`);
+  }
+
+  return value;
+}
+
+function assertIsoDate(value: string, key: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    throw new Error(`Invalid ${key}: expected YYYY-MM-DD.`);
+  }
+
+  const date = new Date(`${value}T00:00:00.000Z`);
+  const normalized = date.toISOString().slice(0, 10);
+
+  if (Number.isNaN(date.getTime()) || normalized !== value) {
+    throw new Error(`Invalid ${key}: ${value}.`);
+  }
 }

@@ -17,7 +17,7 @@ Short summary.
 | Design System Direction | ✅ Established | Shared editorial primitives exist |
 | AI-Assisted Workflow | ✅ Operational | AGENTS.md + doctrine established |
 | Technical Architecture | ✅ Established | Turborepo + Next.js + packages |
-| Content Workflow | 🟡 Early | MDX infrastructure exists |
+| Content Workflow | 🟡 Early | MDX infrastructure and lightweight validation exist |
 | Deployment Strategy | 🔲 Pending | Vercel strategy not finalized |
 
 ---
@@ -29,6 +29,7 @@ Short summary.
 - semantic linking
 - reading experience
 - authority compounding
+- governance hardening
 
 ---
 
@@ -52,8 +53,8 @@ Advanced knowledge graph infrastructure.
 
 - expertise route debugging
 - stronger article recommendations
-- semantic TOC system
-- RSS refinement
+- broader content validation
+- expanded article corpus for recommendation quality
 - canonical topic references
 
 ---

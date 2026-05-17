@@ -7,8 +7,15 @@
  */
 
 import Link from "next/link";
+import { siteConfig } from "@repo/seo";
 import { Container, Stack, Caption, Body } from "@repo/ui";
-import { AUTHORITY_CLUSTERS, PLATFORM_POSITIONING, NAVIGATION } from "@/lib/platform";
+
+import {
+  EXPERTISE_BY_SLUG,
+  EXPERTISE_NAVIGATION_GROUPS,
+  NAVIGATION,
+  PLATFORM_POSITIONING,
+} from "@/lib/expertise";
 
 export function Footer() {
   return (
@@ -21,6 +28,12 @@ export function Footer() {
             <Body tone="secondary">
               {PLATFORM_POSITIONING.tagline}
             </Body>
+            <a
+              className="w-fit text-sm text-accent transition-opacity hover:opacity-75"
+              href={`mailto:${siteConfig.contactEmail}`}
+            >
+              {siteConfig.contactEmail}
+            </a>
           </Stack>
 
           {/* Semantic Navigation Grid */}
@@ -44,68 +57,29 @@ export function Footer() {
               </ul>
             </nav>
 
-            {/* Expertise Clusters - First Group */}
-            <nav className="space-y-rhythm-md">
-              <Caption tone="accent" className="uppercase text-xs tracking-wider">
-                Architecture
-              </Caption>
-              <ul className="space-y-rhythm-sm">
-                {Object.values(AUTHORITY_CLUSTERS)
-                  .slice(0, 2)
-                  .map((cluster) => (
-                    <li key={cluster.id}>
-                      <Link
-                        href={`/expertise/${cluster.slug}`}
-                        className="text-sm text-text/75 hover:text-text transition-colors"
-                      >
-                        {cluster.label}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            </nav>
+            {EXPERTISE_NAVIGATION_GROUPS.map((group) => (
+              <nav className="space-y-rhythm-md" key={group.label}>
+                <Caption tone="accent" className="uppercase text-xs tracking-wider">
+                  {group.label}
+                </Caption>
+                <ul className="space-y-rhythm-sm">
+                  {group.slugs.map((slug) => {
+                    const area = EXPERTISE_BY_SLUG[slug];
 
-            {/* Expertise Clusters - Second Group */}
-            <nav className="space-y-rhythm-md">
-              <Caption tone="accent" className="uppercase text-xs tracking-wider">
-                Platforms
-              </Caption>
-              <ul className="space-y-rhythm-sm">
-                {Object.values(AUTHORITY_CLUSTERS)
-                  .slice(2, 5)
-                  .map((cluster) => (
-                    <li key={cluster.id}>
-                      <Link
-                        href={`/expertise/${cluster.slug}`}
-                        className="text-sm text-text/75 hover:text-text transition-colors"
-                      >
-                        {cluster.label}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            </nav>
-
-            {/* Expertise Clusters - Third Group */}
-            <nav className="space-y-rhythm-md">
-              <Caption tone="accent" className="uppercase text-xs tracking-wider">
-                Operations
-              </Caption>
-              <ul className="space-y-rhythm-sm">
-                {Object.values(AUTHORITY_CLUSTERS)
-                  .slice(5)
-                  .map((cluster) => (
-                    <li key={cluster.id}>
-                      <Link
-                        href={`/expertise/${cluster.slug}`}
-                        className="text-sm text-text/75 hover:text-text transition-colors"
-                      >
-                        {cluster.label}
-                      </Link>
-                    </li>
-                  ))}
-              </ul>
-            </nav>
+                    return (
+                      <li key={slug}>
+                        <Link
+                          href={`/expertise/${slug}`}
+                          className="text-sm text-text/75 hover:text-text transition-colors"
+                        >
+                          {area.label}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+            ))}
           </div>
 
           {/* Footer Meta */}

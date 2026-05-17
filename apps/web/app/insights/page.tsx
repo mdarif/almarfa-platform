@@ -1,6 +1,6 @@
 import { getArticleCollection, formatArticleDate } from "@repo/content";
 import { createPageMetadata } from "@repo/seo";
-import { Body, Caption, Container, Display, Section, Stack } from "@repo/ui";
+import { Body, Caption, Container, Display, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
 import {
@@ -53,9 +53,12 @@ export default function InsightsPage() {
                             href={`/expertise/${group.slug}`}
                             className="group"
                           >
-                            <h2 className="max-w-measure text-heading font-semibold leading-heading tracking-normal text-foreground transition-colors group-hover:text-accent">
+                            <Heading
+                              as="h2"
+                              className="transition-colors group-hover:text-accent"
+                            >
                               {group.area.label}
-                            </h2>
+                            </Heading>
                           </Link>
                           <ul className="space-y-rhythm-sm">
                             {group.articles.map((article) => (
@@ -95,14 +98,14 @@ export default function InsightsPage() {
 
                       <ArticleExpertiseLinks article={article} />
 
-                      <h2 className="max-w-measure text-heading font-semibold leading-heading tracking-normal text-foreground">
+                      <Heading as="h2">
                         <Link
                           className="transition-colors hover:text-accent"
                           href={`/insights/${article.slug}`}
                         >
                           {article.frontmatter.title}
                         </Link>
-                      </h2>
+                      </Heading>
 
                       <Body measure="content">
                         {article.frontmatter.description}

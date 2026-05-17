@@ -1,6 +1,5 @@
-import { createPageMetadata } from "@repo/seo";
-import { Body, Caption, Container, Heading, Section, Stack } from "@repo/ui";
-import Link from "next/link";
+import { createPageMetadata, siteConfig } from "@repo/seo";
+import { Body, Caption, Container, Grid, Heading, Section, Stack } from "@repo/ui";
 
 export const metadata = createPageMetadata({
   description:
@@ -33,8 +32,9 @@ function PositioningSection() {
           </Heading>
           <Body size="large">
             Al Marfa works with engineering leadership on the architectural and
-            governance decisions that shape sustainable frontend platforms. Use
-            this form to start a conversation about your platform challenges.
+            governance decisions that shape sustainable frontend platforms. A
+            good first note is concise: what you are scaling, what feels unclear,
+            and where architectural judgment would help.
           </Body>
         </Stack>
       </Container>
@@ -58,9 +58,7 @@ function ExpectationsSection() {
                 <li className="flex gap-rhythm-sm">
                   <span className="text-accent font-semibold flex-shrink-0">→</span>
                   <span className="text-sm">
-                    <Body measure="content">
-                      We'll review your inquiry and respond within 48 hours.
-                    </Body>
+                    <Body measure="content">We review each note directly.</Body>
                   </span>
                 </li>
                 <li className="flex gap-rhythm-sm">
@@ -75,7 +73,7 @@ function ExpectationsSection() {
                   <span className="text-accent font-semibold flex-shrink-0">→</span>
                   <span className="text-sm">
                     <Body measure="content">
-                      We'll discuss whether architecture advisory is the right fit.
+                      We will discuss whether architecture advisory is the right fit.
                     </Body>
                   </span>
                 </li>
@@ -89,7 +87,7 @@ function ExpectationsSection() {
                   <span className="text-text/50 font-semibold flex-shrink-0">×</span>
                   <span className="text-sm">
                     <Body measure="content" tone="secondary">
-                      We don't offer immediate pricing or service packages.
+                      We do not offer immediate pricing or service packages.
                     </Body>
                   </span>
                 </li>
@@ -128,89 +126,40 @@ function InquirySection() {
         <Stack gap="lg">
           <Caption tone="accent">Get In Touch</Caption>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-rhythm-4xl">
-            {/* Email option */}
+          <Grid columns="two" gap="xl">
             <Stack gap="md" className="max-w-measure-narrow">
               <Heading as="h3">Direct email</Heading>
               <Body measure="content">
                 If you prefer email, reach out directly with a brief description
                 of your platform challenges.
               </Body>
-              <div className="pt-rhythm-md">
-                <p className="font-mono text-sm">hello@almarfa.io</p>
-              </div>
+              <a
+                className="w-fit font-mono text-sm text-accent transition-opacity hover:opacity-75"
+                href={`mailto:${siteConfig.contactEmail}`}
+              >
+                {siteConfig.contactEmail}
+              </a>
             </Stack>
 
-            {/* Contact form */}
             <Stack gap="md" className="max-w-measure-narrow">
-              <Heading as="h3">Inquiry form</Heading>
-              <ContactForm />
+              <Heading as="h3">Useful context</Heading>
+              <ul className="space-y-rhythm-sm">
+                {contactContextPrompts.map((prompt) => (
+                  <li className="border-t border-border pt-rhythm-sm" key={prompt}>
+                    <Body measure="content">{prompt}</Body>
+                  </li>
+                ))}
+              </ul>
             </Stack>
-          </div>
+          </Grid>
         </Stack>
       </Container>
     </Section>
   );
 }
 
-/**
- * Minimal contact form
- */
-function ContactForm() {
-  return (
-    <form className="space-y-rhythm-md">
-      <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-rhythm-sm">
-          Name
-        </label>
-        <input
-          id="name"
-          name="name"
-          type="text"
-          required
-          className="w-full px-rhythm-md py-rhythm-sm border border-border rounded-sm focus:outline-none focus:ring-2 focus:ring-accent"
-          placeholder="Your name"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-rhythm-sm">
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          required
-          className="w-full px-rhythm-md py-rhythm-sm border border-border rounded-sm focus:outline-none focus:ring-2 focus:ring-accent"
-          placeholder="your@email.com"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="context" className="block text-sm font-medium mb-rhythm-sm">
-          Brief context
-        </label>
-        <textarea
-          id="context"
-          name="context"
-          rows={4}
-          required
-          className="w-full px-rhythm-md py-rhythm-sm border border-border rounded-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none"
-          placeholder="Tell us about your platform challenges or what brought you here..."
-        />
-      </div>
-
-      <button
-        type="submit"
-        className="px-rhythm-lg py-rhythm-sm bg-accent text-accent-foreground font-medium rounded-sm hover:opacity-90 transition-opacity"
-      >
-        Send Inquiry
-      </button>
-
-      <p className="text-xs text-text/50 pt-rhythm-sm">
-        We'll respond within 48 hours. Your information is not shared or sold.
-      </p>
-    </form>
-  );
-}
+const contactContextPrompts = [
+  "Which frontend platform, design system, Storybook, monorepo, or governance challenge needs architectural clarity?",
+  "What scale, team structure, or ownership model is shaping the decision?",
+  "What would a useful advisory conversation help you decide next?",
+] as const;

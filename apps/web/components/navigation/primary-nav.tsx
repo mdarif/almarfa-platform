@@ -6,7 +6,8 @@
  */
 
 import Link from "next/link";
-import { NAVIGATION } from "@/lib/platform";
+
+import { NAVIGATION } from "@/lib/expertise";
 
 export function PrimaryNav() {
   return (
