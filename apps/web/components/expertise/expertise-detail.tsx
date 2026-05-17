@@ -103,12 +103,13 @@ export function ExpertiseDetail({ area }: ExpertiseDetailProps) {
             </Heading>
             <ol className="border-t border-border" aria-label="Related expertise areas">
               {relatedExpertise.map((related) => (
-                <li className="border-b border-border py-rhythm-lg" key={related.slug}>
+                <li className="border-b border-border py-rhythm-md md:py-rhythm-lg" key={related.slug}>
                   <Stack gap="sm">
                     <Link href={getExpertisePath(related.slug)} className="group">
                       <Heading
                         as="h3"
-                        className="text-[clamp(1.125rem,2vw,1.5rem)] group-hover:text-accent transition-colors"
+                        className="transition-colors group-hover:text-accent"
+                        size="section"
                       >
                         {related.label}
                       </Heading>

@@ -2,9 +2,9 @@ import { Body, Caption, Container, Display, Section, Stack } from "@repo/ui";
 
 export function HeroSection() {
   return (
-    <Section spacing="spacious">
+    <Section spacing="default" className="md:py-section-spacious">
       <Container as="header" size="content">
-        <Stack gap="md" className="max-w-measure-wide">
+        <Stack className="max-w-measure-wide gap-rhythm-sm md:gap-rhythm-md">
           <Caption as="p" tone="accent">
             Al Marfa Technologies
           </Caption>

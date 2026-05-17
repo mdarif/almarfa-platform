@@ -23,7 +23,7 @@ export default function InsightsPage() {
 
   return (
     <main>
-      <Section spacing="spacious">
+      <Section spacing="default" className="md:py-section-spacious">
         <Container size="content">
           <Stack gap="xl">
             <Stack gap="md" className="max-w-measure-wide">
@@ -45,7 +45,7 @@ export default function InsightsPage() {
                   <ol className="border-t border-border">
                     {topicGroups.map((group) => (
                       <li
-                        className="border-b border-border py-rhythm-lg"
+                        className="border-b border-border py-rhythm-md md:py-rhythm-lg"
                         key={group.slug}
                       >
                         <Stack gap="md">

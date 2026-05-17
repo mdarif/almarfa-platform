@@ -128,11 +128,18 @@ Section or article heading. Defaults to `h2`.
 
 Use the `as` prop to preserve semantic heading order when needed.
 
+Use `size` for editorial context (maps to fluid `clamp()` tokens in `tokens.css`):
+
+- `default` — general section headings
+- `list` — index and card list titles
+- `article` — in-article `h2`-scale titles
+- `section` — quieter subsection headings
+
 ### Body
 
 Readable prose. Defaults to `p`.
 
-Use `size="large"` for intro copy or summary text. Keep long-form content constrained with `measure="content"` or `measure="narrow"`.
+Use `size="large"` for intro copy or summary text. Use `size="reading"` for long-form article body (fluid `text-body-reading` token). Keep long-form content constrained with `measure="content"` or `measure="narrow"`.
 
 ### Caption
 
@@ -150,7 +157,8 @@ The token names describe intent:
 - `rhythm-*` controls vertical composition inside content groups
 - `grid-*` controls spacing between repeated items
 - `container-*` controls readable layout widths
-- `text-*` and `leading-*` control typographic hierarchy
+- `text-*` and `leading-*` control typographic hierarchy (display, heading variants, `body-reading`, subheading)
+- fluid scales use `clamp()` for display, headings, body reading, and section spacing
 - `surface-*` and foreground tokens control calm visual layering
 
 Avoid arbitrary spacing values unless there is a strong, local reason. Most layout decisions should use the tokenized primitives first.

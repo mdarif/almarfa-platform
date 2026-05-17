@@ -57,13 +57,14 @@ function RelatedTopicItem({ topic }: { topic: RelatedTopic }) {
   const cluster = topic.cluster ? getExpertiseBySlug(topic.cluster) : null;
 
   return (
-    <li className="border-b border-border py-rhythm-lg">
+    <li className="border-b border-border py-rhythm-md md:py-rhythm-lg">
       <Stack gap="sm">
         <RelatedTopicMeta topic={topic} clusterLabel={cluster?.label} />
         <Link href={topic.href} className="group">
           <Heading
             as="h3"
-            className="text-[clamp(1.125rem,2vw,1.5rem)] transition-colors group-hover:text-accent"
+            className="transition-colors group-hover:text-accent"
+            size="section"
           >
             {topic.title}
           </Heading>

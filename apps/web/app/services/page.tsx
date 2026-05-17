@@ -62,22 +62,23 @@ function ExpertiseAreasSection() {
 
           <ol className="border-t border-border" aria-label="Expertise areas">
             {EXPERTISE_AREAS.map((area) => (
-              <li className="border-b border-border py-rhythm-lg" key={area.id}>
-                <Grid columns="two" gap="lg">
+              <li className="border-b border-border py-rhythm-md md:py-rhythm-lg" key={area.id}>
+                <div className="flex flex-col gap-rhythm-sm md:grid md:grid-cols-2 md:gap-grid-lg">
                   <Link
                     href={`/expertise/${area.slug}`}
                     className="group"
                   >
                     <Heading
                       as="h3"
-                      className="text-[clamp(1.375rem,2.5vw,2rem)] group-hover:text-accent transition-colors"
+                      className="transition-colors group-hover:text-accent"
                       measure="narrow"
+                      size="list"
                     >
                       {area.title}
                     </Heading>
                   </Link>
                   <Body measure="content">{area.description}</Body>
-                </Grid>
+                </div>
               </li>
             ))}
           </ol>

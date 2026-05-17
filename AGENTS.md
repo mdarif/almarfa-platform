@@ -30,11 +30,13 @@ Avoid:
 ## Engineering Principles
 
 - Static-first architecture
+- Static export to `apps/web/out/` and Cloudflare Pages (see `docs/deployment/`)
 - Maintainability over cleverness
 - Semantic HTML by default
 - Accessibility-first
 - MDX-compatible architecture
 - Reusable primitives over page-specific code
+- CSS-only mobile navigation (`<details>` / `<summary>`); no client nav chrome or hamburger patterns
 
 ## Typography Philosophy
 

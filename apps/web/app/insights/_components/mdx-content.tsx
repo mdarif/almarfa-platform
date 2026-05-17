@@ -17,21 +17,22 @@ type ListBlock = {
 
 export function MdxContent({ source }: MdxContentProps) {
   return (
-    <Stack as="div" gap="xl" className="max-w-measure">
+    <Stack as="div" gap="xl" className="max-w-measure-reading">
       {parseBlocks(source).map((block, index) => {
         if (block.type === "heading") {
           return (
             <Heading
               as={block.level === 2 ? "h2" : "h3"}
-              className="group scroll-mt-24 pt-rhythm-md text-[clamp(1.5rem,3vw,2.25rem)]"
+              className="group scroll-mt-[var(--spacing-header-offset)] pt-rhythm-md"
               id={block.id}
               key={`${block.id}-${index}`}
               measure="content"
+              size={block.level === 2 ? "article" : "section"}
             >
               {block.value}
               <a
                 aria-label={`Link to ${block.value}`}
-                className="ml-2 text-foreground-muted opacity-0 transition-opacity hover:text-accent group-hover:opacity-100 focus:opacity-100"
+                className="ml-2 inline-flex min-h-11 min-w-11 items-center justify-center text-foreground-muted opacity-100 transition-opacity hover:text-accent focus:opacity-100 md:opacity-0 md:group-hover:opacity-100"
                 href={`#${block.id}`}
               >
                 #
@@ -45,7 +46,7 @@ export function MdxContent({ source }: MdxContentProps) {
 
           return (
             <List
-              className="ml-6 max-w-measure list-outside space-y-rhythm-sm text-body leading-[1.85] text-foreground-secondary"
+              className="ml-4 max-w-measure list-outside space-y-rhythm-sm text-body leading-[1.85] text-foreground-secondary md:ml-6"
               key={`list-${index}`}
             >
               {block.value.items.map((item) => (
@@ -67,6 +68,7 @@ export function MdxContent({ source }: MdxContentProps) {
             className="leading-[1.85]"
             key={`${block.value}-${index}`}
             measure="content"
+            size="reading"
           >
             {block.value}
           </Body>

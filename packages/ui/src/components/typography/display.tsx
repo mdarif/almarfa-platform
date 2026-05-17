@@ -26,7 +26,7 @@ export function Display<TElement extends ElementType = "h1">({
       className={cn(
         toneClassNames[tone],
         measureClassNames[measure],
-        "text-display font-semibold leading-display tracking-normal",
+        "text-display font-semibold leading-display tracking-normal text-balance text-pretty",
         className,
       )}
       {...props}

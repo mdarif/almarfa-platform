@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { cn } from "../../lib/cn";
 import { measureClassNames, toneClassNames, type TextMeasure, type TextTone } from "./shared";
 
-type BodySize = "default" | "large";
+type BodySize = "default" | "large" | "reading";
 
 type BodyProps<TElement extends ElementType = "p"> = {
   as?: TElement;
@@ -12,11 +12,12 @@ type BodyProps<TElement extends ElementType = "p"> = {
   measure?: TextMeasure;
   size?: BodySize;
   tone?: TextTone;
-} & Omit<ComponentPropsWithoutRef<TElement>, "as" | "children" | "className">;
+} & Omit<ComponentPropsWithoutRef<TElement>, "as" | "children" | "className" | "size">;
 
 const bodySizeClassNames: Record<BodySize, string> = {
   default: "text-body leading-body",
   large: "text-subheading font-medium leading-subheading",
+  reading: "text-body-reading leading-body",
 };
 
 export function Body<TElement extends ElementType = "p">({

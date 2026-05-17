@@ -244,7 +244,14 @@ No decorative HTML.
 - Mobile-first Tailwind CSS
 - Readability constraints (65-75 characters)
 - Logical breakpoints (md: 768px, lg: 1024px)
+- Fluid typography via `clamp()` tokens in `@repo/ui` (`Heading` sizes, `Body` `reading`)
+- **Mobile navigation:** CSS-only `<details>` / `<summary>` in `primary-nav.tsx` ("Navigate" at small breakpoints); no `"use client"` menu or hamburger icon
+- **Article wayfinding:** `ArticleTableOfContents` uses the same disclosure pattern on mobile; desktop shows inline TOC
+- **Footer:** single-column on mobile; expertise `lg:grid-cols-3`; primary nav links hidden below `md` (header owns mobile wayfinding)
+- Header and footer links: hover via color/opacity only, not underline
 - No oversized elements on mobile
+
+Deployment is static export to Cloudflare Pages; see `docs/deployment/`.
 
 ---
 
@@ -355,7 +362,11 @@ The platform should now feel:
 - ✅ Create expertise cluster landing pages
 - ✅ Add structured data (JSON-LD) for articles and expertise
 - ✅ Insights index links to expertise hubs (topic nav + per-article clusters)
+- ✅ CSS-only mobile primary navigation (`details` / `summary`)
+- ✅ Article table of contents (mobile disclosure, desktop inline)
+- ✅ Static export + GitHub Actions CI + Cloudflare Pages interim hosting
 - 🔄 Performance audit and refinement
+- 🔄 Custom domain + production `SITE_URL` on Cloudflare Pages
 
 ---
 

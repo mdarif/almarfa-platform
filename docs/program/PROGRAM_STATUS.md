@@ -15,10 +15,11 @@ Al Marfa Technologies is evolving into a calm, static-first frontend architectur
 | SEO Architecture | ✅ Established | Canonicals, sitemap, RSS, and structured metadata are in place |
 | Homepage Wireframe | ✅ Implemented | Editorial composition established |
 | Design System Direction | ✅ Established | Shared editorial primitives exist |
+| Mobile Editorial & Responsive | ✅ Implemented | CSS-only mobile nav, fluid typography tokens, article TOC disclosure, footer mobile layout |
 | AI-Assisted Workflow | ✅ Operational | AGENTS.md, SKILLS.md, and AI doctrine established |
 | Technical Architecture | ✅ Established | Turborepo + Next.js + packages |
 | Content Workflow | 🟡 Early | MDX infrastructure and lightweight validation exist |
-| Deployment Strategy | 🟡 In progress | Cloudflare Pages static export + GitHub Actions CI; interim host `https://almarfa-platform.pages.dev` until custom domain + production `SITE_URL` |
+| Deployment & CI/CD | ✅ Established | Static export → `apps/web/out/`, GitHub Actions (lint, types, build), Cloudflare Pages; interim `https://almarfa-platform.pages.dev`; production `SITE_URL` when custom domain is live — see `docs/deployment/` |
 
 ---
 
@@ -55,7 +56,7 @@ Advanced knowledge graph infrastructure.
 - broader content validation
 - expanded article corpus for recommendation quality
 - canonical topic references
-- deployment strategy
+- custom domain cutover and production `SITE_URL` on Cloudflare Pages
 
 ---
 

@@ -426,6 +426,10 @@ Avoid:
 - collapsing everything into dense stacks
 - oversized mobile typography
 - inconsistent spacing behavior
+- client-side mobile menus, hamburger icons, or animated nav drawers
+- duplicate primary navigation in the footer on small screens
+
+Prefer CSS `<details>` / `<summary>` disclosures for mobile nav and article TOC when interaction is expand/collapse only.
 
 ---
 

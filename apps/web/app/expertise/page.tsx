@@ -56,13 +56,14 @@ function ClustersSection() {
 
           <ol className="border-t border-border" aria-label="Authority clusters">
             {EXPERTISE_LIST.map((area) => (
-              <li className="border-b border-border py-rhythm-lg" key={area.slug}>
+              <li className="border-b border-border py-rhythm-md md:py-rhythm-lg" key={area.slug}>
                 <Stack gap="md">
                   <Link href={getExpertisePath(area.slug)} className="group">
                     <Heading
                       as="h3"
-                      className="text-[clamp(1.375rem,2.5vw,2rem)] group-hover:text-accent transition-colors"
+                      className="transition-colors group-hover:text-accent"
                       measure="narrow"
+                      size="list"
                     >
                       {area.label}
                     </Heading>

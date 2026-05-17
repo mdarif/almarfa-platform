@@ -17,6 +17,7 @@ import { notFound } from "next/navigation";
 import { JsonLdScript } from "../../_components/json-ld";
 import {
   ArticleExpertiseLinks,
+  ArticleTableOfContents,
   ExpertiseContext,
   RelatedTopicsSection,
 } from "@/components/content";
@@ -29,7 +30,7 @@ import {
   getPrimaryExpertiseSlug,
   getRelatedInsightsForArticle,
 } from "@/lib/expertise";
-import { getMdxHeadings, MdxContent, type MdxHeading } from "../_components/mdx-content";
+import { getMdxHeadings, MdxContent } from "../_components/mdx-content";
 import { Breadcrumb } from "./breadcrumb";
 
 type ArticlePageProps = {
@@ -100,11 +101,11 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           createBreadcrumbSchema(breadcrumbs),
         ]}
       />
-      <Section spacing="spacious">
+      <Section spacing="default" className="md:py-section-spacious">
         <Container as="article" size="content">
           <Stack gap="xl">
             <header>
-              <Stack gap="md" className="max-w-measure-wide">
+              <Stack gap="sm" className="max-w-measure-wide gap-rhythm-sm md:gap-rhythm-md">
                 <Breadcrumb items={breadcrumbs} />
                 <Caption tone="accent">{article.frontmatter.category}</Caption>
                 <ArticleExpertiseLinks article={article} slugs={expertiseSlugs} />
@@ -171,38 +172,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         />
       ) : null}
     </main>
-  );
-}
-
-function ArticleTableOfContents({ headings }: { headings: MdxHeading[] }) {
-  if (headings.length < 2) {
-    return null;
-  }
-
-  return (
-    <nav
-      aria-label="Article sections"
-      className="border-y border-border py-rhythm-md"
-    >
-      <Stack gap="sm">
-        <Caption tone="accent">Article outline</Caption>
-        <ol className="space-y-rhythm-xs">
-          {headings.map((heading) => (
-            <li
-              className={heading.level === 3 ? "pl-rhythm-md" : undefined}
-              key={heading.id}
-            >
-              <a
-                className="text-body leading-body text-foreground-secondary transition-colors hover:text-accent"
-                href={`#${heading.id}`}
-              >
-                {heading.title}
-              </a>
-            </li>
-          ))}
-        </ol>
-      </Stack>
-    </nav>
   );
 }
 

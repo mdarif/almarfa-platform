@@ -60,3 +60,42 @@ a {
   color: inherit;
   text-underline-offset: 0.22em;
 }
+
+:root {
+  --header-height: var(--spacing-header-offset);
+}
+
+main h1,
+main h2,
+article h1,
+article h2 {
+  text-wrap: balance;
+}
+
+.article-outline a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+}
+
+.editorial-disclosure-summary {
+  cursor: pointer;
+  outline: none;
+  transition-property: color, opacity;
+  transition-duration: 150ms;
+}
+
+/* Nested links: calm hover only (no underline from summary or global `a`) */
+.editorial-disclosure-summary a,
+.editorial-disclosure-summary:hover a {
+  text-decoration: none;
+}
+
+.editorial-disclosure-summary:focus-visible {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 3px;
+}
+
+details[open] > .editorial-disclosure-summary {
+  color: var(--color-accent);
+}

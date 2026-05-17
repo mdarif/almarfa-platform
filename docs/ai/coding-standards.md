@@ -133,6 +133,8 @@ Avoid:
 - excessive hydration
 - client-heavy architecture
 
+For mobile navigation and article TOC, prefer native `<details>` / `<summary>` with shared `.editorial-disclosure-summary` styles — not client menu state or hamburger components. See `SKILLS.md` (Mobile Editorial & Responsive Layout).
+
 ---
 
 # 8. Content Rendering

@@ -110,6 +110,43 @@ Avoid:
 - non-functional controls
 - decorative markup that weakens screen reader clarity
 
+### Deployment & Operations
+
+Approved patterns:
+
+- **Static export:** `output: "export"` in `apps/web/next.config.ts`; deploy `apps/web/out/` to Cloudflare Pages.
+- **CI:** GitHub Actions runs `pnpm lint`, `pnpm check-types`, `pnpm build` on PRs and `main` (see `docs/deployment/CI_CD_WORKFLOW.md`).
+- **Hosting:** Cloudflare Pages Git integration; interim URL `https://almarfa-platform.pages.dev`. Canonical resolution: `SITE_URL` → `CF_PAGES_URL` → default pages.dev (see `packages/seo` and `docs/deployment/DEPLOYMENT_STRATEGY.md`).
+- **CDN redirects:** `apps/web/public/_redirects` (not `redirects()` in Next config).
+- **Build-time SEO artifacts:** RSS via `apps/web/scripts/generate-rss.mjs` → `public/rss.xml`; `sitemap.xml` and `robots.txt` emitted at build into `out/`.
+
+Avoid:
+
+- Workers SSR, `@cloudflare/next-on-pages`, or runtime edge compute for the marketing site
+- Docker/Kubernetes/self-managed servers for this surface
+- Setting production `SITE_URL` until the custom domain is connected
+
+Reference: `docs/deployment/` (`DEPLOYMENT_STRATEGY.md`, `CLOUDFLARE_PAGES.md`, `CI_CD_WORKFLOW.md`).
+
+### Mobile Editorial & Responsive Layout
+
+Approved patterns:
+
+- **CSS-only mobile nav:** `<details>` / `<summary>` disclosure in `primary-nav.tsx` (label "Navigate"); horizontal nav at `md+`. No `"use client"`, no hamburger icon component.
+- **Disclosure styling:** `.editorial-disclosure-summary` in `apps/web/app/globals.css` for summary rows (TOC, nav).
+- **Header/footer links:** color and opacity on hover only — no underline on brand or primary nav.
+- **Footer mobile:** single-column stack; expertise groups in `grid-cols-1` → `lg:grid-cols-3`; duplicate primary nav hidden below `md` (mobile uses header disclosure).
+- **Typography tokens:** fluid `clamp()` scales in `packages/ui/src/styles/tokens.css`; `Heading` sizes `list` | `article` | `section` | `default`; `Body` `size="reading"` for long-form prose.
+- **Article TOC:** `ArticleTableOfContents` — mobile `<details>` "On this page"; desktop inline nav in article layout (`apps/web/components/content/article-table-of-contents.tsx`).
+- **Dev UX:** `devIndicators: false` in `next.config.ts` to keep local chrome calm.
+
+Avoid:
+
+- client-side mobile menu state or animation libraries for navigation
+- hamburger/menu icon patterns that imply app chrome
+- duplicate nav blocks visible on small screens (footer primary nav)
+- arbitrary typography sizes outside tokenized primitives
+
 ## Governance Expectations
 
 Before major changes:
@@ -117,6 +154,7 @@ Before major changes:
 - Read `AGENTS.md`.
 - Read `docs/ai/*.md`.
 - Review `docs/program/PROGRAM_STATUS.md`.
+- For deploy or URL/canonical changes, read `docs/deployment/*.md`.
 - Check whether a change strengthens editorial authority, semantic discoverability, and maintainability.
 
 Validation expectations:

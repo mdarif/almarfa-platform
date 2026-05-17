@@ -18,11 +18,12 @@ export function ExpertiseTopicNav({
         <Caption tone="accent">{title}</Caption>
         <ol className="border-t border-border">
           {EXPERTISE_LIST.map((area) => (
-            <li className="border-b border-border py-rhythm-md" key={area.slug}>
+            <li className="border-b border-border py-rhythm-sm md:py-rhythm-md" key={area.slug}>
               <Link href={getExpertisePath(area.slug)} className="group">
                 <Heading
                   as="h3"
-                  className="text-[clamp(1rem,1.75vw,1.25rem)] group-hover:text-accent transition-colors"
+                  className="transition-colors group-hover:text-accent"
+                  size="section"
                 >
                   {area.label}
                 </Heading>
