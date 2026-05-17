@@ -3,6 +3,7 @@
  */
 
 import Link from "next/link";
+import { formatArticleDate } from "@repo/content";
 import { Container, Section, Stack, Heading, Body, Caption } from "@repo/ui";
 
 import { getExpertiseBySlug } from "@/lib/expertise";
@@ -14,6 +15,8 @@ export interface RelatedTopic {
   href: string;
   type?: "insight" | "expertise" | "service";
   cluster?: string;
+  publishedAt?: string;
+  readingTime?: string;
 }
 
 interface RelatedTopicsSectionProps {
@@ -35,9 +38,10 @@ export function RelatedTopicsSection({
     <Section spacing="default" className={className}>
       <Container size="content">
         <Stack gap="lg">
-          <Heading as="h2">
-            {title}
-          </Heading>
+          <Stack gap="sm">
+            <Caption tone="accent">Knowledge paths</Caption>
+            <Heading as="h2">{title}</Heading>
+          </Stack>
           <ol className="border-t border-border" aria-label={title}>
             {topics.slice(0, 4).map((topic) => (
               <RelatedTopicItem key={topic.id} topic={topic} />
@@ -55,15 +59,11 @@ function RelatedTopicItem({ topic }: { topic: RelatedTopic }) {
   return (
     <li className="border-b border-border py-rhythm-lg">
       <Stack gap="sm">
-        {cluster ? (
-          <Caption as="p" tone="muted">
-            {cluster.label}
-          </Caption>
-        ) : null}
+        <RelatedTopicMeta topic={topic} clusterLabel={cluster?.label} />
         <Link href={topic.href} className="group">
           <Heading
             as="h3"
-            className="text-[clamp(1.125rem,2vw,1.5rem)] group-hover:text-accent transition-colors"
+            className="text-[clamp(1.125rem,2vw,1.5rem)] transition-colors group-hover:text-accent"
           >
             {topic.title}
           </Heading>
@@ -77,6 +77,37 @@ function RelatedTopicItem({ topic }: { topic: RelatedTopic }) {
     </li>
   );
 }
+
+function RelatedTopicMeta({
+  clusterLabel,
+  topic,
+}: {
+  clusterLabel?: string;
+  topic: RelatedTopic;
+}) {
+  const parts = [
+    topic.type ? relatedTopicTypeLabels[topic.type] : null,
+    clusterLabel,
+    topic.publishedAt ? formatArticleDate(topic.publishedAt) : null,
+    topic.readingTime,
+  ].filter(Boolean);
+
+  if (parts.length === 0) {
+    return null;
+  }
+
+  return (
+    <Caption as="p" tone="muted">
+      {parts.join(" / ")}
+    </Caption>
+  );
+}
+
+const relatedTopicTypeLabels: Record<NonNullable<RelatedTopic["type"]>, string> = {
+  expertise: "Expertise",
+  insight: "Insight",
+  service: "Service",
+};
 
 interface ExpertiseContextProps {
   title: string;
@@ -92,7 +123,7 @@ export function ExpertiseContext({ title, description, href }: ExpertiseContextP
     >
       <Stack gap="sm">
         <Caption tone="accent">Expertise context</Caption>
-        <Heading as="h3" className="group-hover:text-accent transition-colors">
+        <Heading as="h3" className="transition-colors group-hover:text-accent">
           {title}
         </Heading>
         <Body tone="secondary">
