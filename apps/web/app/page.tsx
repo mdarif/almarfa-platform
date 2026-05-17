@@ -1,9 +1,10 @@
 import { getArticleCollection, formatArticleDate } from "@repo/content";
 import { createPageMetadata, siteConfig } from "@repo/seo";
-import { Body, Caption, Container, Grid, Heading, Section, Stack } from "@repo/ui";
+import { Body, Caption, Container, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
 import { ArticleExpertiseLinks } from "@/components/content";
+import { EditorialSectionIntro, EditorialSignatureSection } from "@/components/editorial";
 import { HeroSection } from "@/components/sections/hero";
 import { EXPERTISE_LIST, getExpertisePath } from "@/lib/expertise";
 
@@ -27,7 +28,7 @@ export default function HomePage() {
     <main>
       <HeroSection />
       <ExpertiseAreasSection />
-      <PlatformThinkingSection />
+      <EditorialSignatureSection principles={platformPrinciples} />
       {featuredInsight ? <InsightsPreviewSection article={featuredInsight} /> : null}
       <ContactSection />
     </main>
@@ -36,11 +37,14 @@ export default function HomePage() {
 
 function ExpertiseAreasSection() {
   return (
-    <Section spacing="default">
+    <Section spacing="default" surface="editorial">
       <Container size="content">
         <Stack gap="xl">
           <Stack gap="md" className="max-w-measure-wide">
-            <Caption tone="accent">Expertise Areas</Caption>
+            <Stack gap="xs">
+              <span aria-hidden className="editorial-anchor-line" />
+              <Caption tone="accent">Expertise Areas</Caption>
+            </Stack>
             <Heading>
               Frontend systems require architectural clarity before they require
               more tooling.
@@ -79,41 +83,6 @@ function ExpertiseAreasSection() {
   );
 }
 
-function PlatformThinkingSection() {
-  return (
-    <Section spacing="default">
-      <Container size="content">
-        <Grid columns="two" gap="xl">
-          <Stack gap="md">
-            <Caption tone="accent">Platform Thinking</Caption>
-            <Heading>
-              Sustainable frontend architecture is an operating model, not only a
-              code structure.
-            </Heading>
-          </Stack>
-
-          <Stack gap="lg">
-            <Body size="large">
-              Enterprise frontend platforms become effective when teams share
-              more than components. They need conventions, governance, quality
-              signals, and documentation that make architectural decisions
-              visible.
-            </Body>
-
-            <ul className="space-y-rhythm-md" aria-label="Platform thinking principles">
-              {platformPrinciples.map((principle) => (
-                <li className="border-t border-border pt-rhythm-md" key={principle}>
-                  <Body measure="content">{principle}</Body>
-                </li>
-              ))}
-            </ul>
-          </Stack>
-        </Grid>
-      </Container>
-    </Section>
-  );
-}
-
 function InsightsPreviewSection({
   article,
 }: {
@@ -123,15 +92,14 @@ function InsightsPreviewSection({
     <Section spacing="default">
       <Container size="content">
         <Stack gap="xl">
-          <Stack gap="md" className="max-w-measure-wide">
-            <Caption tone="accent">Insights Preview</Caption>
+          <EditorialSectionIntro eyebrow="Insights Preview">
             <Heading>Engineering Atlas notes for frontend platform teams.</Heading>
             <Body size="large">
               The publication layer is designed for architectural depth:
               implementation context, governance tradeoffs, and practical
               operating models.
             </Body>
-          </Stack>
+          </EditorialSectionIntro>
 
           <article className="border-y border-border py-rhythm-lg">
             <Stack gap="sm">
@@ -144,7 +112,7 @@ function InsightsPreviewSection({
 
               <ArticleExpertiseLinks article={article} />
 
-              <Heading as="h3" measure="content">
+              <Heading as="h3" measure="content" size="list">
                 <Link
                   className="transition-colors hover:text-accent"
                   href={`/insights/${article.slug}`}
@@ -156,7 +124,7 @@ function InsightsPreviewSection({
               <Body measure="content">{article.frontmatter.description}</Body>
 
               <Link
-                className="mt-rhythm-sm inline-flex w-fit text-sm font-medium text-accent underline-offset-4 hover:underline"
+                className="editorial-link mt-rhythm-sm inline-flex w-fit text-sm font-medium no-underline hover:underline"
                 href="/insights"
               >
                 Read the Engineering Atlas
@@ -171,10 +139,9 @@ function InsightsPreviewSection({
 
 function ContactSection() {
   return (
-    <Section spacing="spacious">
+    <Section spacing="default">
       <Container size="content">
-        <Stack gap="md" className="max-w-measure-wide">
-          <Caption tone="accent">Contact</Caption>
+        <EditorialSectionIntro eyebrow="Contact">
           <Heading>
             Discuss frontend architecture, governance, or shared UI platform
             direction.
@@ -185,12 +152,12 @@ function ContactSection() {
             Marfa can help clarify the architecture path.
           </Body>
           <Link
-            className="mt-rhythm-sm inline-flex w-fit text-sm font-medium text-accent underline-offset-4 hover:underline"
+            className="editorial-link mt-rhythm-sm inline-flex w-fit text-sm font-medium no-underline hover:underline"
             href={`mailto:${siteConfig.contactEmail}`}
           >
             {siteConfig.contactEmail}
           </Link>
-        </Stack>
+        </EditorialSectionIntro>
       </Container>
     </Section>
   );

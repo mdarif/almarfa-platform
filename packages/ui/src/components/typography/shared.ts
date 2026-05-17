@@ -1,4 +1,4 @@
-export type TextMeasure = "none" | "narrow" | "content" | "wide";
+export type TextMeasure = "none" | "narrow" | "content" | "wide" | "hero";
 export type TextTone = "primary" | "secondary" | "muted" | "accent";
 
 // Typography primitives map semantic props to token-backed Tailwind utilities.
@@ -14,4 +14,5 @@ export const measureClassNames: Record<TextMeasure, string> = {
   narrow: "max-w-measure-narrow",
   content: "max-w-measure",
   wide: "max-w-measure-wide",
+  hero: "max-w-measure-hero",
 };

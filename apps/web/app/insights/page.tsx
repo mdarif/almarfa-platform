@@ -1,12 +1,18 @@
 import { getArticleCollection, formatArticleDate } from "@repo/content";
 import { createPageMetadata } from "@repo/seo";
-import { Body, Caption, Container, Display, Heading, Section, Stack } from "@repo/ui";
+import { Caption, Container, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
 import {
   ArticleExpertiseLinks,
   ExpertiseTopicNav,
 } from "@/components/content";
+import {
+  PageEditorialHero,
+  PublicationIndexPageSection,
+  PublicationIndexSection,
+  PublicationListRow,
+} from "@/components/editorial";
 import { groupInsightsByExpertise } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
@@ -18,106 +24,134 @@ export const metadata = createPageMetadata({
 
 export default function InsightsPage() {
   const articles = getArticleCollection("insights");
+  const [featuredArticle, ...remainingArticles] = articles;
   const topicGroups = groupInsightsByExpertise();
   const showTopicGroups = articles.length > 1 && topicGroups.length > 0;
 
   return (
     <main>
-      <Section spacing="default" className="md:py-section-spacious">
-        <Container size="content">
-          <Stack gap="xl">
-            <Stack gap="md" className="max-w-measure-wide">
-              <Caption tone="accent">Engineering Atlas</Caption>
-              <Display>Frontend architecture insights for durable platforms.</Display>
-              <Body size="large">
-                Long-form architecture notes on design systems, frontend
-                governance, platform engineering, and the operational decisions
-                that make shared UI infrastructure sustainable.
-              </Body>
-            </Stack>
+      <PageEditorialHero
+        atmosphere="insights"
+        eyebrow="Engineering Atlas"
+        title="Frontend architecture insights for durable platforms."
+        description="Long-form architecture notes on design systems, frontend governance, platform engineering, and the operational decisions that make shared UI infrastructure sustainable."
+        titleAs="display"
+      />
 
-            <ExpertiseTopicNav />
-
-            {showTopicGroups ? (
-              <section aria-label="Insights by expertise area">
-                <Stack gap="lg">
-                  <Caption tone="accent">By topic</Caption>
-                  <ol className="border-t border-border">
-                    {topicGroups.map((group) => (
-                      <li
-                        className="border-b border-border py-rhythm-md md:py-rhythm-lg"
-                        key={group.slug}
-                      >
-                        <Stack gap="md">
-                          <Link
-                            href={`/expertise/${group.slug}`}
-                            className="group"
-                          >
-                            <Heading
-                              as="h2"
-                              className="transition-colors group-hover:text-accent"
-                            >
-                              {group.area.label}
-                            </Heading>
-                          </Link>
-                          <ul className="space-y-rhythm-sm">
-                            {group.articles.map((article) => (
-                              <li key={article.slug}>
-                                <Link
-                                  className="text-body text-foreground-secondary transition-colors hover:text-accent"
-                                  href={`/insights/${article.slug}`}
-                                >
-                                  {article.frontmatter.title}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </Stack>
-                      </li>
-                    ))}
-                  </ol>
-                </Stack>
-              </section>
-            ) : null}
-
-            <section aria-label="Published insights">
-              <Stack gap="lg">
-                <Caption tone="accent">Latest</Caption>
-                {articles.map((article) => (
-                  <article
-                    className="border-t border-border pt-rhythm-lg"
-                    key={article.slug}
+      {featuredArticle ? (
+        <Section spacing="compact">
+          <Container size="content">
+            <hr
+              className="editorial-rule mt-rhythm-md max-w-measure-narrow"
+              aria-hidden
+            />
+            <PublicationListRow
+              featured
+              className="border-t-0 pt-0"
+              meta={
+                <Caption as="p">
+                  {featuredArticle.frontmatter.category} /{" "}
+                  <time dateTime={featuredArticle.frontmatter.publishedAt}>
+                    {formatArticleDate(featuredArticle.frontmatter.publishedAt)}
+                  </time>
+                </Caption>
+              }
+              title={
+                <Heading as="h2" size="list">
+                  <Link
+                    className="transition-colors hover:text-accent"
+                    href={`/insights/${featuredArticle.slug}`}
                   >
-                    <Stack gap="sm">
-                      <Caption as="p">
-                        {article.frontmatter.category} /{" "}
-                        <time dateTime={article.frontmatter.publishedAt}>
-                          {formatArticleDate(article.frontmatter.publishedAt)}
-                        </time>
-                      </Caption>
+                    {featuredArticle.frontmatter.title}
+                  </Link>
+                </Heading>
+              }
+              description={featuredArticle.frontmatter.description}
+            >
+              <ArticleExpertiseLinks article={featuredArticle} />
+            </PublicationListRow>
+          </Container>
+        </Section>
+      ) : null}
 
-                      <ArticleExpertiseLinks article={article} />
+      <PublicationIndexPageSection>
+        <Section spacing="compact" surface="raised">
+          <Container size="content">
+            <ExpertiseTopicNav />
+          </Container>
+        </Section>
 
-                      <Heading as="h2">
-                        <Link
-                          className="transition-colors hover:text-accent"
-                          href={`/insights/${article.slug}`}
-                        >
-                          {article.frontmatter.title}
-                        </Link>
+        {showTopicGroups ? (
+          <PublicationIndexSection
+            aria-label="Insights by expertise area"
+            eyebrow="By topic"
+          >
+            <ol className="border-t border-border">
+              {topicGroups.map((group) => (
+                <li
+                  className="border-b border-border py-rhythm-md md:py-rhythm-lg"
+                  key={group.slug}
+                >
+                  <Stack gap="md">
+                    <Link href={`/expertise/${group.slug}`} className="group">
+                      <Heading
+                        as="h2"
+                        className="max-w-measure-wide text-balance transition-colors group-hover:text-accent"
+                        size="section"
+                      >
+                        {group.area.label}
                       </Heading>
+                    </Link>
+                    <ul className="space-y-rhythm-sm">
+                      {group.articles.map((article) => (
+                        <li key={article.slug}>
+                          <Link
+                            className="text-body text-foreground-secondary transition-colors hover:text-accent"
+                            href={`/insights/${article.slug}`}
+                          >
+                            {article.frontmatter.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </Stack>
+                </li>
+              ))}
+            </ol>
+          </PublicationIndexSection>
+        ) : null}
 
-                      <Body measure="content">
-                        {article.frontmatter.description}
-                      </Body>
-                    </Stack>
-                  </article>
-                ))}
-              </Stack>
-            </section>
+        <PublicationIndexSection aria-label="Published insights" eyebrow="Latest">
+          <Stack gap="lg">
+            {remainingArticles.map((article) => (
+              <PublicationListRow
+                key={article.slug}
+                meta={
+                  <Caption as="p">
+                    {article.frontmatter.category} /{" "}
+                    <time dateTime={article.frontmatter.publishedAt}>
+                      {formatArticleDate(article.frontmatter.publishedAt)}
+                    </time>
+                  </Caption>
+                }
+                title={
+                  <Heading as="h2" size="list">
+                    <Link
+                      className="transition-colors hover:text-accent"
+                      href={`/insights/${article.slug}`}
+                    >
+                      {article.frontmatter.title}
+                    </Link>
+                  </Heading>
+                }
+                description={article.frontmatter.description}
+              >
+                <ArticleExpertiseLinks article={article} />
+              </PublicationListRow>
+            ))}
           </Stack>
-        </Container>
-      </Section>
+        </PublicationIndexSection>
+      </PublicationIndexPageSection>
     </main>
   );
 }

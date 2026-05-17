@@ -9,7 +9,7 @@ import {
   createBreadcrumbSchema,
   createCanonicalUrl,
 } from "@repo/seo";
-import { Body, Caption, Container, Display, Section, Stack } from "@repo/ui";
+import { Body, Caption, Container, Section, Stack } from "@repo/ui";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -21,6 +21,7 @@ import {
   ExpertiseContext,
   RelatedTopicsSection,
 } from "@/components/content";
+import { PageEditorialHero } from "@/components/editorial";
 import {
   getArticleClusterLabels,
   getArticleExpertiseSlugs,
@@ -73,7 +74,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const clusterLabels = getArticleClusterLabels(article);
   const headings = getMdxHeadings(article.body);
 
-  const breadcrumbs = [
+  const schemaBreadcrumbs = [
     { name: "Home", url: createCanonicalUrl("/") },
     { name: "Insights", url: createCanonicalUrl("/insights") },
     ...(primaryExpertise
@@ -90,6 +91,28 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
     },
   ];
 
+  const uiBreadcrumbs = [
+    { name: "Home", path: "/" },
+    { name: "Insights", path: "/insights" },
+    ...(primaryExpertise
+      ? [
+          {
+            name: primaryExpertise.label,
+            path: getExpertisePath(primaryExpertise.slug),
+          },
+        ]
+      : []),
+    {
+      name: article.frontmatter.title,
+      path: `/insights/${article.slug}`,
+    },
+  ];
+
+  const publishedLabel = formatArticleDate(article.frontmatter.publishedAt);
+  const readingTimeLabel = article.frontmatter.readingTime
+    ? ` / ${article.frontmatter.readingTime}`
+    : "";
+
   const relatedInsights = getRelatedInsightsForArticle(article);
   const nextInsight = relatedInsights[0];
 
@@ -98,29 +121,36 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <JsonLdScript
         data={[
           createArticleSchema(article, { about: clusterLabels }),
-          createBreadcrumbSchema(breadcrumbs),
+          createBreadcrumbSchema(schemaBreadcrumbs),
         ]}
       />
-      <Section spacing="default" className="md:py-section-spacious">
+      <PageEditorialHero
+        variant="detail"
+        atmosphere="publication"
+        eyebrow={article.frontmatter.category}
+        title={article.frontmatter.title}
+        description={
+          <Stack gap="sm">
+            <Body size="large" measure="content">
+              {article.frontmatter.description}
+            </Body>
+            <Caption as="p" tone="muted">
+              <time dateTime={article.frontmatter.publishedAt}>{publishedLabel}</time>
+              {readingTimeLabel}
+            </Caption>
+          </Stack>
+        }
+        titleAs="display"
+        prepend={<Breadcrumb items={uiBreadcrumbs} />}
+        showGrid={false}
+      />
+
+      <Section spacing="default">
         <Container as="article" size="content">
           <Stack gap="xl">
-            <header>
-              <Stack gap="sm" className="max-w-measure-wide gap-rhythm-sm md:gap-rhythm-md">
-                <Breadcrumb items={breadcrumbs} />
-                <Caption tone="accent">{article.frontmatter.category}</Caption>
-                <ArticleExpertiseLinks article={article} slugs={expertiseSlugs} />
-                <Display>{article.frontmatter.title}</Display>
-                <Body size="large">{article.frontmatter.description}</Body>
-                <Caption as="p">
-                  <time dateTime={article.frontmatter.publishedAt}>
-                    {formatArticleDate(article.frontmatter.publishedAt)}
-                  </time>
-                  {article.frontmatter.readingTime
-                    ? ` / ${article.frontmatter.readingTime}`
-                    : null}
-                </Caption>
-              </Stack>
-            </header>
+            {expertiseSlugs.length > 0 ? (
+              <ArticleExpertiseLinks article={article} slugs={expertiseSlugs} />
+            ) : null}
 
             <ArticleTableOfContents headings={headings} />
 

@@ -13,8 +13,13 @@
   --color-foreground-secondary: #c7d0d8;
   --color-foreground-muted: #8896a3;
   --color-accent: #5fb6a7;
+  --color-accent-muted: color-mix(in oklab, #5fb6a7 38%, transparent);
+  --color-accent-border: color-mix(in oklab, #5fb6a7 22%, #26313c);
   --color-accent-foreground: #07110f;
+  --color-text: var(--color-foreground);
   --color-border: #26313c;
+  --editorial-grid-line: color-mix(in oklab, var(--color-border) 55%, transparent);
+  --editorial-grid-size: 3rem;
   --color-ring: #7fc9bd;
   --color-surface: #111821;
   --color-surface-raised: #151f2a;
@@ -37,7 +42,7 @@ html {
 body {
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(17, 24, 33, 0.62), transparent 32rem),
+    linear-gradient(180deg, rgba(17, 24, 33, 0.38), transparent 24rem),
     var(--color-background);
   color: var(--color-foreground);
   font-feature-settings:
@@ -59,6 +64,176 @@ body {
 a {
   color: inherit;
   text-underline-offset: 0.22em;
+  transition:
+    color 150ms ease,
+    opacity 150ms ease;
+}
+
+.editorial-link {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--color-accent-muted);
+  transition:
+    color 150ms ease,
+    text-decoration-color 150ms ease;
+}
+
+.editorial-link:hover {
+  color: color-mix(in oklab, var(--color-accent) 88%, var(--color-foreground));
+  text-decoration-color: var(--color-accent);
+}
+
+.editorial-anchor-line {
+  display: block;
+  width: 2.75rem;
+  height: 1px;
+  background: var(--color-accent-border);
+}
+
+.editorial-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+
+.editorial-hero::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-border) 18%,
+    var(--color-border) 50%,
+    transparent
+  );
+  pointer-events: none;
+}
+
+.editorial-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.editorial-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.editorial-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--editorial-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--editorial-grid-line) 1px, transparent 1px);
+  background-size: var(--editorial-grid-size) var(--editorial-grid-size);
+  mask-image: linear-gradient(180deg, black 0%, transparent 72%);
+  opacity: 0.22;
+}
+
+.editorial-section-surface {
+  background: color-mix(in oklab, var(--color-surface-muted) 72%, transparent);
+}
+
+.editorial-rule {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-border),
+    var(--color-border) 42%,
+    transparent
+  );
+}
+
+.page-hero-atmosphere-wash {
+  background: radial-gradient(
+    ellipse 78% 52% at 82% 8%,
+    var(--color-accent-muted),
+    transparent 60%
+  );
+}
+
+[data-atmosphere="insights"] .page-hero-atmosphere-wash {
+  background: radial-gradient(
+    ellipse 72% 48% at 88% 12%,
+    color-mix(in oklab, var(--color-accent-muted) 115%, transparent),
+    transparent 58%
+  );
+}
+
+[data-atmosphere="expertise"] .page-hero-atmosphere-wash {
+  background: radial-gradient(
+    ellipse 62% 42% at 22% 10%,
+    color-mix(in oklab, var(--color-accent-muted) 36%, transparent),
+    transparent 70%
+  );
+}
+
+[data-atmosphere="services"] .page-hero-atmosphere-wash {
+  background: radial-gradient(
+    ellipse 92% 58% at 50% 0%,
+    color-mix(in oklab, var(--color-accent-muted) 42%, transparent),
+    transparent 68%
+  );
+}
+
+[data-atmosphere="contact"] .page-hero-atmosphere-wash {
+  background: radial-gradient(
+    ellipse 60% 40% at 72% 4%,
+    color-mix(in oklab, var(--color-accent-muted) 28%, transparent),
+    transparent 72%
+  );
+}
+
+.footer-editorial {
+  position: relative;
+  isolation: isolate;
+}
+
+.footer-editorial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--editorial-grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--editorial-grid-line) 1px, transparent 1px);
+  background-size: var(--editorial-grid-size) var(--editorial-grid-size);
+  mask-image: linear-gradient(180deg, black 0%, transparent 85%);
+  opacity: 0.12;
+}
+
+.editorial-signature-rail {
+  counter-reset: signature-principle;
+  list-style: none;
+}
+
+.editorial-signature-rail > li {
+  counter-increment: signature-principle;
+  border-left: 1px solid color-mix(in oklab, var(--color-accent-border) 60%, transparent);
+  padding-left: var(--spacing-rhythm-md);
+}
+
+.editorial-signature-rail > li + li {
+  border-top: 1px solid var(--color-border);
+  margin-top: var(--spacing-rhythm-md);
+  padding-top: var(--spacing-rhythm-md);
+}
+
+.editorial-signature-rail > li::before {
+  content: counter(signature-principle, decimal-leading-zero);
+  display: block;
+  margin-bottom: var(--spacing-rhythm-xs);
+  font-size: var(--text-caption);
+  line-height: var(--leading-caption);
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
 }
 
 :root {

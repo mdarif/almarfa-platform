@@ -5,7 +5,10 @@
   --color-foreground-secondary: var(--color-foreground-secondary);
   --color-foreground-muted: var(--color-foreground-muted);
   --color-accent: var(--color-accent);
+  --color-accent-muted: var(--color-accent-muted);
+  --color-accent-border: var(--color-accent-border);
   --color-accent-foreground: var(--color-accent-foreground);
+  --color-text: var(--color-text);
   --color-border: var(--color-border);
   --color-ring: var(--color-ring);
   --color-surface: var(--color-surface);
@@ -58,4 +61,5 @@
   --container-measure: 46rem;
   --container-measure-reading: min(46rem, 100%);
   --container-measure-wide: 58rem;
+  --container-measure-hero: min(52rem, 100%);
 }

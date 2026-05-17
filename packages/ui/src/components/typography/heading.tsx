@@ -38,7 +38,7 @@ export function Heading<TElement extends ElementType = "h2">({
         toneClassNames[tone],
         measureClassNames[measure],
         headingSizeClassNames[size],
-        "font-semibold tracking-normal text-balance",
+        "font-semibold tracking-normal text-balance text-pretty",
         className,
       )}
       {...props}

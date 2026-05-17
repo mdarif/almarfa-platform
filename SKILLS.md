@@ -128,11 +128,34 @@ Avoid:
 
 Reference: `docs/deployment/` (`DEPLOYMENT_STRATEGY.md`, `CLOUDFLARE_PAGES.md`, `CI_CD_WORKFLOW.md`).
 
+### Editorial Surface Patterns
+
+Approved patterns:
+
+- Use `Section` `surface="editorial"` or `surface="raised"` for subtle blueprint grid backgrounds (CSS-only, `globals.css`).
+- Use `editorial-hero`, `editorial-anchor-line`, `editorial-rule`, and `editorial-link` utilities from `apps/web/app/globals.css` for homepage hero and accent links.
+- Use `PageEditorialHero` from `apps/web/components/editorial/` for inner-page heroes: anchor line, optional rule, `surface="editorial"` grid, and `PageHeroBackdrop` radial wash (no topology SVG). Pass `titleAs="display"` for publication index heroes; `variant="detail"` with `prepend` breadcrumbs and `showGrid={false}` on detail routes (expertise cluster, etc.) for tighter title–dek rhythm and a shorter hero tail. Default title measure is `measure="hero"`. Apply exported `heroTitleClassName` (`max-w-measure-hero text-balance text-pretty`) to **all** hero titles (Display and Heading); display and detail routes add ch caps; index Heading titles add `max-w-[22ch] sm:max-w-measure-hero`. Index heroes use `gap-lg` between title and rule+body; detail heroes use `gap-md` / `gap-sm`. Homepage hero tightens title→intro to `gap-md`.
+- Pass `atmosphere` on `PageEditorialHero` (`insights`, `expertise`, `services`, `publication`, `contact`) for subtle per-route radial wash variants in `globals.css` — no new images or heavy gradients.
+- Use `PublicationListRow` and `PublicationIndexSection` for publication index list rhythm; treat `apps/web/app/insights/page.tsx` as the compositional benchmark (featured strip, raised topic nav, section intros, list rows).
+- Use `EditorialSignatureSection` on the homepage only for the numbered platform-principles rail (`id="platform-doctrine"` for cross-page anchors); flow: Hero → Expertise → Signature → Insights preview → Contact. Homepage secondary sections (Insights preview, Contact) use `EditorialSectionIntro`; Contact uses `spacing="default"` (not `spacious`).
+- Use `EditorialSectionIntro` sparingly for section eyebrows below the page hero.
+- Use `EditorialContinueSection` on expertise detail (and similar detail routes) to combine trailing related lists and explore links in one compact aside; use `Heading size="list"` for linked list titles in continue blocks.
+- **Article breadcrumbs:** UI breadcrumbs use pathname `{ name, path }[]` (see `apps/web/app/insights/[slug]/breadcrumb.tsx`); reserve `createCanonicalUrl` breadcrumb items for JSON-LD schema only. Active crumb: `normal-case`, `text-pretty`, `text-foreground-secondary` (not uppercase Caption styling).
+- **Article hero meta:** Publication date and reading time belong in the hero description stack; do not repeat them below the hero.
+- Use static SVG backdrops (`HeroBackdrop`) on the homepage hero only; inner pages use CSS grid and/or `PageHeroBackdrop`.
+- Accent tokens: `--color-accent-muted`, `--color-accent-border`; prefer `text-accent` and `editorial-link` over ad hoc accent classes.
+
+Avoid:
+
+- canvas, Lottie, or client-driven decorative animation
+- heavy gradients, glow, or glassmorphism on editorial surfaces
+- full-page grid noise on `body` (reserve grids for hero and marked sections)
+
 ### Mobile Editorial & Responsive Layout
 
 Approved patterns:
 
-- **CSS-only mobile nav:** `<details>` / `<summary>` disclosure in `primary-nav.tsx` (label "Navigate"); horizontal nav at `md+`. No `"use client"`, no hamburger icon component.
+- **CSS-only mobile nav:** `<details>` / `<summary>` disclosure in `primary-nav.tsx` (label "Navigate"); horizontal nav at `md+`. No `"use client"`, no hamburger icon component. **Known limitation:** no active-route indication in primary nav without client JS or per-route layout variants — deferred for static export.
 - **Disclosure styling:** `.editorial-disclosure-summary` in `apps/web/app/globals.css` for summary rows (TOC, nav).
 - **Header/footer links:** color and opacity on hover only — no underline on brand or primary nav.
 - **Footer mobile:** single-column stack; expertise groups in `grid-cols-1` → `lg:grid-cols-3`; duplicate primary nav hidden below `md` (mobile uses header disclosure).

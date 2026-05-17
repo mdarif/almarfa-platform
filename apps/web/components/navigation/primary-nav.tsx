@@ -44,7 +44,7 @@ function PrimaryNavLinks({ className, layout = "horizontal" }: PrimaryNavLinksPr
         <li key={item.href}>
           <Link
             href={item.href}
-            className="text-sm font-medium text-text/75 no-underline transition-colors hover:text-text hover:no-underline"
+            className="text-sm font-medium text-text/75 no-underline transition-colors hover:text-accent hover:no-underline"
           >
             {item.label}
           </Link>

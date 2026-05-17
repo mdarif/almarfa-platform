@@ -1,7 +1,8 @@
 import { createPageMetadata } from "@repo/seo";
-import { Body, Caption, Container, Heading, Section, Stack } from "@repo/ui";
+import { Body, Container, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
+import { EditorialSectionIntro, PageEditorialHero } from "@/components/editorial";
 import { EXPERTISE_LIST, getExpertisePath } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
@@ -14,45 +15,26 @@ export const metadata = createPageMetadata({
 export default function ExpertisePage() {
   return (
     <main>
-      <PositioningSection />
+      <PageEditorialHero
+        atmosphere="expertise"
+        eyebrow="Expertise"
+        title="Eight authority clusters that organize our technical knowledge."
+        description="Our expertise is organized into semantic clusters that compound over time. Each cluster represents a deep knowledge domain where we develop and share implementation patterns, architectural thinking, and governance approaches."
+      />
       <ClustersSection />
       <RelatedSection />
     </main>
   );
 }
 
-function PositioningSection() {
-  return (
-    <Section spacing="default">
-      <Container size="content">
-        <Stack gap="lg" className="max-w-measure-wide">
-          <Caption tone="accent">Expertise</Caption>
-          <Heading>
-            Eight authority clusters that organize our technical knowledge.
-          </Heading>
-          <Body size="large">
-            Our expertise is organized into semantic clusters that compound over
-            time. Each cluster represents a deep knowledge domain where we
-            develop and share implementation patterns, architectural thinking,
-            and governance approaches.
-          </Body>
-        </Stack>
-      </Container>
-    </Section>
-  );
-}
-
 function ClustersSection() {
   return (
-    <Section spacing="default">
+    <Section spacing="default" surface="editorial">
       <Container size="content">
         <Stack gap="xl">
-          <Stack gap="md" className="max-w-measure-wide">
-            <Caption tone="accent">Authority areas</Caption>
-            <Heading>
-              Technical knowledge domains we focus on and develop.
-            </Heading>
-          </Stack>
+          <EditorialSectionIntro eyebrow="Authority areas">
+            <Heading>Technical knowledge domains we focus on and develop.</Heading>
+          </EditorialSectionIntro>
 
           <ol className="border-t border-border" aria-label="Authority clusters">
             {EXPERTISE_LIST.map((area) => (
@@ -85,16 +67,20 @@ function RelatedSection() {
       <Container size="content">
         <div className="border-t border-border pt-rhythm-lg">
           <Stack gap="lg">
-            <Heading as="h2">
-              Explore further
-            </Heading>
+            <Heading as="h2">Explore further</Heading>
             <Stack gap="md">
               <Body measure="content">
-                <Link href="/services" className="text-accent hover:opacity-75 transition-opacity">
+                <Link
+                  className="editorial-link font-medium no-underline hover:underline"
+                  href="/services"
+                >
                   Architecture advisory services
                 </Link>
                 {" · "}
-                <Link href="/insights" className="text-accent hover:opacity-75 transition-opacity">
+                <Link
+                  className="editorial-link font-medium no-underline hover:underline"
+                  href="/insights"
+                >
                   Implementation insights
                 </Link>
               </Body>
