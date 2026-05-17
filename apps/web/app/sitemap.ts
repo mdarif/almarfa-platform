@@ -8,6 +8,8 @@ import type { MetadataRoute } from "next";
 
 import { getAllExpertiseSlugs } from "@/lib/expertise";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getArticleCollection("insights");
 

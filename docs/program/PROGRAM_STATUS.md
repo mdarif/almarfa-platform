@@ -1,7 +1,7 @@
 # Al Marfa Technologies — Program Status
 
 ## Platform Vision
-Short summary.
+Al Marfa Technologies is evolving into a calm, static-first frontend architecture authority platform: part technical publication, part semantic expertise system, part AI-governed knowledge base.
 
 ---
 
@@ -12,13 +12,13 @@ Short summary.
 | Information Architecture | ✅ Established | Expertise + insights topology exists |
 | Sitemap | ✅ Functional | Dynamic expertise + insights included |
 | Content Taxonomy | ✅ Established | Semantic expertise clustering implemented |
-| SEO Architecture | 🟡 In Progress | Structured metadata exists, refinement ongoing |
+| SEO Architecture | ✅ Established | Canonicals, sitemap, RSS, and structured metadata are in place |
 | Homepage Wireframe | ✅ Implemented | Editorial composition established |
 | Design System Direction | ✅ Established | Shared editorial primitives exist |
-| AI-Assisted Workflow | ✅ Operational | AGENTS.md + doctrine established |
+| AI-Assisted Workflow | ✅ Operational | AGENTS.md, SKILLS.md, and AI doctrine established |
 | Technical Architecture | ✅ Established | Turborepo + Next.js + packages |
 | Content Workflow | 🟡 Early | MDX infrastructure and lightweight validation exist |
-| Deployment Strategy | 🔲 Pending | Vercel strategy not finalized |
+| Deployment Strategy | 🟡 In progress | Cloudflare Pages static export + GitHub Actions CI; interim host `https://almarfa-platform.pages.dev` until custom domain + production `SITE_URL` |
 
 ---
 
@@ -29,17 +29,17 @@ Short summary.
 - semantic linking
 - reading experience
 - authority compounding
-- governance hardening
+- authority content expansion
 
 ---
 
 # Next Milestones
 
 ## Phase 1
-Editorial reading system.
+Editorial reading system and governance hardening.
 
 ## Phase 2
-Authority content expansion.
+Authority content expansion across expertise clusters.
 
 ## Phase 3
 Semantic discovery layer.
@@ -51,11 +51,11 @@ Advanced knowledge graph infrastructure.
 
 # Architectural Debt
 
-- expertise route debugging
 - stronger article recommendations
 - broader content validation
 - expanded article corpus for recommendation quality
 - canonical topic references
+- deployment strategy
 
 ---
 

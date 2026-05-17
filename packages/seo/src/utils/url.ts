@@ -1,3 +1,19 @@
+const defaultSiteUrl = "https://almarfa-platform.pages.dev";
+
+function resolveSiteUrl(): string {
+  const fromSiteUrl = process.env.SITE_URL?.replace(/\/$/, "");
+  if (fromSiteUrl) {
+    return fromSiteUrl;
+  }
+
+  const fromCfPages = process.env.CF_PAGES_URL?.replace(/\/$/, "");
+  if (fromCfPages) {
+    return fromCfPages;
+  }
+
+  return defaultSiteUrl;
+}
+
 export type SiteConfig = {
   contactEmail: string;
   description: string;
@@ -13,7 +29,7 @@ export const siteConfig: SiteConfig = {
     "Enterprise frontend architecture, design systems, and scalable UI platform strategy.",
   locale: "en_US",
   name: "Al Marfa Technologies",
-  siteUrl: "https://almarfa.technology",
+  siteUrl: resolveSiteUrl(),
 };
 
 export function createCanonicalUrl(pathname = "/") {
