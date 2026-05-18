@@ -8,6 +8,7 @@
 import Link from "next/link";
 
 import { cn } from "@/lib/utils";
+import { AmLogo } from "@repo/ui";
 
 import { NAVIGATION } from "@/lib/expertise";
 
@@ -21,11 +22,16 @@ function BrandLink({ className }: { className?: string }) {
     <Link
       href="/"
       className={cn(
-        "text-sm font-semibold tracking-wide no-underline transition-opacity hover:no-underline hover:opacity-75",
+        "flex items-center gap-rhythm-sm no-underline transition-opacity hover:no-underline hover:opacity-75",
         className,
       )}
+      aria-label="Al Marfa Technologies"
     >
-      Al Marfa
+      <AmLogo size="sm" variant="primary" colors={{
+        background: '#1a1a1a',
+        aColor: '#e8e8e3',      // Change A to pure red
+        mColor: '#5fb6a7'       // Change M to pure green
+      }} />
     </Link>
   );
 }

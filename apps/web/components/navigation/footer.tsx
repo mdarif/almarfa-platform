@@ -6,7 +6,7 @@
 
 import Link from "next/link";
 import { siteConfig } from "@repo/seo";
-import { Container, Stack, Caption, Body } from "@repo/ui";
+import { Container, Stack, Caption, Body, AmLogo } from "@repo/ui";
 
 import {
   EXPERTISE_BY_SLUG,
@@ -27,9 +27,12 @@ export function Footer() {
       >
         <Stack gap="lg" className="md:gap-rhythm-xl">
           <Stack gap="md" className="max-w-prose">
-            <h2 className="text-base font-semibold tracking-wide text-foreground">
-              Al Marfa Technologies
-            </h2>
+            <div className="flex items-center gap-rhythm-md">
+              <AmLogo size="sm" variant="primary" />
+              <h2 className="text-base font-semibold tracking-wide text-foreground">
+                Al Marfa Technologies
+              </h2>
+            </div>
             <Body className="max-w-prose text-pretty" tone="muted">
               {PLATFORM_POSITIONING.tagline}
             </Body>

@@ -25,6 +25,11 @@
   --color-surface-raised: #151f2a;
   --color-surface-muted: #0f151d;
 
+  /* Logo brand colors - can be customized */
+  --logo-bg-color: #231f20;
+  --logo-a-color: #ed1c24;
+  --logo-m-color: #009444;
+
   --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
@@ -274,3 +279,42 @@ article h2 {
 details[open] > .editorial-disclosure-summary {
   color: var(--color-accent);
 }
+
+/* Logo and Branding Styles */
+
+.logo {
+  color: var(--color-foreground);
+  transition: opacity 150ms ease;
+}
+
+.logo:hover {
+  opacity: 0.75;
+}
+
+.logo--primary {
+  /* Full color variant with accent */
+}
+
+.logo--mono {
+  /* Monochrome variant */
+}
+
+.logo--inverted {
+  color: var(--color-background);
+}
+
+.logo--header {
+  /* Header-specific sizing and styling */
+  width: auto;
+}
+
+.logo--footer {
+  /* Footer-specific styling */
+  width: auto;
+  opacity: 0.9;
+}
+
+.icon--am {
+  /* Favicon icon styling */
+}
+

@@ -8,3 +8,5 @@ export { Caption } from "./components/typography/caption";
 export { Display } from "./components/typography/display";
 export { Heading } from "./components/typography/heading";
 export type { TextMeasure, TextTone } from "./components/typography/shared";
+export { AmLogo, AmWordmark, AmIcon } from "./components/branding";
+export type { AmLogoProps, AmWordmarkProps, AmIconProps } from "./components/branding";

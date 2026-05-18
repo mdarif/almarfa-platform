@@ -1,0 +1,20 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <title>Al Marfa Favicon</title>
+  <desc>Al Marfa Technologies favicon. Minimal AM monogram optimized for 16-32px display.</desc>
+
+  <!-- Simplified AM letterforms for small size -->
+  <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    
+    <!-- Letter A (simplified) -->
+    <path d="M 6 22 L 11 5 L 16 22" stroke-width="1.3" />
+    <line x1="9" y1="14" x2="13" y2="14" stroke-width="1.2" />
+    
+    <!-- Letter M (simplified, compact) -->
+    <path d="M 16 22 L 16 5" stroke-width="1.3" />
+    <path d="M 16 5 L 21 14 L 26 5" stroke-width="1.3" />
+    <path d="M 26 5 L 26 22" stroke-width="1.3" />
+  </g>
+
+  <!-- Very subtle accent dot (optional, at small size it's a visual anchor) -->
+  <circle cx="16" cy="14" r="0.8" fill="currentColor" opacity="0.5" />
+</svg>
