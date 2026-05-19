@@ -12,12 +12,17 @@
   --color-foreground: #f5f7f8;
   --color-foreground-secondary: #c7d0d8;
   --color-foreground-muted: #8896a3;
+  --color-foreground-tertiary: #7a8494;
   --color-accent: #5fb6a7;
+  --color-accent-light: #7bc9ba;
+  --color-accent-dark: #3d8278;
   --color-accent-muted: color-mix(in oklab, #5fb6a7 38%, transparent);
   --color-accent-border: color-mix(in oklab, #5fb6a7 22%, #26313c);
   --color-accent-foreground: #07110f;
   --color-text: var(--color-foreground);
   --color-border: #26313c;
+  --color-border-subtle: #1d242d;
+  --color-border-accent: color-mix(in oklab, var(--color-accent-light) 18%, var(--color-border));
   --editorial-grid-line: color-mix(in oklab, var(--color-border) 55%, transparent);
   --editorial-grid-size: 3rem;
   --color-ring: #7fc9bd;
@@ -62,7 +67,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-ring);
+  outline: 2px solid var(--color-accent-light);
   outline-offset: 3px;
 }
 
@@ -81,19 +86,28 @@ a {
   text-decoration-color: var(--color-accent-muted);
   transition:
     color 150ms ease,
-    text-decoration-color 150ms ease;
+    text-decoration-color 150ms ease,
+    background-color 150ms ease;
 }
 
 .editorial-link:hover {
-  color: color-mix(in oklab, var(--color-accent) 88%, var(--color-foreground));
-  text-decoration-color: var(--color-accent);
+  color: var(--color-accent-light);
+  text-decoration-color: var(--color-accent-light);
+  background-color: color-mix(in oklab, var(--color-accent-dark) 8%, transparent);
+  padding-inline: 0.25em;
+  margin-inline: -0.25em;
+  border-radius: 0.25rem;
 }
 
 .editorial-anchor-line {
   display: block;
   width: 2.75rem;
-  height: 1px;
-  background: var(--color-accent-border);
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-light) 0%,
+    var(--color-accent) 100%
+  );
 }
 
 .editorial-hero {
@@ -143,6 +157,8 @@ a {
 
 .editorial-section-surface {
   background: color-mix(in oklab, var(--color-surface-muted) 72%, transparent);
+  border-top: 1px solid var(--color-border-accent);
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .editorial-rule {
@@ -150,9 +166,10 @@ a {
   border: 0;
   background: linear-gradient(
     90deg,
-    var(--color-accent-border),
+    var(--color-accent-light) 0%,
+    var(--color-accent) 20%,
     var(--color-border) 42%,
-    transparent
+    transparent 100%
   );
 }
 
@@ -191,7 +208,7 @@ a {
 [data-atmosphere="contact"] .page-hero-atmosphere-wash {
   background: radial-gradient(
     ellipse 60% 40% at 72% 4%,
-    color-mix(in oklab, var(--color-accent-muted) 28%, transparent),
+    color-mix(in oklab, var(--color-accent-muted) 40%, transparent),
     transparent 72%
   );
 }
@@ -221,12 +238,17 @@ a {
 
 .editorial-signature-rail > li {
   counter-increment: signature-principle;
-  border-left: 1px solid color-mix(in oklab, var(--color-accent-border) 60%, transparent);
+  border-left: 2px solid var(--color-accent-light);
   padding-left: var(--spacing-rhythm-md);
+  transition: border-color 150ms ease;
+}
+
+.editorial-signature-rail > li:hover {
+  border-left-color: var(--color-accent);
 }
 
 .editorial-signature-rail > li + li {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border-subtle);
   margin-top: var(--spacing-rhythm-md);
   padding-top: var(--spacing-rhythm-md);
 }
@@ -238,6 +260,7 @@ a {
   font-size: var(--text-caption);
   line-height: var(--leading-caption);
   letter-spacing: 0.08em;
+  font-weight: 600;
   color: var(--color-accent);
 }
 
@@ -250,6 +273,14 @@ main h2,
 article h1,
 article h2 {
   text-wrap: balance;
+  font-weight: 600;
+}
+
+main h3,
+main h4,
+article h3,
+article h4 {
+  font-weight: 500;
 }
 
 .article-outline a {
@@ -272,7 +303,7 @@ article h2 {
 }
 
 .editorial-disclosure-summary:focus-visible {
-  outline: 2px solid var(--color-ring);
+  outline: 2px solid var(--color-accent-light);
   outline-offset: 3px;
 }
 
@@ -316,5 +347,95 @@ details[open] > .editorial-disclosure-summary {
 
 .icon--am {
   /* Favicon icon styling */
+}
+
+/* Contact Page Enhancements */
+
+/* Positive list markers (→) styling */
+.contact-expectations ul:first-of-type li {
+  border-left: 2px solid var(--color-accent-light);
+  padding-left: var(--spacing-rhythm-sm);
+  transition: all 150ms ease;
+}
+
+.contact-expectations ul:first-of-type li:hover {
+  border-left-color: var(--color-accent);
+  background-color: color-mix(in oklab, var(--color-accent-light) 6%, transparent);
+  padding-left: calc(var(--spacing-rhythm-sm) + 0.25rem);
+}
+
+.contact-expectations ul:first-of-type li span[class*="text-accent"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--color-accent-light);
+  color: var(--color-accent-foreground);
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+/* Negative list markers (×) styling */
+.contact-expectations ul:last-of-type li {
+  border-left: 2px solid var(--color-border-accent);
+  padding-left: var(--spacing-rhythm-sm);
+  transition: all 150ms ease;
+}
+
+.contact-expectations ul:last-of-type li:hover {
+  border-left-color: var(--color-accent-light);
+  background-color: color-mix(in oklab, var(--color-foreground-tertiary) 4%, transparent);
+  padding-left: calc(var(--spacing-rhythm-sm) + 0.25rem);
+}
+
+.contact-expectations ul:last-of-type li span[class*="text-text"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent;
+  color: var(--color-foreground-tertiary);
+  border: 1px solid var(--color-border-accent);
+  border-radius: 0.375rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+/* Context prompts hover states */
+.contact-inquiry ul li {
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: var(--spacing-rhythm-sm);
+  transition: all 150ms ease;
+  margin-top: var(--spacing-rhythm-sm);
+}
+
+.contact-inquiry ul li:hover {
+  background-color: color-mix(in oklab, var(--color-accent-light) 5%, transparent);
+  border-top-color: var(--color-accent-light);
+  padding-left: 0.5rem;
+  margin-left: -0.5rem;
+  border-left: 2px solid var(--color-accent-light);
+}
+
+.contact-inquiry ul li:hover body {
+  color: var(--color-accent-light);
+}
+
+/* Metadata & Caption Hierarchy */
+.article-meta,
+.publication-meta {
+  color: var(--color-foreground-tertiary);
+  font-size: var(--text-caption);
+  font-weight: 500;
+}
+
+/* List Item Separator Refinement */
+li + li {
+  border-top: 1px solid var(--color-border-subtle);
 }
 

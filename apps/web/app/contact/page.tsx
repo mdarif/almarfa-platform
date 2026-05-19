@@ -27,7 +27,7 @@ export default function ContactPage() {
 
 function ExpectationsSection() {
   return (
-    <Section spacing="default" surface="raised">
+    <Section spacing="default" surface="raised" className="contact-expectations">
       <Container size="content">
         <Stack gap="lg">
           <EditorialSectionIntro eyebrow="How This Works">
