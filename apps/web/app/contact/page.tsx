@@ -5,7 +5,7 @@ import { EditorialSectionIntro, PageEditorialHero } from "@/components/editorial
 
 export const metadata = createPageMetadata({
   description:
-    "Contact Al Marfa for architecture advisory conversations about frontend platforms and technical leadership.",
+    "Start an architecture conversation with Al Marfa about frontend platforms, design systems, and enterprise engineering governance.",
   pathname: "/contact",
   title: "Contact",
 });
@@ -16,8 +16,8 @@ export default function ContactPage() {
       <PageEditorialHero
         atmosphere="contact"
         eyebrow="Contact"
-        title="Architecture advisory conversations for enterprise frontend platforms."
-        description="Al Marfa works with engineering leadership on the architectural and governance decisions that shape sustainable frontend platforms. A good first note is concise: what you are scaling, what feels unclear, and where architectural judgment would help."
+        title="Start an Architecture Conversation"
+        description="Al Marfa works with engineering leadership on the architectural and governance decisions that shape sustainable frontend platforms."
       />
       <ExpectationsSection />
       <InquirySection />
