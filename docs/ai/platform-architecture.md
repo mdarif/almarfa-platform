@@ -309,27 +309,24 @@ Search Visibility & AI Discovery
 
 ---
 
-## 8. Future Expansion
+## 8. What Was Built
 
-### Phase 2: Content Integration
-- Articles reference clusters in frontmatter
-- Breadcrumb system reads article metadata
-- Related topics auto-generate from clustering
+All foundational phases are complete. The following systems are live:
 
-### Phase 3: Services Pages
-- Service pages link to expertise clusters
-- Showcase relevant articles as proof
-- Connect service positioning to knowledge depth
+- **Content integration** — Articles reference clusters in frontmatter; breadcrumb system reads article metadata; related topics auto-generate from cluster overlap
+- **Services pages** — Service pages link to expertise clusters with relevant articles as proof of depth
+- **Expertise pages** — Cluster landing pages aggregate related content with service offering links
+- **SEO & semantic layer** — JSON-LD structured data for articles, expertise, breadcrumbs, and organization; sitemap and robots.txt emitted at build; RSS generated pre-build
 
-### Phase 4: Expertise Pages
-- Cluster landing pages aggregate related content
-- Show service offerings for each cluster
-- Display topical authority metrics
+See the Implementation Checklist (Section 10) for the full completed state.
 
-### Phase 5: SEO & Semantic Enhancement
-- Add JSON-LD structured data for articles and breadcrumbs
-- Implement schema.org BreadcrumbList
-- Create sitemap reflecting semantic structure
+### Remaining Work
+
+- Performance audit and refinement
+- Custom domain cutover (`almarfa.technology`) and production `SITE_URL` on Cloudflare Pages
+- Article corpus expansion for recommendation quality
+- Stronger article recommendations (requires broader content volume)
+- Canonical topic reference pages
 
 ---
 
