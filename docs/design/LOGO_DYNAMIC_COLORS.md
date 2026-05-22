@@ -12,9 +12,9 @@ The logo comes with these default colors that can be customized:
 
 ```css
 /* In :root or any CSS */
---logo-bg-color: #231f20    /* Background (dark) */
---logo-a-color: #ed1c24     /* A letter (red) */
---logo-m-color: #009444     /* M letter (green) */
+--logo-bg-color: #3d7a70    /* Background (dark teal) */
+--logo-a-color: #f5f7f8     /* A letter (off-white) */
+--logo-m-color: #111c2a     /* M letter (dark navy) */
 ```
 
 ---
@@ -102,9 +102,9 @@ Apply custom colors only within a specific section:
 
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `--logo-bg-color` | `#231f20` | Background rectangle color |
-| `--logo-a-color` | `#ed1c24` | "A" letter color (red) |
-| `--logo-m-color` | `#009444` | "M" letter color (green) |
+| `--logo-bg-color` | `#3d7a70` | Background rectangle color (dark teal) |
+| `--logo-a-color` | `#f5f7f8` | "A" letter color (off-white) |
+| `--logo-m-color` | `#111c2a` | "M" letter color (dark navy) |
 
 ### Where They're Used
 

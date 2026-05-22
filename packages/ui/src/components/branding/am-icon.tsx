@@ -58,9 +58,9 @@ export const AmIcon = React.forwardRef<HTMLDivElement, AmIconProps>(
     const resolvedSize = sizeMap[size] || size
 
     const styleVars = {
-      '--logo-bg-color': colors.background || 'var(--logo-bg-color, #231f20)',
-      '--logo-a-color': colors.aColor || 'var(--logo-a-color, #ed1c24)',
-      '--logo-m-color': colors.mColor || 'var(--logo-m-color, #009444)',
+      '--logo-bg-color': colors.background || 'var(--logo-bg-color, #3d7a70)',
+      '--logo-a-color': colors.aColor || 'var(--logo-a-color, #f5f7f8)',
+      '--logo-m-color': colors.mColor || 'var(--logo-m-color, #111c2a)',
     } as React.CSSProperties
 
     return (
@@ -78,7 +78,7 @@ export const AmIcon = React.forwardRef<HTMLDivElement, AmIconProps>(
         {...props}
       >
         <svg
-          viewBox="0 0 60.13 60"
+          viewBox="0 0 60 60"
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
@@ -88,13 +88,13 @@ export const AmIcon = React.forwardRef<HTMLDivElement, AmIconProps>(
           <desc>Al Marfa Technologies favicon</desc>
           <defs>
             <style>{`
-              .cls-1 { fill: var(--logo-bg-color, #231f20); }
-              .cls-2 { fill: var(--logo-m-color, #009444); }
-              .cls-3 { fill: var(--logo-a-color, #ed1c24); }
+              .cls-1 { fill: var(--logo-bg-color, #3d7a70); }
+              .cls-2 { fill: var(--logo-m-color, #111c2a); }
+              .cls-3 { fill: var(--logo-a-color, #f5f7f8); }
             `}</style>
           </defs>
           <g id="Layer_1-2" data-name="Layer 1">
-            <rect className="cls-1" x=".13" width="60" height="60" />
+            <rect className="cls-1" x="0" width="60" height="60" />
             <path
               className="cls-2"
               d="M25.25,60L8.31,9.89h-.32c.45,7.44.68,14.42.68,20.93v29.18H0V0h13.47l16.22,47.73h.24L46.63,0h13.51v60h-9.19v-29.67c0-2.98.07-6.87.22-11.66.15-4.79.27-7.69.38-8.7h-.32l-17.54,50.03h-8.43Z"

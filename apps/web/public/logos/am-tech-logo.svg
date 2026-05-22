@@ -1,30 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60.13 60">
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
   <title>Al Marfa Technologies Logo</title>
-  <desc>Al Marfa Tech logo with dynamic colors. A in red, M in green, background dark.</desc>
+  <desc>Al Marfa Technologies AM monogram. Dark navy M letterform on a dark teal background with off-white A letterform.</desc>
   <defs>
     <style>
-      :root {
-        --logo-bg-color: #231f20;
-        --logo-m-color: #009444;
-        --logo-a-color: #ed1c24;
-      }
-      
       .cls-1 {
-        fill: var(--logo-bg-color, #231f20);
+        fill: var(--logo-bg-color, #3d7a70);
       }
 
       .cls-2 {
-        fill: var(--logo-m-color, #009444);
+        fill: var(--logo-m-color, #111c2a);
       }
 
       .cls-3 {
-        fill: var(--logo-a-color, #ed1c24);
+        fill: var(--logo-a-color, #f5f7f8);
       }
     </style>
   </defs>
   <g id="Layer_1-2" data-name="Layer 1">
-    <rect class="cls-1" x=".13" width="60" height="60"/>
+    <rect class="cls-1" x="0" width="60" height="60"/>
     <path class="cls-2" d="M25.25,60L8.31,9.89h-.32c.45,7.44.68,14.42.68,20.93v29.18H0V0h13.47l16.22,47.73h.24L46.63,0h13.51v60h-9.19v-29.67c0-2.98.07-6.87.22-11.66.15-4.79.27-7.69.38-8.7h-.32l-17.54,50.03h-8.43Z"/>
     <path class="cls-3" d="M47.04,60l-5.83-16.59h-22.34l-5.71,16.59H3.08L24.94,0h10.39l21.86,60h-10.15ZM38.69,34.99l-5.47-16.27c-.4-1.09-.95-2.81-1.66-5.15-.71-2.34-1.19-4.06-1.46-5.15-.72,3.35-1.77,7.02-3.16,10.99l-5.27,15.57h17.02Z"/>
   </g>

@@ -27,11 +27,7 @@ function BrandLink({ className }: { className?: string }) {
       )}
       aria-label="Al Marfa Technologies"
     >
-      <AmLogo size="sm" variant="primary" colors={{
-        background: '#1a1a1a',
-        aColor: '#e8e8e3',      // Change A to pure red
-        mColor: '#5fb6a7'       // Change M to pure green
-      }} />
+      <AmLogo size="sm" variant="primary" />
     </Link>
   );
 }
