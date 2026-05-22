@@ -323,11 +323,21 @@ details[open] > .editorial-disclosure-summary {
 }
 
 .logo--primary {
-  /* Full color variant with accent */
+  /* Full color variant — uses CSS custom properties from :root */
 }
 
-.logo--mono {
-  /* Monochrome variant */
+.logo--mono .cls-1 {
+  fill: transparent;
+}
+
+.logo--mono .cls-2 {
+  fill: currentColor;
+  opacity: 0.35;
+}
+
+.logo--mono .cls-3 {
+  fill: currentColor;
+  opacity: 1;
 }
 
 .logo--inverted {
@@ -335,18 +345,36 @@ details[open] > .editorial-disclosure-summary {
 }
 
 .logo--header {
-  /* Header-specific sizing and styling */
   width: auto;
 }
 
 .logo--footer {
-  /* Footer-specific styling */
   width: auto;
   opacity: 0.9;
 }
 
 .icon--am {
   /* Favicon icon styling */
+}
+
+@media print {
+  .logo .cls-1 {
+    fill: transparent !important;
+  }
+
+  .logo .cls-2 {
+    fill: #000 !important;
+    opacity: 0.3 !important;
+  }
+
+  .logo .cls-3 {
+    fill: #000 !important;
+    opacity: 1 !important;
+  }
+
+  .wordmark span {
+    color: #000 !important;
+  }
 }
 
 /* Contact Page Enhancements */

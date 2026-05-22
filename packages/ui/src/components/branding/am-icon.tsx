@@ -8,6 +8,12 @@ export interface AmIconProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'xs' | 'sm' | 'md' | string
 
   /**
+   * Visual variant
+   * @default 'primary'
+   */
+  variant?: 'primary' | 'mono'
+
+  /**
    * Optional CSS class name
    */
   className?: string
@@ -48,6 +54,7 @@ export const AmIcon = React.forwardRef<HTMLDivElement, AmIconProps>(
   (
     {
       size = 'md',
+      variant = 'primary',
       className,
       ariaLabel = 'Al Marfa',
       colors = {},
@@ -66,7 +73,7 @@ export const AmIcon = React.forwardRef<HTMLDivElement, AmIconProps>(
     return (
       <div
         ref={ref}
-        className={`icon icon--am ${className || ''}`.trim()}
+        className={`icon icon--am logo logo--${variant} ${className || ''}`.trim()}
         style={{
           display: 'inline-block',
           width: resolvedSize,

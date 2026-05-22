@@ -14,6 +14,12 @@ export interface AmWordmarkProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg'
 
   /**
+   * Visual variant — controls mark and text rendering
+   * @default 'primary'
+   */
+  variant?: 'primary' | 'mono'
+
+  /**
    * Optional CSS class name
    */
   className?: string
@@ -49,6 +55,7 @@ export const AmWordmark = React.forwardRef<HTMLDivElement, AmWordmarkProps>(
     {
       layout = 'horizontal',
       size = 'md',
+      variant = 'primary',
       className,
       colors = {},
       ...props
@@ -67,7 +74,7 @@ export const AmWordmark = React.forwardRef<HTMLDivElement, AmWordmarkProps>(
     return (
       <div
         ref={ref}
-        className={`wordmark wordmark--${layout} ${className || ''}`.trim()}
+        className={`wordmark wordmark--${layout} logo logo--${variant} ${className || ''}`.trim()}
         style={{
           display: 'flex',
           flexDirection: isHorizontal ? 'row' : 'column',
