@@ -4,7 +4,9 @@
       "Bash(pnpm install *)",
       "Bash(pnpm format:check)",
       "Bash(pnpm format *)",
-      "Bash(pnpm lint *)"
+      "Bash(pnpm lint *)",
+      "WebFetch(domain:www.almarfa.co)",
+      "WebFetch(domain:almarfa-platform.pages.dev)"
     ]
   }
 }
