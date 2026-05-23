@@ -1,5 +1,9 @@
 export { createArticleMetadata } from "./metadata/article";
-export { createPageMetadata, createTitle, createTwitterMetadata } from "./metadata/site";
+export {
+  createPageMetadata,
+  createTitle,
+  createTwitterMetadata,
+} from "./metadata/site";
 export { createOpenGraphImageUrl } from "./og";
 export { createInsightsRssFeed } from "./rss";
 export type { InsightsRssItem } from "./rss";

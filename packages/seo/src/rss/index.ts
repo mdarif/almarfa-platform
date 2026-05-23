@@ -42,6 +42,8 @@ export function createInsightsRssFeed(items: readonly InsightsRssItem[]) {
   ].join("");
 }
 
+// & must be replaced first — doing it after any other replacement would
+// double-encode already-escaped sequences (e.g. &lt; → &amp;lt;).
 function escapeXml(value: string) {
   return value
     .replace(/&/g, "&amp;")

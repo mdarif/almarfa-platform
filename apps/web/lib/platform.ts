@@ -4,10 +4,7 @@
  * @see ./expertise/taxonomy.ts for definitions and relationships.
  */
 
-import {
-  AUTHORITY_CLUSTERS,
-  EXPERTISE_AREAS,
-} from "./expertise";
+import { AUTHORITY_CLUSTERS, EXPERTISE_AREAS } from "./expertise";
 
 export {
   AUTHORITY_CLUSTERS,

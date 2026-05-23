@@ -1,51 +1,51 @@
-import * as React from 'react'
+import * as React from "react";
 
 export interface AmIconProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Size: 'xs' (16px) | 'sm' (24px) | 'md' (32px)
    * @default 'md'
    */
-  size?: 'xs' | 'sm' | 'md' | string
+  size?: "xs" | "sm" | "md" | string;
 
   /**
    * Visual variant
    * @default 'primary'
    */
-  variant?: 'primary' | 'mono'
+  variant?: "primary" | "mono";
 
   /**
    * Optional CSS class name
    */
-  className?: string
+  className?: string;
 
   /**
    * Accessibility label
    * @default 'Al Marfa'
    */
-  ariaLabel?: string
+  ariaLabel?: string;
 
   /**
    * Logo colors (optional overrides)
    */
   colors?: {
-    background?: string
-    aColor?: string
-    mColor?: string
-  }
+    background?: string;
+    aColor?: string;
+    mColor?: string;
+  };
 }
 
 const sizeMap: Record<string, string> = {
-  xs: '16px',
-  sm: '24px',
-  md: '32px',
-}
+  xs: "16px",
+  sm: "24px",
+  md: "32px",
+};
 
 /**
  * AmIcon - Al Marfa logo favicon variant
- * 
+ *
  * Optimized icon version of the logo for favicon and small inline use.
  * Maintains color dynamism with customizable palette.
- * 
+ *
  * @example
  * <AmIcon size="md" />
  * <AmIcon size="32px" colors={{ aColor: '#ff0000' }} />
@@ -53,32 +53,32 @@ const sizeMap: Record<string, string> = {
 export const AmIcon = React.forwardRef<HTMLDivElement, AmIconProps>(
   (
     {
-      size = 'md',
-      variant = 'primary',
+      size = "md",
+      variant = "primary",
       className,
-      ariaLabel = 'Al Marfa',
+      ariaLabel = "Al Marfa",
       colors = {},
       ...props
     },
     ref,
   ) => {
-    const resolvedSize = sizeMap[size] || size
+    const resolvedSize = sizeMap[size] || size;
 
     const styleVars = {
-      '--logo-bg-color': colors.background || 'var(--logo-bg-color, #3d7a70)',
-      '--logo-a-color': colors.aColor || 'var(--logo-a-color, #f5f7f8)',
-      '--logo-m-color': colors.mColor || 'var(--logo-m-color, #111c2a)',
-    } as React.CSSProperties
+      "--logo-bg-color": colors.background || "var(--logo-bg-color, #3d7a70)",
+      "--logo-a-color": colors.aColor || "var(--logo-a-color, #f5f7f8)",
+      "--logo-m-color": colors.mColor || "var(--logo-m-color, #111c2a)",
+    } as React.CSSProperties;
 
     return (
       <div
         ref={ref}
-        className={`icon icon--am logo logo--${variant} ${className || ''}`.trim()}
+        className={`icon icon--am logo logo--${variant} ${className || ""}`.trim()}
         style={{
-          display: 'inline-block',
+          display: "inline-block",
           width: resolvedSize,
           height: resolvedSize,
-          flex: '0 0 auto',
+          flex: "0 0 auto",
           ...styleVars,
         }}
         aria-label={ariaLabel}
@@ -89,7 +89,7 @@ export const AmIcon = React.forwardRef<HTMLDivElement, AmIconProps>(
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
-          style={{ display: 'block' }}
+          style={{ display: "block" }}
         >
           <title>{ariaLabel}</title>
           <desc>Al Marfa Technologies favicon</desc>
@@ -113,8 +113,8 @@ export const AmIcon = React.forwardRef<HTMLDivElement, AmIconProps>(
           </g>
         </svg>
       </div>
-    )
+    );
   },
-)
+);
 
-AmIcon.displayName = 'AmIcon'
+AmIcon.displayName = "AmIcon";

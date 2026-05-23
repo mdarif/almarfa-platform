@@ -3,10 +3,7 @@ import { createPageMetadata } from "@repo/seo";
 import { Caption, Container, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
-import {
-  ArticleExpertiseLinks,
-  ExpertiseTopicNav,
-} from "@/components/content";
+import { ArticleExpertiseLinks, ExpertiseTopicNav } from "@/components/content";
 import {
   PageEditorialHero,
   PublicationIndexPageSection,
@@ -121,7 +118,10 @@ export default function InsightsPage() {
           </PublicationIndexSection>
         ) : null}
 
-        <PublicationIndexSection aria-label="Published insights" eyebrow="Latest">
+        <PublicationIndexSection
+          aria-label="Published insights"
+          eyebrow="Latest"
+        >
           <Stack gap="lg">
             {remainingArticles.map((article) => (
               <PublicationListRow

@@ -36,10 +36,7 @@ export function getArticles(collection: ArticleCollection): Article[] {
     );
 }
 
-export function getArticleBySlug(
-  collection: ArticleCollection,
-  slug: string,
-) {
+export function getArticleBySlug(collection: ArticleCollection, slug: string) {
   return getArticles(collection).find((article) => article.slug === slug);
 }
 
@@ -81,10 +78,7 @@ function validateArticleSlug(filename: string, slug: string) {
 function getCollectionDirectory(collection: ArticleCollection) {
   const directoryName = collectionDirectoryNames[collection];
 
-  return path.join(
-    getContentRoot(),
-    directoryName,
-  );
+  return path.join(getContentRoot(), directoryName);
 }
 
 function getContentRoot() {

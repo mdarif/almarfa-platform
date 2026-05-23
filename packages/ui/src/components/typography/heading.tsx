@@ -1,7 +1,12 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 
 import { cn } from "../../lib/cn";
-import { measureClassNames, toneClassNames, type TextMeasure, type TextTone } from "./shared";
+import {
+  measureClassNames,
+  toneClassNames,
+  type TextMeasure,
+  type TextTone,
+} from "./shared";
 
 type HeadingSize = "default" | "list" | "article" | "section";
 
@@ -12,7 +17,10 @@ type HeadingProps<TElement extends ElementType = "h2"> = {
   measure?: TextMeasure;
   size?: HeadingSize;
   tone?: TextTone;
-} & Omit<ComponentPropsWithoutRef<TElement>, "as" | "children" | "className" | "size">;
+} & Omit<
+  ComponentPropsWithoutRef<TElement>,
+  "as" | "children" | "className" | "size"
+>;
 
 const headingSizeClassNames: Record<HeadingSize, string> = {
   default: "text-heading leading-heading",

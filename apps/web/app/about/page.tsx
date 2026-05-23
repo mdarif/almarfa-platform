@@ -2,7 +2,10 @@ import { createPageMetadata } from "@repo/seo";
 import { Body, Container, Grid, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
-import { EditorialSectionIntro, PageEditorialHero } from "@/components/editorial";
+import {
+  EditorialSectionIntro,
+  PageEditorialHero,
+} from "@/components/editorial";
 
 export const metadata = createPageMetadata({
   description:
@@ -69,13 +72,16 @@ function PrinciplesSection() {
       <Container size="content">
         <Stack gap="lg">
           <EditorialSectionIntro eyebrow="Core Principles">
-            <Heading>What we believe about sustainable frontend systems.</Heading>
+            <Heading>
+              What we believe about sustainable frontend systems.
+            </Heading>
           </EditorialSectionIntro>
 
           <Body measure="content">
-            Our operating principles are stated once on the homepage as platform doctrine — the
-            numbered rail that frames how we think about governance, shared infrastructure, and
-            long-term architectural sustainability.{" "}
+            Our operating principles are stated once on the homepage as platform
+            doctrine — the numbered rail that frames how we think about
+            governance, shared infrastructure, and long-term architectural
+            sustainability.{" "}
             <Link className="editorial-link" href="/#platform-doctrine">
               Read platform doctrine
             </Link>
@@ -108,9 +114,9 @@ function PublicationModelSection() {
                 <Heading as="h3">Authority through consistency</Heading>
                 <Body measure="content">
                   Our credibility comes from consistent, thoughtful work across
-                  distinct expertise domains. We build authority through depth of
-                  knowledge, implementation experience, and the willingness to
-                  explore architectural tradeoffs in detail.
+                  distinct expertise domains. We build authority through depth
+                  of knowledge, implementation experience, and the willingness
+                  to explore architectural tradeoffs in detail.
                 </Body>
               </Stack>
             </Grid>
@@ -121,7 +127,9 @@ function PublicationModelSection() {
               <Heading as="h3">Explore Our Work</Heading>
               <Stack gap="md">
                 <div>
-                  <Body className="mb-rhythm-sm font-medium">Expertise Areas</Body>
+                  <Body className="mb-rhythm-sm font-medium">
+                    Expertise Areas
+                  </Body>
                   <Link
                     className="editorial-link text-sm font-medium no-underline hover:underline"
                     href="/expertise"
@@ -130,7 +138,9 @@ function PublicationModelSection() {
                   </Link>
                 </div>
                 <div>
-                  <Body className="mb-rhythm-sm font-medium">Insights & Articles</Body>
+                  <Body className="mb-rhythm-sm font-medium">
+                    Insights & Articles
+                  </Body>
                   <Link
                     className="editorial-link text-sm font-medium no-underline hover:underline"
                     href="/insights"

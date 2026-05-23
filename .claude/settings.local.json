@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -r \"eslintIgnore\\\\|ignores\" \"d:\\\\Github\\\\almarfa-platform\" --include=\"*.json\" --include=\"*.js\" --include=\"*.mjs\" -not -path \"*/node_modules/*\")"
+    ]
+  }
+}

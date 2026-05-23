@@ -5,6 +5,7 @@
 This document defines the architectural philosophy and engineering constraints for the Al Marfa Technologies platform.
 
 The platform must optimize for:
+
 - long-term maintainability
 - semantic scalability
 - operational simplicity
@@ -13,6 +14,7 @@ The platform must optimize for:
 - static-first performance
 
 The architecture should support:
+
 - gradual expansion
 - low operational overhead
 - future extensibility
@@ -27,12 +29,14 @@ without introducing unnecessary complexity.
 ## 1.1 Static-First Architecture
 
 The platform should prefer:
+
 - static rendering
 - pre-rendered content
 - edge-delivered assets
 - CDN-friendly output
 
 Avoid:
+
 - unnecessary backend systems
 - server-heavy rendering
 - operationally expensive infrastructure
@@ -47,6 +51,7 @@ Dynamic behavior should be introduced only when justified.
 Maintainability is more important than short-term speed of implementation.
 
 Prefer:
+
 - predictable patterns
 - composable abstractions
 - simple architecture
@@ -54,6 +59,7 @@ Prefer:
 - low cognitive overhead
 
 Avoid:
+
 - premature abstraction
 - clever engineering
 - framework over-dependence
@@ -64,6 +70,7 @@ Avoid:
 ## 1.3 Monorepo Philosophy
 
 The monorepo should optimize for:
+
 - shared infrastructure
 - reusable systems
 - scalable governance
@@ -90,9 +97,9 @@ Applications should remain focused and isolated.
 Example structure:
 
 apps/
-  web/
-  docs/ (future)
-  playground/ (future)
+web/
+docs/ (future)
+playground/ (future)
 
 Applications should consume shared packages rather than duplicating logic.
 
@@ -101,6 +108,7 @@ Applications should consume shared packages rather than duplicating logic.
 ## 2.2 Shared Package Philosophy
 
 Shared packages should contain:
+
 - reusable UI primitives
 - SEO systems
 - analytics utilities
@@ -108,6 +116,7 @@ Shared packages should contain:
 - shared content tooling
 
 Avoid:
+
 - application-specific coupling
 - excessive inter-package dependencies
 - circular dependency patterns
@@ -119,11 +128,13 @@ Avoid:
 ## 3.1 Primitive-First Design
 
 UI architecture should favor:
+
 - reusable primitives
 - composable layouts
 - semantic building blocks
 
 Prefer:
+
 - Container
 - Section
 - Stack
@@ -139,6 +150,7 @@ over page-specific components.
 All visual systems should derive from semantic tokens.
 
 Token categories:
+
 - spacing
 - typography
 - color
@@ -147,6 +159,7 @@ Token categories:
 - motion
 
 Avoid:
+
 - arbitrary hardcoded values
 - inconsistent spacing
 - uncontrolled styling drift
@@ -160,6 +173,7 @@ Avoid:
 Content is a primary strategic asset.
 
 The platform should treat content as:
+
 - structured knowledge
 - semantic authority infrastructure
 - discoverability systems
@@ -171,6 +185,7 @@ not marketing filler.
 ## 4.2 Markdown & MDX Strategy
 
 Content should remain:
+
 - Git-based
 - version-controlled
 - markdown-friendly
@@ -178,11 +193,13 @@ Content should remain:
 - portable
 
 Preferred formats:
+
 - MDX
 - Markdown
 - structured frontmatter
 
 Avoid:
+
 - heavy CMS dependency
 - operationally complex editorial systems
 
@@ -193,12 +210,14 @@ Avoid:
 ## 5.1 Semantic Structure
 
 The architecture should maximize:
+
 - crawlability
 - semantic clarity
 - AI readability
 - structured metadata
 
 Every page should support:
+
 - clear hierarchy
 - structured metadata
 - semantic HTML
@@ -209,11 +228,13 @@ Every page should support:
 ## 5.2 Internal Linking Philosophy
 
 Internal linking should reinforce:
+
 - topic authority
 - semantic relationships
 - discoverability clusters
 
 Avoid:
+
 - isolated content silos
 - shallow navigation structures
 
@@ -222,12 +243,14 @@ Avoid:
 # 6. Performance Philosophy
 
 Performance should optimize:
+
 - perceived speed
 - responsiveness
 - readability
 - navigation fluidity
 
 Avoid:
+
 - unnecessary JavaScript
 - oversized client bundles
 - animation-heavy rendering
@@ -240,6 +263,7 @@ Avoid:
 Accessibility is a foundational architectural concern.
 
 The platform must:
+
 - support keyboard navigation
 - maintain semantic HTML
 - preserve readable hierarchy
@@ -253,6 +277,7 @@ Accessibility should be default behavior.
 # 8. AI-Assisted Engineering Philosophy
 
 AI should accelerate:
+
 - implementation
 - documentation
 - refactoring
@@ -260,12 +285,14 @@ AI should accelerate:
 - consistency
 
 AI should not replace:
+
 - architectural judgment
 - systems thinking
 - governance decisions
 - design intentionality
 
 Repository-level AI guidance should remain:
+
 - explicit
 - version-controlled
 - continuously refined
@@ -275,12 +302,14 @@ Repository-level AI guidance should remain:
 # 9. Operational Simplicity
 
 The platform should remain sustainable with:
+
 - minimal infrastructure
 - automated deployment
 - low recurring maintenance
 - static-first delivery
 
 Target:
+
 - extremely low operational overhead
 - high leverage
 - scalable authority accumulation
@@ -290,6 +319,7 @@ Target:
 # 10. Future Expansion Readiness
 
 The architecture should later support:
+
 - documentation platforms
 - educational ecosystems
 - SaaS tooling
@@ -300,6 +330,7 @@ The architecture should later support:
 without requiring major architectural rewrites.
 
 All future additions should preserve:
+
 - simplicity
 - composability
 - maintainability

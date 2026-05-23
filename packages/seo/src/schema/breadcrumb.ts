@@ -1,6 +1,8 @@
 import type { BreadcrumbItem, JsonLd } from "./types";
 
-export function createBreadcrumbSchema(items: readonly BreadcrumbItem[]): JsonLd {
+export function createBreadcrumbSchema(
+  items: readonly BreadcrumbItem[],
+): JsonLd {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",

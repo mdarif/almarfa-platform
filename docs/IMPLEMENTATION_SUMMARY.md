@@ -18,6 +18,7 @@ The foundational information architecture and editorial navigation system for Al
 ### 1. Platform Taxonomy System (`apps/web/lib/platform.ts`)
 
 **8 Authority Clusters:**
+
 - Frontend Architecture
 - Design Systems
 - Storybook Ecosystems
@@ -36,20 +37,24 @@ The foundational information architecture and editorial navigation system for Al
 ### 2. Global Navigation System
 
 #### Header (`components/navigation/header.tsx`)
+
 - Minimal, calm design
 - Brand/logo on left
 - Primary navigation on right
 - Responsive layout
 
 #### Primary Navigation (`components/navigation/primary-nav.tsx`)
+
 ```
 Services | Expertise | Insights | About | Contact
 ```
+
 - Semantic structure (not marketing-driven)
 - Typography-first styling
 - Hover effects with smooth transitions
 
 #### Footer (`components/navigation/footer.tsx`)
+
 - Platform positioning statement
 - 4-column semantic organization:
   - **Navigation** — Main nav items
@@ -61,6 +66,7 @@ Services | Expertise | Insights | About | Contact
 ### 3. Global Shell Layout (`components/layout/platform-shell.tsx`)
 
 Automatic structure for all pages:
+
 ```
 ┌─────────────────────────────┐
 │        Header + Nav         │
@@ -78,19 +84,23 @@ Integrated into root layout — **no manual wrapping needed**.
 ### 4. Editorial Wayfinding System
 
 #### Breadcrumb Navigation (`components/navigation/breadcrumb.tsx`)
+
 ```
 Insights / Frontend Architecture / Storybook Governance
 ```
+
 - Semantic HTML structure
 - Supports cluster navigation
 - Automatic URL generation
 
 #### Related Topics (`components/content/related-topics.tsx`)
+
 - Displays 2-4 semantically related articles
 - Supports cross-cluster linking
 - Encourages deeper exploration
 
 #### Expertise Context Cards
+
 - Links articles to expertise areas
 - Provides pathway to services
 - Reinforces authority domains
@@ -98,15 +108,18 @@ Insights / Frontend Architecture / Storybook Governance
 ### 5. Content Utilities (`apps/web/lib/content-utils.ts`)
 
 **Article Metadata Validation**
+
 - Validates cluster references
 - Ensures proper structure
 
 **SEO & Schema Generation**
+
 - Breadcrumb schema (JSON-LD)
 - Article schema with structured data
 - Keyword extraction from clusters
 
 **Cluster Utilities**
+
 - Get related expertise areas
 - Retrieve cluster information
 - Generate breadcrumb trails
@@ -122,6 +135,7 @@ Insights / Frontend Architecture / Storybook Governance
 **The Solution:** 5 semantic navigation items that reflect actual information structure.
 
 **The Benefit:**
+
 - Signals confidence and maturity
 - Reduces cognitive load
 - Resembles engineering publications, not conversion funnels
@@ -134,6 +148,7 @@ Insights / Frontend Architecture / Storybook Governance
 **The Solution:** 8 authority clusters organizing all knowledge.
 
 **The Benefit:**
+
 - Topics reinforce each other (authority compounding)
 - Internal links strengthen SEO
 - Natural discoverability paths
@@ -146,6 +161,7 @@ Insights / Frontend Architecture / Storybook Governance
 **The Solution:** Breadcrumbs, related topics, and expertise context.
 
 **The Benefit:**
+
 - Improves search signals (internal links, breadcrumbs)
 - Encourages deeper reading and exploration
 - Builds perception of comprehensive expertise
@@ -158,6 +174,7 @@ Insights / Frontend Architecture / Storybook Governance
 **The Solution:** Semantic cross-linking within clusters and across topics.
 
 **The Benefit:**
+
 - Google recognizes topical authority
 - Readers follow natural discovery paths
 - LLMs understand semantic relationships
@@ -233,7 +250,7 @@ import { RelatedTopicsSection } from "@/components/content";
       cluster: "design-systems",
     },
   ]}
-/>
+/>;
 ```
 
 ### 3. Article Frontmatter
@@ -266,18 +283,18 @@ const schemas = [
 
 ## Success Criteria — All Met ✅
 
-| Criterion | Status | Notes |
-|-----------|--------|-------|
-| **Semantic Navigation** | ✅ | 5 primary items, publication-like |
-| **Authority Clusters** | ✅ | 8 clusters supporting 7 expertise areas |
-| **Editorial Wayfinding** | ✅ | Breadcrumbs, related topics, context cards |
-| **Restrained Design** | ✅ | No mega-menus, no aggressive CTAs |
-| **Content Interconnection** | ✅ | Infrastructure for semantic linking |
-| **Semantic HTML** | ✅ | Proper structure, accessibility-first |
-| **Static-First** | ✅ | Git-based, markdown-driven, pre-rendered |
-| **Reusable Primitives** | ✅ | Container, Section, Stack, Grid, Typography |
-| **Responsive** | ✅ | Mobile-first, readable at all sizes |
-| **Low Overhead** | ✅ | No complex databases, minimal dependencies |
+| Criterion                   | Status | Notes                                       |
+| --------------------------- | ------ | ------------------------------------------- |
+| **Semantic Navigation**     | ✅     | 5 primary items, publication-like           |
+| **Authority Clusters**      | ✅     | 8 clusters supporting 7 expertise areas     |
+| **Editorial Wayfinding**    | ✅     | Breadcrumbs, related topics, context cards  |
+| **Restrained Design**       | ✅     | No mega-menus, no aggressive CTAs           |
+| **Content Interconnection** | ✅     | Infrastructure for semantic linking         |
+| **Semantic HTML**           | ✅     | Proper structure, accessibility-first       |
+| **Static-First**            | ✅     | Git-based, markdown-driven, pre-rendered    |
+| **Reusable Primitives**     | ✅     | Container, Section, Stack, Grid, Typography |
+| **Responsive**              | ✅     | Mobile-first, readable at all sizes         |
+| **Low Overhead**            | ✅     | No complex databases, minimal dependencies  |
 
 ---
 
@@ -297,21 +314,25 @@ const schemas = [
 ## Next Steps (Optional)
 
 ### Phase 4: Content Integration
+
 - [ ] Update article frontmatter with cluster metadata
 - [ ] Create breadcrumbs from article metadata
 - [ ] Auto-generate related topics based on clustering
 
 ### Phase 5: Pages & Services
+
 - [ ] Create `/expertise/[slug]` cluster pages
 - [ ] Create `/services` overview
 - [ ] Create `/about` and `/contact` pages
 
 ### Phase 6: SEO Enhancement
+
 - [ ] Add JSON-LD breadcrumb schema
 - [ ] Implement article schema
 - [ ] Update sitemap with semantic structure
 
 ### Phase 7: Analytics
+
 - [ ] Track internal navigation patterns
 - [ ] Monitor cluster-to-article discovery
 - [ ] Measure content engagement by authority area
@@ -381,6 +402,7 @@ The foundation is in place for the platform to gradually become a recognized **e
 ## Questions & Support
 
 Refer to:
+
 - `docs/ai/platform-architecture.md` for architectural philosophy
 - `docs/INTEGRATION_GUIDE.md` for implementation examples
 - Component comments for usage patterns

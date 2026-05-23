@@ -1,11 +1,11 @@
 /**
  * Platform Shell Layout
- * 
+ *
  * Global layout structure providing:
  * - Header with primary navigation
  * - Footer with semantic structure
  * - Flexible page content area
- * 
+ *
  * Supports responsive behavior while maintaining
  * calm, editorial composition.
  */

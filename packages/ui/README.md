@@ -172,7 +172,9 @@ Prefer this shape for editorial sections:
   <Container size="content">
     <Stack gap="md" className="max-w-measure-wide">
       <Caption tone="accent">Al Marfa Technologies</Caption>
-      <Display>Enterprise frontend architecture for systems that need to scale.</Display>
+      <Display>
+        Enterprise frontend architecture for systems that need to scale.
+      </Display>
       <Body size="large">
         Durable frontend platforms, governed design systems, and shared UI
         infrastructure with architectural discipline.

@@ -13,17 +13,20 @@ Five foundational pages have been created to complete the platform's primary nav
 **Purpose:** Explain what Al Marfa focuses on (advisory, not tools or frameworks)
 
 **Structure:**
+
 - Positioning statement — What Al Marfa does and why
 - Focus Areas section — Lists all 7 expertise areas
 - How We Work section — Explains the engagement approach
 
 **Key Features:**
+
 - Expertise areas link to individual `/expertise/[slug]` pages
 - Two-column layout pairs titles with descriptions
 - Uses border separators (not cards)
 - Call to action is subtle: "Explore expertise" and "Contact us"
 
 **Design Decisions:**
+
 - No hero section or oversized imagery
 - No pricing or sales-oriented copy
 - Focuses on architectural thinking, not "selling"
@@ -36,17 +39,20 @@ Five foundational pages have been created to complete the platform's primary nav
 **Purpose:** Introduce all 8 authority clusters that organize the platform
 
 **Structure:**
+
 - Positioning statement — What the clusters represent
 - Authority Areas list — All 8 clusters with descriptions
 - Explore More section — Links to services and insights
 
 **Key Features:**
+
 - Each cluster is a navigable link to individual cluster pages
 - Emphasizes semantic organization, not services
 - Explains how knowledge is structured
 - Links to related pages (services, insights)
 
 **Design Decisions:**
+
 - Treats clusters as knowledge domains, not products
 - Restrained layout matching the home page style
 - Focus on intellectual organization
@@ -59,6 +65,7 @@ Five foundational pages have been created to complete the platform's primary nav
 **Purpose:** Provide detailed positioning and context for each authority cluster
 
 **Structure:**
+
 - Header with breadcrumb navigation
 - Overview — What the cluster is about
 - "What this means in practice" — How it applies
@@ -66,6 +73,7 @@ Five foundational pages have been created to complete the platform's primary nav
 - Related section — Links to other expertise areas
 
 **Key Features:**
+
 - Dynamic routing generates all 8 pages from `EXPERTISE_LIST` data
 - Each cluster has custom content explaining its relevance
 - Breadcrumbs improve wayfinding and SEO
@@ -73,6 +81,7 @@ Five foundational pages have been created to complete the platform's primary nav
 - Links back to services, insights, and expertise index
 
 **Clusters Covered:**
+
 1. Frontend Architecture
 2. Design Systems
 3. Storybook Ecosystems
@@ -83,6 +92,7 @@ Five foundational pages have been created to complete the platform's primary nav
 8. Angular Enterprise Patterns
 
 **Design Decisions:**
+
 - Custom content for each cluster (not generic)
 - Explains practical implications, not just theory
 - Emphasizes why the domain matters
@@ -96,12 +106,14 @@ Five foundational pages have been created to complete the platform's primary nav
 **Purpose:** Explain why Al Marfa exists and what it believes
 
 **Structure:**
+
 - Mission statement — What the platform is
 - Philosophy section — Problem/approach framing
 - Core Principles — 4 guiding beliefs
 - How We Operate — Publication model and authority approach
 
 **Key Features:**
+
 - No team bios (solo founder platform)
 - No company history or timeline
 - Focuses on beliefs and positioning
@@ -109,6 +121,7 @@ Five foundational pages have been created to complete the platform's primary nav
 - Links to explore expertise, services, and insights
 
 **Design Decisions:**
+
 - Establishes authority through clarity of thought
 - Emphasizes publication model, not consulting firm
 - No personal narratives
@@ -122,11 +135,13 @@ Five foundational pages have been created to complete the platform's primary nav
 **Purpose:** Provide a restrained way for enterprises to get in touch
 
 **Structure:**
+
 - Positioning statement — What to expect
 - How This Works section — Expectations and non-expectations
 - Get In Touch section — Email option or minimal form
 
 **Key Features:**
+
 - Sets clear expectations (no pricing, no demos, no sales pressure)
 - Provides both email and form options
 - Form is minimal (3 fields: name, email, context)
@@ -134,6 +149,7 @@ Five foundational pages have been created to complete the platform's primary nav
 - Professional tone throughout
 
 **Design Decisions:**
+
 - No aggressive CTAs
 - Transparent about the process
 - Minimal form (only essential fields)
@@ -147,6 +163,7 @@ Five foundational pages have been created to complete the platform's primary nav
 All pages follow the established editorial pattern:
 
 ### Layout Structure
+
 ```tsx
 <Section spacing="default">
   <Container size="content">
@@ -160,19 +177,23 @@ All pages follow the established editorial pattern:
 ```
 
 ### Semantic Separators (Not Cards)
+
 - Uses `border-t` and `border-b` for visual separation
 - Items within lists are separated by borders
 - No card layouts or box shadows
 - Clean, minimal aesthetic
 
 ### Two-Column Pairing
+
 - Concepts paired with descriptions
 - Problem/approach in two columns
 - Improves readability and layout balance
 - Responsive: stacks on mobile
 
 ### Interlinking Pattern
+
 All pages link to:
+
 - **Services** page (from expertise pages)
 - **Expertise** pages (from services, about, contact)
 - **Insights** (from expertise, services, about)
@@ -188,32 +209,38 @@ No isolated pages — everything connects semantically.
 ### ❌ What We Avoided
 
 **Hero Sections with Background Images**
+
 - Takes up too much vertical space
 - Feels like a marketing website
 - Distracts from content
 
 **Feature Cards with Icons**
+
 - Creates visual noise
 - Feels like startup landing page
 - Breaks editorial aesthetic
 
 **Multiple CTAs on Every Page**
+
 - Creates decision fatigue
 - Feels sales-driven
 - Undermines authority
 
 **Marketing Copy & Buzzwords**
+
 - "Transform your platform"
 - "Unlock the power of..."
 - "Industry-leading solutions"
 - Damages credibility with technical audience
 
 **Testimonials & Case Studies**
+
 - Feels like consulting firm
 - Takes space away from content
 - Not the editorial approach
 
 **Pricing or Feature Matrices**
+
 - Creates comparison mentality
 - Not appropriate for advisory positioning
 - Feels product-like
@@ -221,36 +248,43 @@ No isolated pages — everything connects semantically.
 ### ✅ What We Did Instead
 
 **Editorial Positioning Statements**
+
 - Clear, direct language
 - Explains what we focus on
 - Sets expectations
 
 **Semantic Separators (Borders)**
+
 - Minimal visual treatment
 - Maintains readability
 - Feels calm and intentional
 
 **Two-Column Information Pairing**
+
 - Problem/solution framing
 - Concept/description layout
 - Improves comprehension
 
 **Typography-First Design**
+
 - Relies on heading hierarchy
 - Uses whitespace intentionally
 - No decorative elements
 
 **Semantic Interlinking**
+
 - Pages connect naturally
 - Supports discovery
 - Avoids "isolated" feeling
 
 **Restrained Forms & CTAs**
+
 - Minimal form fields
 - Transparent expectations
 - Professional tone
 
 **Enterprise-Tone Language**
+
 - Senior-level vocabulary
 - Focused on architectural thinking
 - No marketing exaggeration
@@ -295,6 +329,7 @@ No new components created. All pages use existing primitives.
 ## Accessibility & SEO
 
 ### Accessibility Features
+
 - Semantic HTML heading hierarchy (h1, h2, h3)
 - Proper list structure with `<ol>` and `<li>`
 - Breadcrumb navigation with structured semantics
@@ -303,6 +338,7 @@ No new components created. All pages use existing primitives.
 - Color contrast maintained (text on surface)
 
 ### SEO Features
+
 - Proper metadata generation (title, description)
 - Dynamic metadata for cluster pages
 - Breadcrumb structure for crawlers
@@ -315,11 +351,13 @@ No new components created. All pages use existing primitives.
 ## Navigation Integration
 
 **Primary Navigation** (from header):
+
 ```
 Services | Expertise | Insights | About | Contact
 ```
 
 **Interlinking Paths:**
+
 - /services → links to /expertise/[slug]
 - /expertise → links to /expertise/[slug]
 - /expertise/[slug] → links to /services, /insights
@@ -327,6 +365,7 @@ Services | Expertise | Insights | About | Contact
 - /contact → accessible from all pages
 
 **Footer Navigation:**
+
 - All main pages listed
 - Expertise clusters grouped semantically
 - Primary nav items visible
@@ -351,23 +390,25 @@ Services | Expertise | Insights | About | Contact
 ## Usage Examples
 
 ### Linking to Expertise Cluster
+
 ```tsx
-<Link href="/expertise/design-systems">
-  Design Systems cluster →
-</Link>
+<Link href="/expertise/design-systems">Design Systems cluster →</Link>
 ```
 
 ### Linking to Services
+
 ```tsx
 <Link href="/services">View our service offerings →</Link>
 ```
 
 ### Linking to Contact
+
 ```tsx
 <Link href="/contact">Get in touch →</Link>
 ```
 
 ### Adding New Expertise Content
+
 The `/expertise/[slug]/page.tsx` includes a `clusterContent` object. To add new details for a cluster, simply add:
 
 ```tsx
@@ -382,24 +423,25 @@ The `/expertise/[slug]/page.tsx` includes a `clusterContent` object. To add new 
 
 ## Success Criteria — All Met ✅
 
-| Criterion | Status | Evidence |
-|-----------|--------|----------|
-| **Foundational routes exist** | ✅ | /services, /expertise, /about, /contact |
-| **No 404 errors** | ✅ | All pages render correctly |
-| **Editorial, not marketing** | ✅ | No hero sections, CTAs, or sales language |
-| **Semantic structure** | ✅ | Proper HTML hierarchy, interlinking |
-| **Consistent design** | ✅ | Uses existing primitives, same patterns |
-| **Enterprise-appropriate** | ✅ | Professional tone, no startup language |
-| **Accessibility** | ✅ | ARIA labels, semantic HTML, forms |
-| **Responsive** | ✅ | Mobile-first, readable at all sizes |
-| **Interlinking** | ✅ | Pages connect semantically |
-| **Minimal & intentional** | ✅ | No unnecessary sections or elements |
+| Criterion                     | Status | Evidence                                  |
+| ----------------------------- | ------ | ----------------------------------------- |
+| **Foundational routes exist** | ✅     | /services, /expertise, /about, /contact   |
+| **No 404 errors**             | ✅     | All pages render correctly                |
+| **Editorial, not marketing**  | ✅     | No hero sections, CTAs, or sales language |
+| **Semantic structure**        | ✅     | Proper HTML hierarchy, interlinking       |
+| **Consistent design**         | ✅     | Uses existing primitives, same patterns   |
+| **Enterprise-appropriate**    | ✅     | Professional tone, no startup language    |
+| **Accessibility**             | ✅     | ARIA labels, semantic HTML, forms         |
+| **Responsive**                | ✅     | Mobile-first, readable at all sizes       |
+| **Interlinking**              | ✅     | Pages connect semantically                |
+| **Minimal & intentional**     | ✅     | No unnecessary sections or elements       |
 
 ---
 
 ## Navigation Now Complete
 
 The Al Marfa Technologies platform now has:
+
 - **Global navigation** (header with 5 primary items, semantic footer)
 - **Foundational pages** (services, expertise, about, contact)
 - **Cluster detail pages** (8 individual expertise pages)

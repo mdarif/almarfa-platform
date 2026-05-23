@@ -4,7 +4,10 @@ import { Body, Caption, Container, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
 import { ArticleExpertiseLinks } from "@/components/content";
-import { EditorialSectionIntro, EditorialSignatureSection } from "@/components/editorial";
+import {
+  EditorialSectionIntro,
+  EditorialSignatureSection,
+} from "@/components/editorial";
 import { HeroSection } from "@/components/sections/hero";
 import { EXPERTISE_LIST, getExpertisePath } from "@/lib/expertise";
 
@@ -29,7 +32,9 @@ export default function HomePage() {
       <HeroSection />
       <ExpertiseAreasSection />
       <EditorialSignatureSection principles={platformPrinciples} />
-      {featuredInsight ? <InsightsPreviewSection article={featuredInsight} /> : null}
+      {featuredInsight ? (
+        <InsightsPreviewSection article={featuredInsight} />
+      ) : null}
       <ContactSection />
     </main>
   );
@@ -58,7 +63,10 @@ function ExpertiseAreasSection() {
 
           <ol className="border-t border-border" aria-label="Expertise areas">
             {EXPERTISE_LIST.map((area) => (
-              <li className="border-b border-border py-rhythm-md md:py-rhythm-lg" key={area.slug}>
+              <li
+                className="border-b border-border py-rhythm-md md:py-rhythm-lg"
+                key={area.slug}
+              >
                 <div className="flex flex-col gap-rhythm-sm md:grid md:grid-cols-2 md:gap-grid-lg">
                   <Link href={getExpertisePath(area.slug)} className="group">
                     <Heading
@@ -93,7 +101,9 @@ function InsightsPreviewSection({
       <Container size="content">
         <Stack gap="xl">
           <EditorialSectionIntro eyebrow="Insights Preview">
-            <Heading>Engineering Atlas notes for frontend platform teams.</Heading>
+            <Heading>
+              Engineering Atlas notes for frontend platform teams.
+            </Heading>
             <Body size="large">
               The publication layer is designed for architectural depth:
               implementation context, governance tradeoffs, and practical

@@ -1,6 +1,6 @@
 /**
  * Breadcrumb Navigation
- * 
+ *
  * Semantic breadcrumb system for article and page wayfinding.
  * Supports:
  * - Page hierarchy (Insights > Topic > Article)
@@ -75,9 +75,7 @@ export function InsightBreadcrumb({
   clusterLabel,
   clusterSlug,
 }: InsightBreadcrumbProps) {
-  const items: BreadcrumbItem[] = [
-    { label: "Insights", href: "/insights" },
-  ];
+  const items: BreadcrumbItem[] = [{ label: "Insights", href: "/insights" }];
 
   if (clusterLabel && clusterSlug) {
     items.push({

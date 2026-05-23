@@ -31,6 +31,7 @@ The Al Marfa Technologies platform now has a complete, semantically integrated n
 **File:** `apps/web/lib/platform.ts`
 
 **Defines:**
+
 - 8 Authority Clusters (knowledge domains)
 - 7 Expertise Areas (services)
 - Primary navigation structure
@@ -39,6 +40,7 @@ The Al Marfa Technologies platform now has a complete, semantically integrated n
 **Used by:** All pages and components
 
 ### Authority Clusters
+
 ```
 Frontend Architecture
 Design Systems
@@ -51,6 +53,7 @@ Angular Enterprise Patterns
 ```
 
 ### Navigation Structure
+
 ```
 Services | Expertise | Insights | About | Contact
 ```
@@ -60,17 +63,20 @@ Services | Expertise | Insights | About | Contact
 ## 2. Global Navigation Layer
 
 **Files:**
+
 - `apps/web/components/navigation/header.tsx` — Logo + primary nav
 - `apps/web/components/navigation/footer.tsx` — Semantic footer
 - `apps/web/components/layout/platform-shell.tsx` — Layout wrapper
 
 **How it Works:**
+
 - PlatformShell wraps all pages (header, main, footer)
 - Header displays 5 primary nav items
 - Footer displays clusters organized in 4 semantic columns
 - Both use taxonomy from `lib/platform.ts`
 
 **On Every Page:**
+
 ```
 ┌─────────────────────────────────┐
 │  Header (Logo + Nav)            │
@@ -86,6 +92,7 @@ Services | Expertise | Insights | About | Contact
 ## 3. Foundational Pages Layer
 
 **Files:**
+
 - `app/services/page.tsx` — Services overview
 - `app/expertise/page.tsx` — Clusters index
 - `app/expertise/[slug]/page.tsx` — Individual cluster pages (8 generated)
@@ -94,11 +101,13 @@ Services | Expertise | Insights | About | Contact
 
 **Design Patterns:**
 All pages use the same structure:
+
 1. Positioning section (Caption + Heading + Body)
 2. Main content (borders, two-column grids, lists)
 3. Related section (links to adjacent pages)
 
 **No Variations:**
+
 - No hero sections
 - No cards
 - No oversized visuals
@@ -127,7 +136,7 @@ All pages use the same structure:
             │ /expertise/[slug]    │ (8 cluster pages)
             │ (Detail + Related)   │
             └──────────────────────┘
-        
+
         ┌──────────────────────────────────┐
         │ /contact (accessible from any)   │
         └──────────────────────────────────┘
@@ -136,28 +145,33 @@ All pages use the same structure:
 ### Link Flow
 
 **From /services:**
+
 - → /expertise/[cluster] (each expertise area)
 - → /contact
 - → /expertise (see all clusters)
 
 **From /expertise:**
+
 - → /expertise/[cluster] (each cluster)
 - → /services (back to services overview)
 - → /insights (implementation articles)
 
 **From /expertise/[cluster]:**
+
 - ← /expertise (back to clusters index)
 - → other /expertise/[cluster] pages (related clusters)
 - → /services (view service offerings)
 - → /insights (read articles on this cluster)
 
 **From /about:**
+
 - → /expertise (explore expertise areas)
 - → /services (service offerings)
 - → /insights (knowledge base)
 - → /contact (get in touch)
 
 **From /contact:**
+
 - ← any page (contact form is goal)
 - Set expectations: no sales pressure, architecture-focused
 
@@ -168,6 +182,7 @@ All pages use the same structure:
 ### Visual Pattern Across All Pages
 
 **Section Structure:**
+
 ```tsx
 <Section spacing="default">
   <Container size="content">
@@ -181,9 +196,10 @@ All pages use the same structure:
 ```
 
 **List Separators:**
+
 ```tsx
 <ol className="border-t border-border">
-  {items.map(item => (
+  {items.map((item) => (
     <li className="border-b border-border py-rhythm-lg">
       {/* Item content */}
     </li>
@@ -192,6 +208,7 @@ All pages use the same structure:
 ```
 
 **Two-Column Layout:**
+
 ```tsx
 <Grid columns="two" gap="lg">
   <Stack gap="md">
@@ -227,7 +244,7 @@ Services (/services)
 └── Link to /expertise and /contact
 
 Expertise Index (/expertise)
-├── Positioning Statement  
+├── Positioning Statement
 ├── 8 Authority Clusters (with links to /expertise/[slug])
 └── Link to /services and /insights
 
@@ -261,6 +278,7 @@ Insights (/insights) [Existing]
 ## 7. How Pages Work Together
 
 ### User Journey 1: "I want to understand your services"
+
 ```
 /services
     ↓ (choose expertise area)
@@ -272,6 +290,7 @@ Insights (/insights) [Existing]
 ```
 
 ### User Journey 2: "I want to explore your expertise"
+
 ```
 /expertise
     ↓ (pick a cluster)
@@ -283,6 +302,7 @@ Insights (/insights) [Existing]
 ```
 
 ### User Journey 3: "I want to understand what this platform is"
+
 ```
 /about
     ↓ (explore areas)
@@ -294,6 +314,7 @@ Insights (/insights) [Existing]
 ```
 
 ### User Journey 4: "I have a specific problem"
+
 ```
 /services
     ↓ (matches my need)
@@ -335,6 +356,7 @@ Used by:
 ### Metadata
 
 All pages include:
+
 ```tsx
 export const metadata = createPageMetadata({
   title: "Page Title",
@@ -375,31 +397,37 @@ Dynamic metadata for cluster pages based on cluster data.
 ## 10. Why This Architecture Works
 
 ### ✅ Semantic Organization
+
 - Pages organize by actual knowledge domains
 - Navigation reflects real structure
 - Feels editorial, not arbitrary
 
 ### ✅ Discoverability
+
 - Multiple paths to same information
 - Interlinking supports natural navigation
 - Users find what they need
 
 ### ✅ Authority Building
+
 - Related content reinforces expertise
 - Interlinking improves SEO
 - Knowledge compounds over time
 
 ### ✅ Scalability
+
 - New content fits naturally in clusters
 - No need to restructure pages
 - System grows without redesign
 
 ### ✅ Maintainability
+
 - Single source of truth (platform.ts)
 - Consistent design patterns
 - Easy to reason about
 
 ### ✅ Enterprise Appropriateness
+
 - Professional, calm tone
 - Respects decision-making process
 - No hard-sell tactics
@@ -420,6 +448,7 @@ The Al Marfa platform now has:
 7. **Enterprise Positioning** — Appropriate for technical decision-makers
 
 The system is:
+
 - **Coherent** — Everything connects
 - **Scalable** — Grows without redesign
 - **Maintainable** — Simple patterns

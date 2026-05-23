@@ -9,20 +9,25 @@ A **complete, cohesive information architecture and navigation system** for the 
 ## The Complete System
 
 ### Layer 1: Taxonomy & Configuration
+
 **File:** `lib/platform.ts`
+
 - 8 Authority Clusters (Frontend Architecture, Design Systems, Storybook, Nx, Governance, Platform Engineering, DX Engineering, Angular Enterprise)
 - 7 Expertise Areas mapped to clusters
 - 5-item primary navigation
 - Helper functions for accessing and organizing data
 
 ### Layer 2: Global Navigation
+
 **Files:** `components/navigation/` & `layout/platform-shell.tsx`
+
 - **Header** — Logo + 5 primary nav items
 - **Footer** — Semantic 4-column organization of clusters
 - **Platform Shell** — Auto-wraps all pages with header + footer
 - **Breadcrumb** — Wayfinding for articles and pages
 
 ### Layer 3: Foundational Pages (5 pages)
+
 **Files:** `app/{services,expertise,about,contact}/page.tsx`
 
 1. **`/services`** — Architecture advisory overview
@@ -58,7 +63,9 @@ A **complete, cohesive information architecture and navigation system** for the 
    - Email option or minimal form
 
 ### Layer 4: Semantic Interlinking
+
 **Pages connected by:**
+
 - Expertise → Services (bidirectional)
 - Services → Expertise clusters (references)
 - About → All sections (explains positioning)
@@ -66,7 +73,9 @@ A **complete, cohesive information architecture and navigation system** for the 
 - Insights → Clusters (potential future linking)
 
 ### Layer 5: Content Utilities
+
 **File:** `lib/content-utils.ts`
+
 - Article metadata validation
 - Breadcrumb generation
 - SEO metadata generation
@@ -123,6 +132,7 @@ docs/
 ## Design Decisions & Philosophy
 
 ### Why Restrained Navigation?
+
 ✅ Signals confidence and maturity
 ✅ Reduces cognitive load
 ✅ Resembles publications, not SaaS sites
@@ -130,6 +140,7 @@ docs/
 ✅ Reflects actual information structure
 
 ### Why Semantic Taxonomy?
+
 ✅ Content organizes naturally
 ✅ Knowledge compounds through interlinking
 ✅ Clusters support topical authority
@@ -137,6 +148,7 @@ docs/
 ✅ Supports AI discoverability
 
 ### Why Editorial Wayfinding?
+
 ✅ Improves SEO (internal links, breadcrumbs)
 ✅ Encourages deeper reading
 ✅ Builds perception of expertise
@@ -144,6 +156,7 @@ docs/
 ✅ Feels like a publication
 
 ### Why Interconnected Content?
+
 ✅ Pages feel related, not isolated
 ✅ Supports multiple user journeys
 ✅ Improves search signals
@@ -157,6 +170,7 @@ docs/
 ### All Pages Use Same Pattern
 
 **Section Structure:**
+
 ```tsx
 <Section spacing="default">
   <Container size="content">
@@ -170,18 +184,21 @@ docs/
 ```
 
 **Visual Separators:**
+
 - Borders between list items (not cards)
 - Semantic `<ol>` and `<li>` elements
 - `border-t` and `border-b` for separation
 - Clean, minimal aesthetic
 
 **Two-Column Pairing:**
+
 - Problem/approach layout
 - Concept/description pairing
 - Improves comprehension
 - Responsive on mobile
 
 **Link Navigation:**
+
 - Subtle `text-accent` color
 - Hover opacity transition
 - Natural discovery paths
@@ -192,6 +209,7 @@ docs/
 ## Accessibility & SEO
 
 ### Accessibility ✅
+
 - Semantic HTML heading hierarchy (h1, h2, h3)
 - Proper list structure (`<ol>`, `<li>`)
 - Breadcrumb navigation
@@ -201,6 +219,7 @@ docs/
 - Responsive sizing
 
 ### SEO ✅
+
 - Proper metadata (title, description)
 - Dynamic metadata for cluster pages
 - Breadcrumb structure for crawlers
@@ -234,7 +253,7 @@ docs/
                      ┌──────▼──────┐   ┌──────▼──┐
                      │  /contact   │   │ /insights│
                      └─────────────┘   └──────────┘
-         
+
          ┌───────────────────────────────────────┐
          │        Footer (Clusters+Nav)          │
          └───────────────────────────────────────┘
@@ -245,6 +264,7 @@ docs/
 ## What Makes This Different
 
 ### ❌ Not a Marketing Website
+
 - No hero sections
 - No conversion funnels
 - No aggressive CTAs
@@ -253,6 +273,7 @@ docs/
 - No startup language
 
 ### ✅ A Publication Platform
+
 - Clear information hierarchy
 - Editorial composition
 - Semantic organization
@@ -261,6 +282,7 @@ docs/
 - Authority through depth
 
 ### ✅ Enterprise-Appropriate
+
 - Respects decision-making
 - No sales pressure
 - Focuses on thinking
@@ -272,26 +294,27 @@ docs/
 
 ## Success Criteria — All Met ✅
 
-| Criterion | Status |
-|-----------|--------|
-| **Navigation system complete** | ✅ |
-| **Foundational pages exist** | ✅ |
-| **No 404 errors** | ✅ |
-| **Editorial, not marketing** | ✅ |
-| **Semantic HTML** | ✅ |
-| **Accessibility** | ✅ |
-| **Responsive design** | ✅ |
-| **Semantic interlinking** | ✅ |
-| **Consistent design** | ✅ |
-| **Enterprise-appropriate tone** | ✅ |
-| **Using existing primitives** | ✅ |
-| **Low client-side JavaScript** | ✅ |
+| Criterion                       | Status |
+| ------------------------------- | ------ |
+| **Navigation system complete**  | ✅     |
+| **Foundational pages exist**    | ✅     |
+| **No 404 errors**               | ✅     |
+| **Editorial, not marketing**    | ✅     |
+| **Semantic HTML**               | ✅     |
+| **Accessibility**               | ✅     |
+| **Responsive design**           | ✅     |
+| **Semantic interlinking**       | ✅     |
+| **Consistent design**           | ✅     |
+| **Enterprise-appropriate tone** | ✅     |
+| **Using existing primitives**   | ✅     |
+| **Low client-side JavaScript**  | ✅     |
 
 ---
 
 ## User Experience
 
 ### The Platform Now Feels:
+
 ✅ **Cohesive** — Everything connects logically
 ✅ **Navigable** — Easy to find what you need
 ✅ **Authoritative** — Depth and expertise evident
@@ -306,6 +329,7 @@ docs/
 ## Usage & Extension
 
 ### Linking Between Pages
+
 ```tsx
 <Link href="/services">Explore services →</Link>
 <Link href="/expertise/design-systems">View cluster →</Link>
@@ -314,7 +338,9 @@ docs/
 ```
 
 ### Adding to Cluster Pages
+
 Edit `clusterContent` in `/expertise/[slug]/page.tsx`:
+
 ```tsx
 "new-cluster-slug": {
   overview: "...",
@@ -324,6 +350,7 @@ Edit `clusterContent` in `/expertise/[slug]/page.tsx`:
 ```
 
 ### Creating Article Metadata
+
 ```yaml
 ---
 title: "Article Title"
@@ -380,18 +407,21 @@ clusters: [DESIGN_SYSTEMS]
 ## Next Steps (Optional)
 
 ### Phase 5: Content Integration
+
 - [ ] Update article frontmatter with cluster references
 - [ ] Link articles to cluster pages
 - [ ] Create related articles recommendations
 - [ ] Add article listing to cluster pages
 
 ### Phase 6: SEO Enhancement
+
 - [ ] Add JSON-LD breadcrumb schema
 - [ ] Implement article schema
 - [ ] Create content sitemap
 - [ ] Add OpenGraph metadata
 
 ### Phase 7: Analytics & Growth
+
 - [ ] Track navigation patterns
 - [ ] Monitor cluster discovery
 - [ ] Measure content engagement
@@ -468,6 +498,7 @@ The platform is ready for content integration and provides a solid foundation fo
 ## Questions?
 
 Refer to the comprehensive documentation:
+
 - **Architecture decisions** → `docs/ai/platform-architecture.md`
 - **Pages documentation** → `docs/FOUNDATIONAL_PAGES.md`
 - **Navigation system** → `docs/NAVIGATION_ARCHITECTURE.md`

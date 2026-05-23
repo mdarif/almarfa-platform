@@ -249,7 +249,9 @@ export const EXPERTISE_BY_SLUG: Record<ExpertiseSlug, ExpertiseDefinition> = {
   },
 };
 
-export const EXPERTISE_LIST = EXPERTISE_SLUGS.map((slug) => EXPERTISE_BY_SLUG[slug]);
+export const EXPERTISE_LIST = EXPERTISE_SLUGS.map(
+  (slug) => EXPERTISE_BY_SLUG[slug],
+);
 
 export const EXPERTISE_NAVIGATION_GROUPS = [
   {
@@ -285,7 +287,9 @@ export const AUTHORITY_CLUSTERS = {
   NX_MONOREPOS: pickCluster("nx-monorepos"),
   FRONTEND_GOVERNANCE: pickCluster("frontend-governance"),
   PLATFORM_ENGINEERING: pickCluster("platform-engineering"),
-  DEVELOPER_EXPERIENCE_ENGINEERING: pickCluster("developer-experience-engineering"),
+  DEVELOPER_EXPERIENCE_ENGINEERING: pickCluster(
+    "developer-experience-engineering",
+  ),
   ANGULAR_ENTERPRISE_PATTERNS: pickCluster("angular-enterprise-patterns"),
 } as const;
 
@@ -293,15 +297,15 @@ export type AuthorityClusterId = keyof typeof AUTHORITY_CLUSTERS;
 
 export const AUTHORITY_CLUSTER_VALUES = Object.values(AUTHORITY_CLUSTERS);
 
-export const EXPERTISE_AREAS = EXPERTISE_LIST.filter((area) => area.hasServiceOffering).map(
-  (area) => ({
-    id: `${area.slug}-services`,
-    title: area.label,
-    description: area.serviceDescription ?? area.shortDescription,
-    clusters: [area.slug],
-    slug: area.slug,
-  }),
-);
+export const EXPERTISE_AREAS = EXPERTISE_LIST.filter(
+  (area) => area.hasServiceOffering,
+).map((area) => ({
+  id: `${area.slug}-services`,
+  title: area.label,
+  description: area.serviceDescription ?? area.shortDescription,
+  clusters: [area.slug],
+  slug: area.slug,
+}));
 
 export const CONTENT_RELATIONSHIPS = {
   RELATED_INSIGHTS: "related-insights",

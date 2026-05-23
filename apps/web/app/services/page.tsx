@@ -2,7 +2,10 @@ import { createPageMetadata } from "@repo/seo";
 import { Body, Container, Grid, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
-import { EditorialSectionIntro, PageEditorialHero } from "@/components/editorial";
+import {
+  EditorialSectionIntro,
+  PageEditorialHero,
+} from "@/components/editorial";
 import { EXPERTISE_AREAS } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
@@ -34,13 +37,17 @@ function ExpertiseAreasSection() {
         <Stack gap="xl">
           <EditorialSectionIntro eyebrow="Focus Areas">
             <Heading>
-              Seven expertise domains that compound your platform&apos;s effectiveness.
+              Seven expertise domains that compound your platform&apos;s
+              effectiveness.
             </Heading>
           </EditorialSectionIntro>
 
           <ol className="border-t border-border" aria-label="Expertise areas">
             {EXPERTISE_AREAS.map((area) => (
-              <li className="border-b border-border py-rhythm-md md:py-rhythm-lg" key={area.id}>
+              <li
+                className="border-b border-border py-rhythm-md md:py-rhythm-lg"
+                key={area.id}
+              >
                 <div className="flex flex-col gap-rhythm-sm md:grid md:grid-cols-2 md:gap-grid-lg">
                   <Link href={`/expertise/${area.slug}`} className="group">
                     <Heading
@@ -73,18 +80,20 @@ function EngagementModelSection() {
               <Stack gap="md" className="max-w-measure-narrow">
                 <Heading as="h3">Architecture-first thinking</Heading>
                 <Body measure="content">
-                  Our advisory focuses on the operating models, governance patterns, and
-                  architectural clarity that make platforms sustainable. We help you
-                  think through the decisions that shape your systems&apos; evolution.
+                  Our advisory focuses on the operating models, governance
+                  patterns, and architectural clarity that make platforms
+                  sustainable. We help you think through the decisions that
+                  shape your systems&apos; evolution.
                 </Body>
               </Stack>
 
               <Stack gap="md" className="max-w-measure-narrow">
                 <Heading as="h3">Beyond tools and frameworks</Heading>
                 <Body measure="content">
-                  Architecture becomes effective when teams share more than code. We
-                  focus on the conventions, standards, and decision-making frameworks
-                  that make your platform work at scale.
+                  Architecture becomes effective when teams share more than
+                  code. We focus on the conventions, standards, and
+                  decision-making frameworks that make your platform work at
+                  scale.
                 </Body>
               </Stack>
             </Grid>

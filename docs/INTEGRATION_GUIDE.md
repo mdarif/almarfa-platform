@@ -11,6 +11,7 @@ The foundational platform information architecture has been implemented. This gu
 ### Global Shell (Automatic)
 
 The root layout now uses `PlatformShell`, which automatically provides:
+
 - Header with navigation
 - Footer with semantic structure
 - Responsive layout
@@ -25,9 +26,7 @@ export default function ArticlePage() {
   return (
     <main>
       <Container size="content">
-        <article>
-          {/* Your content here */}
-        </article>
+        <article>{/* Your content here */}</article>
       </Container>
     </main>
   );
@@ -53,7 +52,7 @@ export default function ArticlePage() {
         clusterLabel="Storybook Ecosystems"
         clusterSlug="storybook"
       />
-      
+
       {/* Article content */}
     </>
   );
@@ -108,7 +107,7 @@ export default function ArticlePage() {
   return (
     <>
       {/* Article content */}
-      <RelatedTopicsSection 
+      <RelatedTopicsSection
         title="Related Architecture Insights"
         topics={relatedTopics}
       />
@@ -126,7 +125,7 @@ export default function ArticlePage() {
   return (
     <>
       {/* Article content */}
-      
+
       <ExpertiseContext
         title="Design Systems Consulting"
         description="Build shared UI foundations with clear ownership and adoption paths"
@@ -158,7 +157,6 @@ relatedInsights:
   - "design-systems-consulting"
   - "component-governance"
 ---
-
 # Article content here
 ```
 
@@ -184,9 +182,15 @@ import { createBreadcrumbSchema } from "@repo/seo";
 import { JsonLdScript } from "./_components/json-ld";
 
 const breadcrumbs = [
-  { name: "Insights", url: "https://almarfa.technology/insights" },
-  { name: "Storybook", url: "https://almarfa.technology/expertise/storybook-ecosystems" },
-  { name: "Governance Patterns", url: "https://almarfa.technology/insights/article-slug" },
+  { name: "Insights", url: "https://almarfa.co/insights" },
+  {
+    name: "Storybook",
+    url: "https://almarfa.co/expertise/storybook-ecosystems",
+  },
+  {
+    name: "Governance Patterns",
+    url: "https://almarfa.co/insights/article-slug",
+  },
 ];
 
 const schema = createBreadcrumbSchema(breadcrumbs);
@@ -226,7 +230,7 @@ const allClusters = EXPERTISE_LIST;
 // Get specific cluster
 const storybook = getExpertiseBySlug("storybook-ecosystems");
 console.log(storybook.label); // "Storybook Ecosystems"
-console.log(storybook.slug);  // "storybook-ecosystems"
+console.log(storybook.slug); // "storybook-ecosystems"
 ```
 
 ### Get Related Expertise Areas
@@ -272,8 +276,8 @@ import { Container, Section, Stack, Heading, Body } from "@repo/ui";
 import { EXPERTISE_AREAS } from "@/lib/expertise";
 
 export default function FrontendArchitecturePage() {
-  const area = EXPERTISE_AREAS.find(a => a.slug === "frontend-architecture");
-  
+  const area = EXPERTISE_AREAS.find((a) => a.slug === "frontend-architecture");
+
   return (
     <main>
       <Section spacing="default">
@@ -295,14 +299,18 @@ export default function FrontendArchitecturePage() {
 import { getExpertiseBySlug } from "@/lib/expertise";
 import { RelatedTopicsSection } from "@/components/content";
 
-export default function ExpertisePage({ params }: { params: { slug: string } }) {
+export default function ExpertisePage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const cluster = getExpertiseBySlug(params.slug);
-  
+
   if (!cluster) return <div>Not found</div>;
-  
+
   // Fetch related articles for this cluster
   const relatedArticles = await getArticlesByCluster(cluster.id);
-  
+
   return (
     <main>
       <Section spacing="default">
@@ -311,7 +319,7 @@ export default function ExpertisePage({ params }: { params: { slug: string } }) 
           <Body>{cluster.description}</Body>
         </Container>
       </Section>
-      
+
       <RelatedTopicsSection
         title="Featured Insights"
         topics={relatedArticles}
@@ -391,21 +399,25 @@ The components use these design tokens:
 ## 11. Next Steps
 
 ### Phase 4: Content Integration
+
 1. Update article frontmatter with cluster metadata
 2. Generate breadcrumbs from metadata
 3. Create related topics based on cluster relationships
 
 ### Phase 5: Pages & Services
+
 1. Create `/expertise/[slug]` pages for each cluster
 2. Create `/services` overview page
 3. Create `/about` and `/contact` pages
 
 ### Phase 6: SEO & Structured Data
+
 1. Add JSON-LD breadcrumb and article schema
 2. Implement sitemap reflecting semantic structure
 3. Add OpenGraph metadata
 
 ### Phase 7: Analytics & Monitoring
+
 1. Track internal link clicks
 2. Monitor discoverability metrics
 3. Measure content engagement by cluster
@@ -428,6 +440,7 @@ The components use these design tokens:
 ## Questions?
 
 Refer to:
+
 - `docs/ai/platform-architecture.md` — Full architectural decisions
 - `apps/web/lib/platform.ts` — Taxonomy definitions
 - `apps/web/lib/content-utils.ts` — Content utilities

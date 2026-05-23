@@ -1,5 +1,10 @@
+// Fallback for local dev and CI only — never reached in production once SITE_URL is set.
+// Update this if the Cloudflare Pages project is ever renamed.
 const defaultSiteUrl = "https://almarfa-platform.pages.dev";
 
+// Resolution order: SITE_URL (production custom domain) → CF_PAGES_URL (Cloudflare injects at build,
+// gives each preview its own canonical) → defaultSiteUrl (local dev / CI).
+// To cut over to almarfa.co: set SITE_URL=https://almarfa.co in Cloudflare Pages production env only.
 function resolveSiteUrl(): string {
   const fromSiteUrl = process.env.SITE_URL?.replace(/\/$/, "");
   if (fromSiteUrl) {
@@ -24,7 +29,7 @@ export type SiteConfig = {
 };
 
 export const siteConfig: SiteConfig = {
-  contactEmail: "hello@almarfa.technology",
+  contactEmail: "hello@almarfa.co",
   description:
     "Enterprise frontend architecture, design systems, and scalable UI platform strategy.",
   locale: "en_US",

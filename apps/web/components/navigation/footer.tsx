@@ -23,6 +23,9 @@ export function Footer() {
     <footer className="footer-editorial mt-rhythm-xl border-t border-accent-border/50 bg-surface-muted/40 md:mt-rhythm-2xl">
       <Container
         size="page"
+        // pb uses max() so the footer never overlaps the home-indicator bar on
+        // notched iPhones (safe-area-inset-bottom). Falls back to the rhythm value
+        // on devices where the inset is 0 (desktops, non-notched phones).
         className="relative z-[1] py-rhythm-xl pb-[max(var(--spacing-rhythm-xl),env(safe-area-inset-bottom))] md:py-rhythm-2xl md:pb-[max(var(--spacing-rhythm-2xl),env(safe-area-inset-bottom))]"
       >
         <Stack gap="lg" className="md:gap-rhythm-xl">
@@ -49,7 +52,10 @@ export function Footer() {
           <div className="flex flex-col gap-rhythm-md md:grid md:grid-cols-[minmax(9rem,11rem)_1fr] md:items-start md:gap-x-rhythm-lg md:gap-y-0 lg:grid-cols-[12rem_1fr] lg:gap-x-rhythm-xl">
             <nav className="hidden md:block">
               <Stack gap="sm">
-                <Caption tone="accent" className="text-xs uppercase tracking-wider">
+                <Caption
+                  tone="accent"
+                  className="text-xs uppercase tracking-wider"
+                >
                   Navigation
                 </Caption>
                 <ul className="space-y-rhythm-sm">
@@ -68,7 +74,10 @@ export function Footer() {
               {EXPERTISE_NAVIGATION_GROUPS.map((group) => (
                 <nav key={group.label}>
                   <Stack gap="sm">
-                    <Caption tone="accent" className="text-xs uppercase tracking-wider">
+                    <Caption
+                      tone="accent"
+                      className="text-xs uppercase tracking-wider"
+                    >
                       {group.label}
                     </Caption>
                     <ul className="space-y-rhythm-sm">
@@ -77,7 +86,10 @@ export function Footer() {
 
                         return (
                           <li key={slug}>
-                            <Link href={`/expertise/${slug}`} className={footerLinkClassName}>
+                            <Link
+                              href={`/expertise/${slug}`}
+                              className={footerLinkClassName}
+                            >
                               {area.label}
                             </Link>
                           </li>
@@ -92,7 +104,8 @@ export function Footer() {
 
           <div className="border-t border-border/40 pt-rhythm-md md:pt-rhythm-lg">
             <Caption tone="muted">
-              © {new Date().getFullYear()} Al Marfa Technologies. All rights reserved.
+              © {new Date().getFullYear()} Al Marfa Technologies. All rights
+              reserved.
             </Caption>
           </div>
         </Stack>

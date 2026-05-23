@@ -5,6 +5,7 @@
 This document explains the architectural decisions and systems created for the Al Marfa Technologies platform information architecture, navigation, and semantic organization.
 
 The platform evolves from a simple website into:
+
 - **An enterprise frontend authority platform**
 - **A semantic engineering publication ecosystem**
 - **A knowledge graph supporting discoverability**
@@ -16,12 +17,14 @@ The platform evolves from a simple website into:
 ### The Problem: Marketing Website Patterns
 
 Traditional SaaS websites use large, animated navigation with:
+
 - Mega menus
 - Dropdown flyouts
 - Multiple CTAs per section
 - Visual complexity that creates noise
 
 These patterns communicate:
+
 - "We're trying to convert you"
 - "We're uncertain about our positioning"
 - "Sales and marketing drive our architecture"
@@ -29,6 +32,7 @@ These patterns communicate:
 ### The Solution: Editorial Navigation
 
 Al Marfa uses minimal, semantic navigation:
+
 - **Services** (what we offer)
 - **Expertise** (where we focus)
 - **Insights** (our knowledge)
@@ -64,6 +68,7 @@ Al Marfa uses minimal, semantic navigation:
 ### The Problem: Content Silos
 
 Without taxonomy, content becomes:
+
 - Scattered and undiscoverable
 - Impossible to reinforce authority
 - Weak in internal linking
@@ -117,6 +122,7 @@ The platform organizes around **8 authority clusters**:
 ### The Problem: Technical Content Discoverability
 
 Technical readers expect:
+
 - Clear article hierarchy
 - Contextual navigation
 - Related work easy to find
@@ -129,9 +135,11 @@ Without these, even excellent content feels scattered.
 The platform implements:
 
 1. **Breadcrumbs**
+
    ```
    Insights / Frontend Architecture / Storybook Governance
    ```
+
    - Shows article hierarchy
    - Supports cluster navigation
    - Improves SEO structure
@@ -175,6 +183,7 @@ The platform implements:
 ### The Problem: Content Fragmentation
 
 Standalone articles:
+
 - Rank individually, not collectively
 - Don't reinforce each other
 - Miss SEO opportunities through linking
@@ -211,6 +220,7 @@ Every article supports:
 ### Static-First Content
 
 All content is:
+
 - Git-based (version-controlled)
 - Markdown-driven (portable)
 - Pre-rendered (fast)
@@ -323,7 +333,7 @@ See the Implementation Checklist (Section 10) for the full completed state.
 ### Remaining Work
 
 - Performance audit and refinement
-- Custom domain cutover (`almarfa.technology`) and production `SITE_URL` on Cloudflare Pages
+- Custom domain cutover (`almarfa.co`) and production `SITE_URL` on Cloudflare Pages
 - Article corpus expansion for recommendation quality
 - Stronger article recommendations (requires broader content volume)
 - Canonical topic reference pages
@@ -412,6 +422,7 @@ This architecture creates a **foundation for sustainable authority building**. B
 ...the platform supports long-term discoverability, search performance, and reader perception of expertise depth.
 
 The system is:
+
 - **Static-first** for performance and sustainability
 - **Composable** for maintainability
 - **Semantic** for searchability and AI

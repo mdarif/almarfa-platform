@@ -3,11 +3,13 @@
 ## Product Philosophy
 
 This platform is NOT:
+
 - a startup landing page
 - a generic SaaS application
 - a marketing-heavy consulting site
 
 This platform IS:
+
 - an enterprise frontend authority platform
 - a technical publication ecosystem
 - an architecture-focused consulting platform
@@ -15,6 +17,7 @@ This platform IS:
 ## Visual Philosophy
 
 The UI should feel:
+
 - calm
 - editorial
 - premium
@@ -22,6 +25,7 @@ The UI should feel:
 - technically mature
 
 Avoid:
+
 - flashy gradients
 - excessive animation
 - generic SaaS sections
@@ -64,17 +68,20 @@ docs/
 The founder maintains a full-time enterprise engineering role.
 
 Optimize for:
+
 - low maintenance
 - AI-assisted workflows
 - semantic discoverability
 - authority compounding
 
 Avoid:
+
 - operational complexity
 - unnecessary backend systems
 - high-maintenance infrastructure
 
 Never modify:
+
 - node_modules
 - .pnpm-store
 - .next

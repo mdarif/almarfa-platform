@@ -12,9 +12,8 @@ The logo comes with these default colors that can be customized:
 
 ```css
 /* In :root or any CSS */
---logo-bg-color: #3d7a70    /* Background (dark teal) */
---logo-a-color: #f5f7f8     /* A letter (off-white) */
---logo-m-color: #111c2a     /* M letter (dark navy) */
+--logo-bg-color: #3d7a70 /* Background (dark teal) */ --logo-a-color: #f5f7f8
+  /* A letter (off-white) */ --logo-m-color: #111c2a /* M letter (dark navy) */;
 ```
 
 ---
@@ -24,22 +23,22 @@ The logo comes with these default colors that can be customized:
 ### 1. **Default Logo (Red & Green)**
 
 ```tsx
-import { AmLogo } from '@repo/ui'
+import { AmLogo } from "@repo/ui";
 
-<AmLogo size="md" />  // Uses default colors (red A, green M)
+<AmLogo size="md" />; // Uses default colors (red A, green M)
 ```
 
 ### 2. **Override Colors via Component Props**
 
 ```tsx
 // Custom colors for a specific logo instance
-<AmLogo 
-  size="md" 
+<AmLogo
+  size="md"
   colors={{
-    background: '#1a1a1a',
-    aColor: '#ff0000',      // Change A to pure red
-    mColor: '#00ff00'       // Change M to pure green
-  }} 
+    background: "#1a1a1a",
+    aColor: "#ff0000", // Change A to pure red
+    mColor: "#00ff00", // Change M to pure green
+  }}
 />
 ```
 
@@ -63,20 +62,20 @@ Apply custom colors only within a specific section:
 
 ```tsx
 // In a React component or CSS
-<div style={{ '--logo-bg-color': '#000000', '--logo-a-color': '#ffffff' }}>
-  <AmLogo size="md" />  // Only this logo uses the custom colors
+<div style={{ "--logo-bg-color": "#000000", "--logo-a-color": "#ffffff" }}>
+  <AmLogo size="md" /> // Only this logo uses the custom colors
 </div>
 ```
 
 ### 5. **Wordmark with Custom Colors**
 
 ```tsx
-<AmWordmark 
-  layout="horizontal" 
+<AmWordmark
+  layout="horizontal"
   size="md"
   colors={{
-    aColor: '#ff00ff',
-    mColor: '#00ffff'
+    aColor: "#ff00ff",
+    mColor: "#00ffff",
   }}
 />
 ```
@@ -84,12 +83,12 @@ Apply custom colors only within a specific section:
 ### 6. **Icon/Favicon with Custom Colors**
 
 ```tsx
-<AmIcon 
-  size="md" 
+<AmIcon
+  size="md"
   colors={{
-    background: '#ffffff',
-    aColor: '#ff0000',
-    mColor: '#00ff00'
+    background: "#ffffff",
+    aColor: "#ff0000",
+    mColor: "#00ff00",
   }}
 />
 ```
@@ -100,11 +99,11 @@ Apply custom colors only within a specific section:
 
 ### Available Variables
 
-| Variable | Default | Purpose |
-|----------|---------|---------|
+| Variable          | Default   | Purpose                                |
+| ----------------- | --------- | -------------------------------------- |
 | `--logo-bg-color` | `#3d7a70` | Background rectangle color (dark teal) |
-| `--logo-a-color` | `#f5f7f8` | "A" letter color (off-white) |
-| `--logo-m-color` | `#111c2a` | "M" letter color (dark navy) |
+| `--logo-a-color`  | `#f5f7f8` | "A" letter color (off-white)           |
+| `--logo-m-color`  | `#111c2a` | "M" letter color (dark navy)           |
 
 ### Where They're Used
 
@@ -163,6 +162,7 @@ Each component (AmLogo, AmWordmark, AmIcon) renders an inline SVG with CSS class
 ```
 
 The SVG respects the CSS cascade, so colors inherit from:
+
 1. **Component props** (highest priority)
 2. **Inline styles** on parent element
 3. **CSS classes** applied to container
@@ -191,10 +191,12 @@ To change the logo colors across the entire platform:
 For specific pages or sections, wrap the logo with custom colors:
 
 ```tsx
-<div style={{ 
-  '--logo-a-color': '#ff00ff',
-  '--logo-m-color': '#00ff00'
-}}>
+<div
+  style={{
+    "--logo-a-color": "#ff00ff",
+    "--logo-m-color": "#00ff00",
+  }}
+>
   <AmLogo size="md" />
 </div>
 ```
@@ -270,4 +272,4 @@ If colors still don't apply, add `!important` to the CSS variable:
 
 ---
 
-*Last updated: 2026-05-18*
+_Last updated: 2026-05-18_

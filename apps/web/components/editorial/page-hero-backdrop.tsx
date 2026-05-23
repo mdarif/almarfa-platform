@@ -13,7 +13,9 @@ type PageHeroBackdropProps = {
 /**
  * Lighter hero wash for inner-page heroes — radial accent only, no topology SVG.
  */
-export function PageHeroBackdrop({ atmosphere = "default" }: PageHeroBackdropProps) {
+export function PageHeroBackdrop({
+  atmosphere = "default",
+}: PageHeroBackdropProps) {
   return (
     <div
       aria-hidden

@@ -5,6 +5,7 @@
 This is NOT a startup landing page or SaaS marketing site.
 
 This IS:
+
 - an enterprise frontend architecture authority platform
 - a semantic engineering publication ecosystem
 - a static-first technical knowledge platform
@@ -26,6 +27,7 @@ Confirm `apps/web/out/` contains `sitemap.xml`, `robots.txt`, and `rss.xml` afte
 ## Capability Registry
 
 See [SKILLS.md](SKILLS.md) for approved patterns and explicit avoids across:
+
 - Editorial Page Composition
 - Semantic Content Publishing
 - Expertise Taxonomy
@@ -48,7 +50,7 @@ See [SKILLS.md](SKILLS.md) for approved patterns and explicit avoids across:
 
 **Taxonomy:** `apps/web/lib/expertise/taxonomy.ts` is the single source of truth. Never duplicate taxonomy values in page components.
 
-**Canonical domain:** Do not set production `SITE_URL` until `almarfa.technology` is connected to Cloudflare Pages. Interim canonical resolves from `CF_PAGES_URL`.
+**Canonical domain:** Do not set production `SITE_URL` until `almarfa.co` is connected to Cloudflare Pages. Interim canonical resolves from `CF_PAGES_URL`.
 
 ## Hard Anti-Patterns
 
@@ -62,6 +64,7 @@ See [SKILLS.md](SKILLS.md) for approved patterns and explicit avoids across:
 ## Governance
 
 Before major changes:
+
 - Read [AGENTS.md](AGENTS.md) for full engineering context
 - Read [docs/ai/](docs/ai/) for architecture, coding standards, design, content, and SEO doctrine
 - Read [docs/program/PROGRAM_STATUS.md](docs/program/PROGRAM_STATUS.md) for current focus and debt

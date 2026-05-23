@@ -36,7 +36,10 @@ export function EditorialContinueSection({
                     Related expertise
                   </Heading>
                 </EditorialSectionIntro>
-                <ol className="border-t border-border" aria-label="Related expertise areas">
+                <ol
+                  className="border-t border-border"
+                  aria-label="Related expertise areas"
+                >
                   {relatedItems.map((item) => (
                     <li
                       className="border-b border-border py-rhythm-md md:py-rhythm-lg"

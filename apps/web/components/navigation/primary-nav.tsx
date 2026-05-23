@@ -3,6 +3,10 @@
  *
  * CSS-only mobile disclosure (details/summary) and horizontal nav at md+.
  * Mobile: details owns full width — summary row is brand + trigger; links below.
+ *
+ * No JS, no client component, no animation library — browser-native open/close
+ * with zero hydration cost. Do not replace with a stateful hamburger menu.
+ * [&::-webkit-details-marker]:hidden removes the default browser disclosure triangle.
  */
 
 import Link from "next/link";
@@ -32,7 +36,10 @@ function BrandLink({ className }: { className?: string }) {
   );
 }
 
-function PrimaryNavLinks({ className, layout = "horizontal" }: PrimaryNavLinksProps) {
+function PrimaryNavLinks({
+  className,
+  layout = "horizontal",
+}: PrimaryNavLinksProps) {
   return (
     <ul
       className={cn(

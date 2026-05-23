@@ -33,10 +33,34 @@ export function HeroBackdrop() {
         <rect fill="url(#hero-grid)" height="320" width="440" />
         <circle cx="72" cy="88" fill="currentColor" fillOpacity="0.55" r="3" />
         <circle cx="198" cy="56" fill="currentColor" fillOpacity="0.55" r="3" />
-        <circle cx="312" cy="124" fill="currentColor" fillOpacity="0.55" r="3" />
-        <circle cx="156" cy="196" fill="currentColor" fillOpacity="0.55" r="3" />
-        <circle cx="284" cy="228" fill="currentColor" fillOpacity="0.55" r="3" />
-        <circle cx="368" cy="168" fill="currentColor" fillOpacity="0.4" r="2.5" />
+        <circle
+          cx="312"
+          cy="124"
+          fill="currentColor"
+          fillOpacity="0.55"
+          r="3"
+        />
+        <circle
+          cx="156"
+          cy="196"
+          fill="currentColor"
+          fillOpacity="0.55"
+          r="3"
+        />
+        <circle
+          cx="284"
+          cy="228"
+          fill="currentColor"
+          fillOpacity="0.55"
+          r="3"
+        />
+        <circle
+          cx="368"
+          cy="168"
+          fill="currentColor"
+          fillOpacity="0.4"
+          r="2.5"
+        />
         <path
           d="M72 88 L198 56 L312 124 M198 56 L156 196 M312 124 L284 228 M312 124 L368 168"
           stroke="currentColor"
@@ -71,4 +95,3 @@ export function HeroBackdrop() {
     </div>
   );
 }
-

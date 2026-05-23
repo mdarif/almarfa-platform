@@ -70,7 +70,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const expertiseSlugs = getArticleExpertiseSlugs(article);
   const primarySlug = getPrimaryExpertiseSlug(article);
-  const primaryExpertise = primarySlug ? getExpertiseBySlug(primarySlug) : undefined;
+  const primaryExpertise = primarySlug
+    ? getExpertiseBySlug(primarySlug)
+    : undefined;
   const clusterLabels = getArticleClusterLabels(article);
   const headings = getMdxHeadings(article.body);
 
@@ -135,7 +137,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               {article.frontmatter.description}
             </Body>
             <Caption as="p" tone="muted">
-              <time dateTime={article.frontmatter.publishedAt}>{publishedLabel}</time>
+              <time dateTime={article.frontmatter.publishedAt}>
+                {publishedLabel}
+              </time>
               {readingTimeLabel}
             </Caption>
           </Stack>
@@ -166,7 +170,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
             <NextReadingSection
               expertiseHref={
-                primaryExpertise ? getExpertisePath(primaryExpertise.slug) : undefined
+                primaryExpertise
+                  ? getExpertisePath(primaryExpertise.slug)
+                  : undefined
               }
               expertiseTitle={primaryExpertise?.label}
               insight={

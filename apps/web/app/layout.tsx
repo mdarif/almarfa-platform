@@ -27,9 +27,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   ...createPageMetadata(),
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     // apple-touch-icon.png must be generated from favicon.svg at 180×180px
     // and placed at apps/web/public/apple-touch-icon.png before re-enabling:
     // apple: "/apple-touch-icon.png",
@@ -44,7 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
-        <JsonLdScript data={[createOrganizationSchema(), createWebSiteSchema()]} />
+        <JsonLdScript
+          data={[createOrganizationSchema(), createWebSiteSchema()]}
+        />
         <PlatformShell>{children}</PlatformShell>
       </body>
     </html>

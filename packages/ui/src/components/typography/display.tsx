@@ -1,7 +1,12 @@
 import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 
 import { cn } from "../../lib/cn";
-import { measureClassNames, toneClassNames, type TextMeasure, type TextTone } from "./shared";
+import {
+  measureClassNames,
+  toneClassNames,
+  type TextMeasure,
+  type TextTone,
+} from "./shared";
 
 type DisplayProps<TElement extends ElementType = "h1"> = {
   as?: TElement;

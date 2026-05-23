@@ -31,15 +31,15 @@ export function HeroSection() {
 
               <Stack className="md:gap-rhythm-md" gap="sm">
                 <Body measure="content" size="large" tone="secondary">
-                  We help engineering organizations design durable frontend platforms,
-                  govern design systems, and evolve shared UI infrastructure with
-                  architectural discipline.
+                  We help engineering organizations design durable frontend
+                  platforms, govern design systems, and evolve shared UI
+                  infrastructure with architectural discipline.
                 </Body>
 
                 <Body measure="narrow" tone="muted">
-                  Built for teams that value semantic structure, maintainable delivery,
-                  and frontend decisions that compound into long-term technical
-                  authority.
+                  Built for teams that value semantic structure, maintainable
+                  delivery, and frontend decisions that compound into long-term
+                  technical authority.
                 </Body>
               </Stack>
             </Stack>

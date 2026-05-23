@@ -30,7 +30,8 @@ export function createArticleSchema(
       name: article.frontmatter.author ?? siteConfig.name,
       url: createCanonicalUrl("/"),
     },
-    dateModified: article.frontmatter.updatedAt ?? article.frontmatter.publishedAt,
+    dateModified:
+      article.frontmatter.updatedAt ?? article.frontmatter.publishedAt,
     datePublished: article.frontmatter.publishedAt,
     description: article.frontmatter.description,
     headline: article.frontmatter.title,

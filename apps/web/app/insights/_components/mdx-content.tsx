@@ -52,7 +52,9 @@ export function MdxContent({ source }: MdxContentProps) {
               {block.value.items.map((item) => (
                 <li
                   className={
-                    block.value.type === "ordered" ? "list-decimal" : "list-disc"
+                    block.value.type === "ordered"
+                      ? "list-decimal"
+                      : "list-disc"
                   }
                   key={item}
                 >
@@ -80,8 +82,15 @@ export function MdxContent({ source }: MdxContentProps) {
 
 export function getMdxHeadings(source: string): MdxHeading[] {
   return parseBlocks(source)
-    .filter((block): block is { type: "heading"; id: string; level: 2 | 3; value: string } =>
-      block.type === "heading",
+    .filter(
+      (
+        block,
+      ): block is {
+        type: "heading";
+        id: string;
+        level: 2 | 3;
+        value: string;
+      } => block.type === "heading",
     )
     .map((block) => ({
       id: block.id,

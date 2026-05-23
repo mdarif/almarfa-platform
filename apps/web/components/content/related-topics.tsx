@@ -70,9 +70,7 @@ function RelatedTopicItem({ topic }: { topic: RelatedTopic }) {
           </Heading>
         </Link>
         {topic.description ? (
-          <Body measure="content">
-            {topic.description}
-          </Body>
+          <Body measure="content">{topic.description}</Body>
         ) : null}
       </Stack>
     </li>
@@ -104,7 +102,10 @@ function RelatedTopicMeta({
   );
 }
 
-const relatedTopicTypeLabels: Record<NonNullable<RelatedTopic["type"]>, string> = {
+const relatedTopicTypeLabels: Record<
+  NonNullable<RelatedTopic["type"]>,
+  string
+> = {
   expertise: "Expertise",
   insight: "Insight",
   service: "Service",
@@ -116,7 +117,11 @@ interface ExpertiseContextProps {
   href: string;
 }
 
-export function ExpertiseContext({ title, description, href }: ExpertiseContextProps) {
+export function ExpertiseContext({
+  title,
+  description,
+  href,
+}: ExpertiseContextProps) {
   return (
     <Link
       href={href}
@@ -127,9 +132,7 @@ export function ExpertiseContext({ title, description, href }: ExpertiseContextP
         <Heading as="h3" className="transition-colors group-hover:text-accent">
           {title}
         </Heading>
-        <Body tone="secondary">
-          {description}
-        </Body>
+        <Body tone="secondary">{description}</Body>
       </Stack>
     </Link>
   );

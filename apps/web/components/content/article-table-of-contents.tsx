@@ -6,7 +6,9 @@ type ArticleTableOfContentsProps = {
   headings: MdxHeading[];
 };
 
-export function ArticleTableOfContents({ headings }: ArticleTableOfContentsProps) {
+export function ArticleTableOfContents({
+  headings,
+}: ArticleTableOfContentsProps) {
   if (headings.length < 2) {
     return null;
   }

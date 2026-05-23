@@ -1,51 +1,51 @@
-import * as React from 'react'
+import * as React from "react";
 
 export interface AmWordmarkProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Layout direction
    * @default 'horizontal'
    */
-  layout?: 'horizontal' | 'vertical'
+  layout?: "horizontal" | "vertical";
 
   /**
    * Size: 'sm' (24px mark) | 'md' (32px mark) | 'lg' (48px mark)
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg'
+  size?: "sm" | "md" | "lg";
 
   /**
    * Visual variant — controls mark and text rendering
    * @default 'primary'
    */
-  variant?: 'primary' | 'mono'
+  variant?: "primary" | "mono";
 
   /**
    * Optional CSS class name
    */
-  className?: string
+  className?: string;
 
   /**
    * Logo colors (optional overrides)
    */
   colors?: {
-    background?: string
-    aColor?: string
-    mColor?: string
-  }
+    background?: string;
+    aColor?: string;
+    mColor?: string;
+  };
 }
 
 const sizeMap: Record<string, string> = {
-  sm: '24px',
-  md: '32px',
-  lg: '48px',
-}
+  sm: "24px",
+  md: "32px",
+  lg: "48px",
+};
 
 /**
  * AmWordmark - Logo mark + "Al Marfa" text lockup
- * 
+ *
  * Flexible wordmark component supporting horizontal and vertical layouts.
  * Combines the AM logo mark with institutional typography.
- * 
+ *
  * @example
  * <AmWordmark layout="horizontal" size="md" />
  * <AmWordmark layout="vertical" size="lg" />
@@ -53,45 +53,45 @@ const sizeMap: Record<string, string> = {
 export const AmWordmark = React.forwardRef<HTMLDivElement, AmWordmarkProps>(
   (
     {
-      layout = 'horizontal',
-      size = 'md',
-      variant = 'primary',
+      layout = "horizontal",
+      size = "md",
+      variant = "primary",
       className,
       colors = {},
       ...props
     },
     ref,
   ) => {
-    const markSize = sizeMap[size] || size
-    const isHorizontal = layout === 'horizontal'
+    const markSize = sizeMap[size] || size;
+    const isHorizontal = layout === "horizontal";
 
     const styleVars = {
-      '--logo-bg-color': colors.background || 'var(--logo-bg-color, #3d7a70)',
-      '--logo-a-color': colors.aColor || 'var(--logo-a-color, #f5f7f8)',
-      '--logo-m-color': colors.mColor || 'var(--logo-m-color, #111c2a)',
-    } as React.CSSProperties
+      "--logo-bg-color": colors.background || "var(--logo-bg-color, #3d7a70)",
+      "--logo-a-color": colors.aColor || "var(--logo-a-color, #f5f7f8)",
+      "--logo-m-color": colors.mColor || "var(--logo-m-color, #111c2a)",
+    } as React.CSSProperties;
 
     return (
       <div
         ref={ref}
-        className={`wordmark wordmark--${layout} logo logo--${variant} ${className || ''}`.trim()}
+        className={`wordmark wordmark--${layout} logo logo--${variant} ${className || ""}`.trim()}
         style={{
-          display: 'flex',
-          flexDirection: isHorizontal ? 'row' : 'column',
-          alignItems: 'center',
-          gap: isHorizontal ? '0.75rem' : '0.5rem',
+          display: "flex",
+          flexDirection: isHorizontal ? "row" : "column",
+          alignItems: "center",
+          gap: isHorizontal ? "0.75rem" : "0.5rem",
           ...styleVars,
         }}
         {...props}
       >
         {/* Logo mark */}
-        <div style={{ flex: '0 0 auto', width: markSize, height: markSize }}>
+        <div style={{ flex: "0 0 auto", width: markSize, height: markSize }}>
           <svg
             viewBox="0 0 60 60"
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
             height="100%"
-            style={{ display: 'block' }}
+            style={{ display: "block" }}
           >
             <title>Al Marfa Logo Mark</title>
             <defs>
@@ -117,19 +117,21 @@ export const AmWordmark = React.forwardRef<HTMLDivElement, AmWordmarkProps>(
 
         {/* Text: "Al Marfa" */}
         <span
-          style={{
-            fontFamily: 'inherit',
-            fontSize: isHorizontal ? '0.875rem' : '1rem',
-            fontWeight: 600,
-            letterSpacing: '0.02em',
-            color: 'currentColor',
-          } as React.CSSProperties}
+          style={
+            {
+              fontFamily: "inherit",
+              fontSize: isHorizontal ? "0.875rem" : "1rem",
+              fontWeight: 600,
+              letterSpacing: "0.02em",
+              color: "currentColor",
+            } as React.CSSProperties
+          }
         >
           Al Marfa
         </span>
       </div>
-    )
+    );
   },
-)
+);
 
-AmWordmark.displayName = 'AmWordmark'
+AmWordmark.displayName = "AmWordmark";

@@ -1,6 +1,9 @@
 import { getArticleCollection, type ArticleSummary } from "@repo/content";
 
-import { isExpertiseSlug, resolveArticleExpertiseSlugs } from "./article-clusters";
+import {
+  isExpertiseSlug,
+  resolveArticleExpertiseSlugs,
+} from "./article-clusters";
 import {
   EXPERTISE_BY_SLUG,
   EXPERTISE_LIST,
@@ -21,7 +24,9 @@ export type InsightsByExpertiseGroup = {
   slug: ExpertiseSlug;
 };
 
-export function getExpertiseBySlug(slug: string): ExpertiseDefinition | undefined {
+export function getExpertiseBySlug(
+  slug: string,
+): ExpertiseDefinition | undefined {
   if (!isExpertiseSlug(slug)) {
     return undefined;
   }
@@ -33,16 +38,22 @@ export function getAllExpertiseSlugs(): ExpertiseSlug[] {
   return [...EXPERTISE_SLUGS];
 }
 
-export function getRelatedExpertise(slug: ExpertiseSlug): ExpertiseDefinition[] {
+export function getRelatedExpertise(
+  slug: ExpertiseSlug,
+): ExpertiseDefinition[] {
   const area = EXPERTISE_BY_SLUG[slug];
-  return area.relatedExpertise.map((relatedSlug) => EXPERTISE_BY_SLUG[relatedSlug]);
+  return area.relatedExpertise.map(
+    (relatedSlug) => EXPERTISE_BY_SLUG[relatedSlug],
+  );
 }
 
 export function getExpertisePath(slug: ExpertiseSlug): string {
   return `/expertise/${slug}`;
 }
 
-export function getArticleExpertiseSlugs(article: ArticleSummary): ExpertiseSlug[] {
+export function getArticleExpertiseSlugs(
+  article: ArticleSummary,
+): ExpertiseSlug[] {
   return resolveArticleExpertiseSlugs(article);
 }
 
@@ -67,6 +78,9 @@ export function getInsightsForExpertise(slug: ExpertiseSlug): ArticleSummary[] {
     .sort(sortArticlesByDate);
 }
 
+// Ranks candidates by shared expertise cluster count (relevance), with publish
+// date as the tiebreaker (most recent first). Default limit of 4 matches the
+// editorial sidebar. Returns empty if the source article has no resolved clusters.
 export function getRelatedInsightsForArticle(
   article: ArticleSummary,
   options: { limit?: number } = {},
@@ -84,7 +98,10 @@ export function getRelatedInsightsForArticle(
     .filter((candidate) => candidate.slug !== article.slug)
     .map((candidate) => ({
       article: candidate,
-      overlap: countClusterOverlap(sourceSlugs, resolveArticleExpertiseSlugs(candidate)),
+      overlap: countClusterOverlap(
+        sourceSlugs,
+        resolveArticleExpertiseSlugs(candidate),
+      ),
     }))
     .filter((entry) => entry.overlap > 0)
     .sort((left, right) => {

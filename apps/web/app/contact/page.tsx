@@ -1,7 +1,10 @@
 import { createPageMetadata, siteConfig } from "@repo/seo";
 import { Body, Container, Heading, Section, Stack } from "@repo/ui";
 
-import { EditorialSectionIntro, PageEditorialHero } from "@/components/editorial";
+import {
+  EditorialSectionIntro,
+  PageEditorialHero,
+} from "@/components/editorial";
 
 export const metadata = createPageMetadata({
   description:
@@ -27,7 +30,11 @@ export default function ContactPage() {
 
 function ExpectationsSection() {
   return (
-    <Section spacing="default" surface="raised" className="contact-expectations">
+    <Section
+      spacing="default"
+      surface="raised"
+      className="contact-expectations"
+    >
       <Container size="content">
         <Stack gap="lg">
           <EditorialSectionIntro eyebrow="How This Works">
@@ -36,20 +43,27 @@ function ExpectationsSection() {
                 <Heading as="h3">What happens next</Heading>
                 <ul className="space-y-rhythm-sm">
                   <li className="flex gap-rhythm-sm">
-                    <span className="flex-shrink-0 font-semibold text-accent">→</span>
+                    <span className="flex-shrink-0 font-semibold text-accent">
+                      →
+                    </span>
                     <Body measure="content">We review each note directly.</Body>
                   </li>
                   <li className="flex gap-rhythm-sm">
-                    <span className="flex-shrink-0 font-semibold text-accent">→</span>
+                    <span className="flex-shrink-0 font-semibold text-accent">
+                      →
+                    </span>
                     <Body measure="content">
-                      Initial conversation focuses on understanding your platform
-                      challenges.
+                      Initial conversation focuses on understanding your
+                      platform challenges.
                     </Body>
                   </li>
                   <li className="flex gap-rhythm-sm">
-                    <span className="flex-shrink-0 font-semibold text-accent">→</span>
+                    <span className="flex-shrink-0 font-semibold text-accent">
+                      →
+                    </span>
                     <Body measure="content">
-                      We will discuss whether architecture advisory is the right fit.
+                      We will discuss whether architecture advisory is the right
+                      fit.
                     </Body>
                   </li>
                 </ul>
@@ -59,19 +73,25 @@ function ExpectationsSection() {
                 <Heading as="h3">What this is not</Heading>
                 <ul className="space-y-rhythm-sm">
                   <li className="flex gap-rhythm-sm">
-                    <span className="flex-shrink-0 font-semibold text-text/50">×</span>
+                    <span className="flex-shrink-0 font-semibold text-text/50">
+                      ×
+                    </span>
                     <Body measure="content" tone="secondary">
                       We do not offer immediate pricing or service packages.
                     </Body>
                   </li>
                   <li className="flex gap-rhythm-sm">
-                    <span className="flex-shrink-0 font-semibold text-text/50">×</span>
+                    <span className="flex-shrink-0 font-semibold text-text/50">
+                      ×
+                    </span>
                     <Body measure="content" tone="secondary">
                       This is not a product demo or tool evaluation.
                     </Body>
                   </li>
                   <li className="flex gap-rhythm-sm">
-                    <span className="flex-shrink-0 font-semibold text-text/50">×</span>
+                    <span className="flex-shrink-0 font-semibold text-text/50">
+                      ×
+                    </span>
                     <Body measure="content" tone="secondary">
                       We focus on architectural thinking, not sales pressure.
                     </Body>
@@ -96,8 +116,8 @@ function InquirySection() {
               <Stack gap="md" className="max-w-measure-narrow">
                 <Heading as="h3">Direct email</Heading>
                 <Body measure="content">
-                  If you prefer email, reach out directly with a brief description of
-                  your platform challenges.
+                  If you prefer email, reach out directly with a brief
+                  description of your platform challenges.
                 </Body>
                 <a
                   className="editorial-link w-fit font-mono text-sm no-underline hover:underline"
@@ -111,7 +131,10 @@ function InquirySection() {
                 <Heading as="h3">Useful context</Heading>
                 <ul className="space-y-rhythm-sm">
                   {contactContextPrompts.map((prompt) => (
-                    <li className="border-t border-border pt-rhythm-sm" key={prompt}>
+                    <li
+                      className="border-t border-border pt-rhythm-sm"
+                      key={prompt}
+                    >
                       <Body measure="content">{prompt}</Body>
                     </li>
                   ))}

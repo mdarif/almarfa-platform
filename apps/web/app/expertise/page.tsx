@@ -2,7 +2,10 @@ import { createPageMetadata } from "@repo/seo";
 import { Body, Container, Heading, Section, Stack } from "@repo/ui";
 import Link from "next/link";
 
-import { EditorialSectionIntro, PageEditorialHero } from "@/components/editorial";
+import {
+  EditorialSectionIntro,
+  PageEditorialHero,
+} from "@/components/editorial";
 import { EXPERTISE_LIST, getExpertisePath } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
@@ -33,12 +36,20 @@ function ClustersSection() {
       <Container size="content">
         <Stack gap="xl">
           <EditorialSectionIntro eyebrow="Authority areas">
-            <Heading>Technical knowledge domains we focus on and develop.</Heading>
+            <Heading>
+              Technical knowledge domains we focus on and develop.
+            </Heading>
           </EditorialSectionIntro>
 
-          <ol className="border-t border-border" aria-label="Authority clusters">
+          <ol
+            className="border-t border-border"
+            aria-label="Authority clusters"
+          >
             {EXPERTISE_LIST.map((area) => (
-              <li className="border-b border-border py-rhythm-md md:py-rhythm-lg" key={area.slug}>
+              <li
+                className="border-b border-border py-rhythm-md md:py-rhythm-lg"
+                key={area.slug}
+              >
                 <Stack gap="md">
                   <Link href={getExpertisePath(area.slug)} className="group">
                     <Heading

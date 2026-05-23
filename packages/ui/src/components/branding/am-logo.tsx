@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from "react";
 
 export interface AmLogoProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -6,46 +6,46 @@ export interface AmLogoProps extends React.HTMLAttributes<HTMLDivElement> {
    * Or custom pixel value: '48px'
    * @default 'md'
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | string
+  size?: "xs" | "sm" | "md" | "lg" | "xl" | string;
 
   /**
    * Visual variant (affects color scheme)
    * @default 'primary'
    */
-  variant?: 'primary' | 'mono'
+  variant?: "primary" | "mono";
 
   /**
    * Optional CSS class name
    */
-  className?: string
+  className?: string;
 
   /**
    * Accessibility label
    * @default 'Al Marfa Technologies'
    */
-  ariaLabel?: string
+  ariaLabel?: string;
 
   /**
    * Logo colors (optional overrides)
    */
   colors?: {
-    background?: string
-    aColor?: string
-    mColor?: string
-  }
+    background?: string;
+    aColor?: string;
+    mColor?: string;
+  };
 }
 
 const sizeMap: Record<string, string> = {
-  xs: '16px',
-  sm: '24px',
-  md: '32px',
-  lg: '40px',
-  xl: '64px',
-}
+  xs: "16px",
+  sm: "24px",
+  md: "32px",
+  lg: "40px",
+  xl: "64px",
+};
 
 /**
  * AmLogo - Al Marfa Technologies logo with dynamic colors
- * 
+ *
  * Displays the official AM logo mark with customizable colors.
  * Colors default to the platform palette (teal background, navy M, off-white A)
  * but can be overridden via props or CSS custom properties.
@@ -57,32 +57,32 @@ const sizeMap: Record<string, string> = {
 export const AmLogo = React.forwardRef<HTMLDivElement, AmLogoProps>(
   (
     {
-      size = 'md',
-      variant = 'primary',
+      size = "md",
+      variant = "primary",
       className,
-      ariaLabel = 'Al Marfa Technologies',
+      ariaLabel = "Al Marfa Technologies",
       colors = {},
       ...props
     },
     ref,
   ) => {
-    const resolvedSize = sizeMap[size] || size
+    const resolvedSize = sizeMap[size] || size;
 
     const styleVars = {
-      '--logo-bg-color': colors.background || 'var(--logo-bg-color, #3d7a70)',
-      '--logo-a-color': colors.aColor || 'var(--logo-a-color, #f5f7f8)',
-      '--logo-m-color': colors.mColor || 'var(--logo-m-color, #111c2a)',
-    } as React.CSSProperties
+      "--logo-bg-color": colors.background || "var(--logo-bg-color, #3d7a70)",
+      "--logo-a-color": colors.aColor || "var(--logo-a-color, #f5f7f8)",
+      "--logo-m-color": colors.mColor || "var(--logo-m-color, #111c2a)",
+    } as React.CSSProperties;
 
     return (
       <div
         ref={ref}
-        className={`logo logo--${variant} ${className || ''}`.trim()}
+        className={`logo logo--${variant} ${className || ""}`.trim()}
         style={{
-          display: 'inline-block',
+          display: "inline-block",
           width: resolvedSize,
           height: resolvedSize,
-          flex: '0 0 auto',
+          flex: "0 0 auto",
           ...styleVars,
         }}
         aria-label={ariaLabel}
@@ -93,7 +93,7 @@ export const AmLogo = React.forwardRef<HTMLDivElement, AmLogoProps>(
           xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
-          style={{ display: 'block' }}
+          style={{ display: "block" }}
         >
           <title>{ariaLabel}</title>
           <desc>Al Marfa Technologies logo with dynamic colors</desc>
@@ -117,8 +117,8 @@ export const AmLogo = React.forwardRef<HTMLDivElement, AmLogoProps>(
           </g>
         </svg>
       </div>
-    )
+    );
   },
-)
+);
 
-AmLogo.displayName = 'AmLogo'
+AmLogo.displayName = "AmLogo";

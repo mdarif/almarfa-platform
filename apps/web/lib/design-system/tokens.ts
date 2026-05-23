@@ -27,8 +27,10 @@ export const tokens = {
   typography: {
     display: "text-display leading-display font-semibold tracking-normal",
     heading: "text-heading leading-heading font-semibold tracking-normal",
-    subheading: "text-subheading leading-subheading font-medium tracking-normal",
+    subheading:
+      "text-subheading leading-subheading font-medium tracking-normal",
     body: "text-body leading-body tracking-normal",
-    caption: "text-caption leading-caption font-medium uppercase tracking-[0.08em]",
+    caption:
+      "text-caption leading-caption font-medium uppercase tracking-[0.08em]",
   },
 } as const;

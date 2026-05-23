@@ -11,7 +11,10 @@ type SectionProps<TElement extends ElementType = "section"> = {
   className?: string;
   spacing?: SectionSpacing;
   surface?: SectionSurface;
-} & Omit<ComponentPropsWithoutRef<TElement>, "as" | "children" | "className" | "surface">;
+} & Omit<
+  ComponentPropsWithoutRef<TElement>,
+  "as" | "children" | "className" | "surface"
+>;
 
 const sectionSpacingClassNames: Record<SectionSpacing, string> = {
   compact: "py-section-compact",

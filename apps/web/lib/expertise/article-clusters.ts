@@ -17,6 +17,9 @@ export function getArticleClusterLabels(article: ArticleSummary): string[] {
   );
 }
 
+// Explicit frontmatter `clusters` always wins. Inference is a fallback for
+// legacy or migrated articles that pre-date the clusters field — not the
+// preferred authoring path. New articles should always declare clusters explicitly.
 export function resolveArticleExpertiseSlugs(
   article: ArticleSummary,
 ): ExpertiseSlug[] {
@@ -54,6 +57,8 @@ function inferExpertiseFromMetadata(article: ArticleSummary): ExpertiseSlug[] {
     }
   }
 
+  // Hard-coded keyword signals for terms that don't appear verbatim in taxonomy
+  // semanticKeywords but are unambiguous indicators of a specific cluster.
   if (haystack.includes("storybook")) {
     matches.add("storybook-ecosystems");
   }

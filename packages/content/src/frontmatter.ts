@@ -2,7 +2,8 @@ import type { ArticleFrontmatter } from "./types";
 
 type FrontmatterValue = string | string[];
 
-const frontmatterPattern = /^---\r?\n(?<frontmatter>[\s\S]*?)\r?\n---\r?\n?(?<body>[\s\S]*)$/;
+const frontmatterPattern =
+  /^---\r?\n(?<frontmatter>[\s\S]*?)\r?\n---\r?\n?(?<body>[\s\S]*)$/;
 
 export function parseMdxFile(source: string) {
   const match = source.match(frontmatterPattern);
@@ -80,10 +81,7 @@ function optionalArray(value: FrontmatterValue | undefined) {
   return Array.isArray(value) && value.length > 0 ? value : undefined;
 }
 
-function requiredString(
-  values: Record<string, FrontmatterValue>,
-  key: string,
-) {
+function requiredString(values: Record<string, FrontmatterValue>, key: string) {
   const value = values[key];
 
   if (typeof value !== "string" || value.length === 0) {
@@ -93,27 +91,18 @@ function requiredString(
   return value;
 }
 
-function optionalString(
-  values: Record<string, FrontmatterValue>,
-  key: string,
-) {
+function optionalString(values: Record<string, FrontmatterValue>, key: string) {
   const value = values[key];
   return typeof value === "string" && value.length > 0 ? value : undefined;
 }
 
-function requiredDate(
-  values: Record<string, FrontmatterValue>,
-  key: string,
-) {
+function requiredDate(values: Record<string, FrontmatterValue>, key: string) {
   const value = requiredString(values, key);
   assertIsoDate(value, key);
   return value;
 }
 
-function optionalDate(
-  values: Record<string, FrontmatterValue>,
-  key: string,
-) {
+function optionalDate(values: Record<string, FrontmatterValue>, key: string) {
   const value = optionalString(values, key);
 
   if (value) {
@@ -127,10 +116,7 @@ function arrayValue(value: FrontmatterValue | undefined) {
   return Array.isArray(value) ? value : [];
 }
 
-function requiredArray(
-  values: Record<string, FrontmatterValue>,
-  key: string,
-) {
+function requiredArray(values: Record<string, FrontmatterValue>, key: string) {
   const value = arrayValue(values[key]);
 
   if (value.length === 0) {

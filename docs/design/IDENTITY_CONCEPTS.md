@@ -23,7 +23,9 @@ Before exploring the three directions, the design was grounded in the platform's
 ## Design Parameters
 
 ### Grid System
+
 All logo concepts are built on a **12-unit modular grid**:
+
 - **Base unit**: 10px
 - **Canvas**: 120×120px (12 units × 10px)
 - **Stroke weight**: 1 unit minimum (proportionally scales)
@@ -32,12 +34,14 @@ All logo concepts are built on a **12-unit modular grid**:
 This ensures geometric precision while maintaining readable letterforms at any scale.
 
 ### Color Palette
+
 - **Primary**: Monochrome foreground (#f5f7f8)
 - **Accent**: Muted teal (#5fb6a7) — secondary detail only
 - **Background**: Dark charcoal (#0b1018) — default context
 - **Philosophy**: Minimize color; use accent for institutional warmth, not visual distraction
 
 ### Typography Integration
+
 - **Font**: Geist Sans (existing platform font)
 - **Weight**: 600 (semibold) or 700 (bold) for wordmark pairing
 - **Spacing**: Tight kern between letterforms
@@ -52,24 +56,28 @@ This ensures geometric precision while maintaining readable letterforms at any s
 **Concept**: AM letterforms ARE the grid structure (not contained by it)
 
 **Construction**:
+
 - Each letter (A and M) occupies 6 units on the 12-unit canvas
 - Grid cells and intersections form the actual strokes
 - Negative space between cells creates rhythm and visual hierarchy
 - Teal accent appears on select grid intersections (corners, center junction)
 
 **Visual Character**:
+
 - Minimal, highly geometric, architectural
 - Reads as "grid first, letters second"
 - Strongest grid expression
 - Most austere, least figurative
 
 **Strengths**:
+
 - Maximum geometric expression
 - Demonstrates grid discipline clearly
 - Unique, distinctive visual mark
 - Scalable at any size
 
 **Challenges**:
+
 - Very geometric; letterforms can be subtle at small sizes (16-24px)
 - Requires careful construction to maintain legibility
 - Less intuitive as a wordmark pairing
@@ -88,24 +96,28 @@ This ensures geometric precision while maintaining readable letterforms at any s
 **Concept**: Geometric grid frame creates authority structure; AM letters occupy interior space
 
 **Construction**:
+
 - Outer rectangular grid frame (outer and inner rectangles, grid dividing lines)
 - AM letterforms positioned inside, outlined or partially transparent
 - Grid creates visual "container" or "authority scaffold"
 - Teal accent on grid corners (directional, institutional)
 
 **Visual Character**:
+
 - Sculptural, with clear visual hierarchy
 - Reads as "grid as authority frame" with letters secondary
 - More accessible than Direction A
 - Layered, slightly more complex composition
 
 **Strengths**:
+
 - Clear authority structure (grid frames authority)
 - Recognizable letterforms inside structure
 - Interesting visual composition
 - Works well at medium-to-large sizes
 
 **Challenges**:
+
 - More complex at small sizes (might feel crowded at 16-24px)
 - Grid frame can feel ornamental (less restrained)
 - Slightly harder to adapt to vertical wordmark layout
@@ -124,6 +136,7 @@ This ensures geometric precision while maintaining readable letterforms at any s
 **Concept**: AM letterforms interlocked with shared strokes; grid as subtle construction foundation
 
 **Construction**:
+
 - AM letterforms overlap/interlock with shared strokes at the junction
 - Grid geometry is referenced but not explicitly rendered (subtle background construction guide)
 - Interlock creates visual unity and suggests integration
@@ -131,12 +144,14 @@ This ensures geometric precision while maintaining readable letterforms at any s
 - Subtle geometric frame hints at grid structure (12% opacity)
 
 **Visual Character**:
+
 - Refined, institutional monogram
 - Reads primarily as "letters," with grid as invisible structure
 - Balanced between geometric precision and letterform clarity
 - Elegant, timeless, approachable
 
 **Strengths**:
+
 - **Wordmark-friendly**: Pairs naturally with "Al Marfa" text
 - **Scalable at all sizes**: Readable at 16px (favicon), elegant at 120px
 - **Institutional tone**: Impersonal, timeless, credible
@@ -145,6 +160,7 @@ This ensures geometric precision while maintaining readable letterforms at any s
 - **Accent integration**: Teal accent at junction feels structural, not decorative
 
 **Characteristics**:
+
 - Clean at any size due to clear letterform recognition
 - Accent accent feels like an architectural detail (junction highlight)
 - Geometric frame is subtle enough to not distract but strong enough to ground design
@@ -153,6 +169,7 @@ This ensures geometric precision while maintaining readable letterforms at any s
 **File**: `am-mark-primary.svg`
 
 **Implementation**: ✅ Fully implemented as primary brand mark
+
 - React components: `AmLogo`, `AmWordmark`, `AmIcon`
 - Integration: Header, footer, favicon
 - Variants: `primary` (color + accent), `mono` (monochrome), `inverted`
@@ -160,16 +177,16 @@ This ensures geometric precision while maintaining readable letterforms at any s
 
 **Rationale for Selection**:
 
-| Criterion | Direction A | Direction B | Direction C |
-|-----------|-------------|-------------|-------------|
-| **Wordmark pairing** | Difficult | Moderate | ✅ Excellent |
-| **Favicon readability (16px)** | Moderate | Moderate | ✅ Excellent |
-| **Institutional tone** | ✅ Strong | Good | ✅ Strong |
-| **Visual restraint** | ✅ Maximum | Good | ✅ Strong |
-| **Scalability** | Fair | Good | ✅ Excellent |
-| **Versatility** | Low | Moderate | ✅ High |
-| **Refined elegance** | Austere | Architectural | ✅ Balanced |
-| **Platform feel** | Conceptual | Technical | ✅ Editorial |
+| Criterion                      | Direction A | Direction B   | Direction C  |
+| ------------------------------ | ----------- | ------------- | ------------ |
+| **Wordmark pairing**           | Difficult   | Moderate      | ✅ Excellent |
+| **Favicon readability (16px)** | Moderate    | Moderate      | ✅ Excellent |
+| **Institutional tone**         | ✅ Strong   | Good          | ✅ Strong    |
+| **Visual restraint**           | ✅ Maximum  | Good          | ✅ Strong    |
+| **Scalability**                | Fair        | Good          | ✅ Excellent |
+| **Versatility**                | Low         | Moderate      | ✅ High      |
+| **Refined elegance**           | Austere     | Architectural | ✅ Balanced  |
+| **Platform feel**              | Conceptual  | Technical     | ✅ Editorial |
 
 ---
 
@@ -191,14 +208,14 @@ This ensures geometric precision while maintaining readable letterforms at any s
 
 Each direction was tested in key contexts:
 
-| Context | Size | Direction A | Direction B | Direction C |
-|---------|------|---------|---------|---------|
-| **Favicon (browser tab)** | 16×16 | Fair | Good | ✅ Excellent |
-| **Header (mobile)** | 24×24 | Good | Good | ✅ Excellent |
-| **Header (desktop)** | 40×40 | Good | ✅ Excellent | ✅ Excellent |
-| **Footer** | 24×24 | Fair | Good | ✅ Excellent |
-| **Wordmark pairing** | 80×80 (mark) | Difficult | Moderate | ✅ Excellent |
-| **Social OG (200px)** | 200×200 | Good | ✅ Excellent | ✅ Excellent |
+| Context                   | Size         | Direction A | Direction B  | Direction C  |
+| ------------------------- | ------------ | ----------- | ------------ | ------------ |
+| **Favicon (browser tab)** | 16×16        | Fair        | Good         | ✅ Excellent |
+| **Header (mobile)**       | 24×24        | Good        | Good         | ✅ Excellent |
+| **Header (desktop)**      | 40×40        | Good        | ✅ Excellent | ✅ Excellent |
+| **Footer**                | 24×24        | Fair        | Good         | ✅ Excellent |
+| **Wordmark pairing**      | 80×80 (mark) | Difficult   | Moderate     | ✅ Excellent |
+| **Social OG (200px)**     | 200×200      | Good        | ✅ Excellent | ✅ Excellent |
 
 ---
 
@@ -207,11 +224,13 @@ Each direction was tested in key contexts:
 ### Direction C Implementation
 
 **Core Components**:
+
 - `AmLogo` — Primary mark (flexible sizing, variants)
 - `AmWordmark` — Mark + text lockup (horizontal/vertical)
 - `AmIcon` — Favicon variant (simplified, 16-32px)
 
 **Features**:
+
 - ✅ CSS custom properties for dark mode
 - ✅ ARIA labels and accessibility
 - ✅ SVG-only, no image dependencies
@@ -220,6 +239,7 @@ Each direction was tested in key contexts:
 - ✅ Full TypeScript support
 
 **Integration**:
+
 - Header: `apps/web/components/navigation/primary-nav.tsx` ✅
 - Footer: `apps/web/components/navigation/footer.tsx` ✅
 - Favicon: `apps/web/app/layout.tsx` (metadata icons) ✅
@@ -232,10 +252,12 @@ Each direction was tested in key contexts:
 ### Direction A & B Preservation
 
 Concepts A and B are preserved in the `apps/web/public/logos/` directory:
+
 - `am-mark-concept-a.svg` — Grid-in-Letters (reference)
 - `am-mark-concept-b.svg` — Layered Authority (reference)
 
 These serve as:
+
 - **Historical documentation** of design exploration
 - **Fallback references** if platform direction shifts
 - **Learning resource** for future designers
@@ -257,15 +279,15 @@ If the brand direction needs adjustment:
 
 The selected Direction C perfectly aligns with Al Marfa's editorial identity:
 
-| Platform Principle | Direction C Implementation |
-|-------------------|--------------------------|
-| **Editorial over marketing** | Clean monogram, no sales language |
-| **Calm technical confidence** | Restrained geometry, mature letterforms |
-| **Institutional credibility** | Impersonal monogram, timeless style |
-| **Semantic structure** | Grid-derived construction, visible in subtle frame |
-| **Typography-first** | Letterforms prioritized, geometry secondary |
-| **Architectural authority** | Grid-based, modular, precise |
-| **Restrained color** | Monochrome primary, teal accent only |
+| Platform Principle            | Direction C Implementation                         |
+| ----------------------------- | -------------------------------------------------- |
+| **Editorial over marketing**  | Clean monogram, no sales language                  |
+| **Calm technical confidence** | Restrained geometry, mature letterforms            |
+| **Institutional credibility** | Impersonal monogram, timeless style                |
+| **Semantic structure**        | Grid-derived construction, visible in subtle frame |
+| **Typography-first**          | Letterforms prioritized, geometry secondary        |
+| **Architectural authority**   | Grid-based, modular, precise                       |
+| **Restrained color**          | Monochrome primary, teal accent only               |
 
 ---
 
@@ -274,6 +296,7 @@ The selected Direction C perfectly aligns with Al Marfa's editorial identity:
 ### Verification Checklist
 
 ✅ **Visual**
+
 - Logo readable at 16px (favicon)
 - Logo readable at 32px (header/footer)
 - Logo elegant at 120px (documentation)
@@ -281,6 +304,7 @@ The selected Direction C perfectly aligns with Al Marfa's editorial identity:
 - Teal accent visible but not overwhelming
 
 ✅ **Technical**
+
 - SVG files < 2KB each
 - CSS custom properties working (dark mode)
 - React components TypeScript-compliant
@@ -288,12 +312,14 @@ The selected Direction C perfectly aligns with Al Marfa's editorial identity:
 - Performance: no CLS on load
 
 ✅ **Accessibility**
+
 - ARIA labels present
 - Alt text descriptive
 - Color contrast sufficient
 - SVG titles and descriptions included
 
 ✅ **Responsive**
+
 - Scales linearly across sizes
 - Header responsive at all breakpoints
 - Footer layout stable
@@ -349,6 +375,6 @@ The system is production-ready, fully documented, and designed for long-term mai
 
 ---
 
-*Design concepts developed: 2026-05-17*  
-*Implementation completed: 2026-05-17*  
-*Document version: 1.0*
+_Design concepts developed: 2026-05-17_  
+_Implementation completed: 2026-05-17_  
+_Document version: 1.0_

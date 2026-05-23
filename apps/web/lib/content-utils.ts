@@ -25,7 +25,9 @@ export interface ArticleMetadata {
   relatedExpertise?: string[];
 }
 
-export function validateArticleMetadata(metadata: Partial<ArticleMetadata>): boolean {
+export function validateArticleMetadata(
+  metadata: Partial<ArticleMetadata>,
+): boolean {
   if (!metadata.title || !metadata.description || !metadata.clusters) {
     return false;
   }
@@ -37,7 +39,9 @@ export function getRelatedExpertiseAreas(clusterSlugs: string[]) {
   const slugs = clusterSlugs.filter(isExpertiseSlug);
 
   return EXPERTISE_AREAS.filter((area) =>
-    area.clusters.some((clusterId) => slugs.includes(clusterId as ExpertiseSlug)),
+    area.clusters.some((clusterId) =>
+      slugs.includes(clusterId as ExpertiseSlug),
+    ),
   );
 }
 
@@ -51,7 +55,8 @@ export function getArticleBreadcrumbs(
   clusters: string[],
 ): BreadcrumbItem[] {
   const items: BreadcrumbItem[] = [{ label: "Insights", href: "/insights" }];
-  const primarySlug = clusters.find(isExpertiseSlug) ?? getPrimaryExpertiseSlugFromList(clusters);
+  const primarySlug =
+    clusters.find(isExpertiseSlug) ?? getPrimaryExpertiseSlugFromList(clusters);
 
   if (primarySlug) {
     const cluster = getExpertiseBySlug(primarySlug);
@@ -96,7 +101,11 @@ function getArticleSemanticKeywordsFromSlugs(slugs: ExpertiseSlug[]) {
   ];
 }
 
-export { getArticleClusterLabels, getArticleExpertiseSlugs, getArticleSemanticKeywords };
+export {
+  getArticleClusterLabels,
+  getArticleExpertiseSlugs,
+  getArticleSemanticKeywords,
+};
 
 export function getClusterContext(clusterSlug: string) {
   if (!isExpertiseSlug(clusterSlug)) {

@@ -1,18 +1,23 @@
 import type { ReactNode } from "react";
 
-import { Body, Caption, Container, Display, Heading, Section, Stack } from "@repo/ui";
+import {
+  Body,
+  Caption,
+  Container,
+  Display,
+  Heading,
+  Section,
+  Stack,
+} from "@repo/ui";
 
 import type { TextMeasure } from "@repo/ui";
 
-
-
 import { cn } from "@/lib/utils";
 
-
-
-import { PageHeroBackdrop, type PageHeroAtmosphere } from "./page-hero-backdrop";
-
-
+import {
+  PageHeroBackdrop,
+  type PageHeroAtmosphere,
+} from "./page-hero-backdrop";
 
 type PageEditorialHeroVariant = "index" | "detail";
 
@@ -38,8 +43,7 @@ type PageEditorialHeroProps = {
 };
 
 /** Shared hero title measure — applied to Display and Heading */
-export const heroTitleClassName =
-  "max-w-measure-hero text-balance text-pretty";
+export const heroTitleClassName = "max-w-measure-hero text-balance text-pretty";
 
 const displayTitleClassName =
   "max-w-[13ch] xs:max-w-[16ch] sm:max-w-measure-hero";
@@ -50,8 +54,6 @@ const detailTitleClassName =
 
 /** Index headlines that use Heading (not display) */
 const indexHeadingTitleClassName = "max-w-[22ch] sm:max-w-measure-hero";
-
-
 
 export function PageEditorialHero({
   eyebrow,
@@ -87,7 +89,9 @@ export function PageEditorialHero({
         <Stack
           className={cn(
             "max-w-measure-wide",
-            isDetail ? "gap-rhythm-sm md:gap-rhythm-md" : "gap-rhythm-md md:gap-rhythm-lg",
+            isDetail
+              ? "gap-rhythm-sm md:gap-rhythm-md"
+              : "gap-rhythm-md md:gap-rhythm-lg",
           )}
         >
           {prepend}
@@ -104,7 +108,9 @@ export function PageEditorialHero({
               measure={titleMeasure}
               className={cn(
                 heroTitleClassName,
-                titleAs === "display" ? displayTitleClassName : indexHeadingTitleClassName,
+                titleAs === "display"
+                  ? displayTitleClassName
+                  : indexHeadingTitleClassName,
                 isDetail ? detailTitleClassName : undefined,
                 titleClassName,
               )}
@@ -130,4 +136,3 @@ export function PageEditorialHero({
     </Section>
   );
 }
-
