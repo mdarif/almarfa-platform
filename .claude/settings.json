@@ -10,7 +10,12 @@
       "WebFetch(domain:almarfa.co)",
       "Bash(SITE_URL=https://almarfa.co pnpm build)",
       "Bash(pnpm check-types *)",
-      "Bash(pnpm build *)"
+      "Bash(pnpm build *)",
+      "Bash(gh auth *)",
+      "Bash(pnpm prettier *)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm husky *)",
+      "Bash(pnpm lint-staged *)"
     ]
   }
 }

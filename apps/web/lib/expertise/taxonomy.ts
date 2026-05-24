@@ -62,7 +62,8 @@ export const EXPERTISE_BY_SLUG: Record<ExpertiseSlug, ExpertiseDefinition> = {
   "storybook-ecosystems": {
     slug: "storybook-ecosystems",
     label: "Storybook Ecosystems",
-    shortDescription: "Component platform infrastructure and shared UI governance",
+    shortDescription:
+      "Component platform infrastructure and shared UI governance",
     overview:
       "Storybook becomes platform infrastructure when it governs component contracts, shared UI adoption paths, and the quality practices that make component systems reliable at scale.",
     positioning:
@@ -239,14 +240,14 @@ export const EXPERTISE_NAVIGATION_GROUPS = [
   },
   {
     label: "Components & DX",
-    slugs: ["storybook-ecosystems", "developer-experience-engineering"] as const,
+    slugs: [
+      "storybook-ecosystems",
+      "developer-experience-engineering",
+    ] as const,
   },
   {
     label: "Governance",
-    slugs: [
-      "frontend-governance",
-      "angular-enterprise-patterns",
-    ] as const,
+    slugs: ["frontend-governance", "angular-enterprise-patterns"] as const,
   },
 ] satisfies readonly {
   label: string;
