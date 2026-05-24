@@ -7,7 +7,6 @@
 
 export const EXPERTISE_SLUGS = [
   "frontend-architecture",
-  "design-systems",
   "storybook-ecosystems",
   "nx-monorepos",
   "frontend-governance",
@@ -60,59 +59,35 @@ export const EXPERTISE_BY_SLUG: Record<ExpertiseSlug, ExpertiseDefinition> = {
     serviceDescription:
       "Designing frontend systems that support multiple teams, delivery streams, and product surfaces without losing architectural coherence.",
   },
-  "design-systems": {
-    slug: "design-systems",
-    label: "Design Systems",
-    shortDescription: "Shared UI foundations and component governance",
-    overview:
-      "Shared UI foundations work best when components, documentation, and release practices evolve together.",
-    positioning:
-      "A mature design system is an operating model — not only a component library — with ownership, adoption paths, and governance that teams can trust.",
-    practice:
-      "Rather than only building components, a mature design system includes clear ownership, governance, adoption practices, and organizational thinking that makes shared UI reliable.",
-    rationale:
-      "Teams trust shared components when they are well-documented, accessible, released reliably, and designed with real delivery constraints in mind.",
-    semanticKeywords: [
-      "design systems",
-      "component governance",
-      "shared UI",
-      "design tokens",
-    ],
-    relatedExpertise: [
-      "storybook-ecosystems",
-      "frontend-governance",
-      "frontend-architecture",
-    ],
-    hasServiceOffering: true,
-    serviceDescription:
-      "Building shared UI foundations with clear ownership, durable primitives, documentation, and adoption paths that teams can trust.",
-  },
   "storybook-ecosystems": {
     slug: "storybook-ecosystems",
     label: "Storybook Ecosystems",
-    shortDescription: "Component documentation as platform infrastructure",
+    shortDescription: "Component platform infrastructure and shared UI governance",
     overview:
-      "Storybook becomes platform infrastructure when it serves as a contract for component behavior, accessibility, and visual states.",
+      "Storybook becomes platform infrastructure when it governs component contracts, shared UI adoption paths, and the quality practices that make component systems reliable at scale.",
     positioning:
       "Storybook should behave like governed frontend infrastructure — not a loose gallery — when organizations need shared UI decisions to compound.",
     practice:
-      "Beyond documentation, Storybook can enforce component contracts, facilitate design system governance, enable accessibility review, and create shared understanding across disciplines.",
+      "Beyond documentation, Storybook governs component contracts, enforces shared UI adoption paths, enables accessibility review, and creates the engineering infrastructure that makes component systems trustworthy across teams.",
     rationale:
-      "When Storybook is treated as governed infrastructure, it enforces quality, reduces regressions, and makes system changes safer across teams.",
+      "When Storybook is treated as governed infrastructure, it enforces quality, reduces regressions, and makes component system changes safer — replacing informal design system coordination with explicit engineering contracts.",
     semanticKeywords: [
       "storybook governance",
       "component contracts",
       "visual regression",
-      "design system documentation",
+      "component governance",
+      "shared UI infrastructure",
+      "design system engineering",
+      "component adoption",
     ],
     relatedExpertise: [
-      "design-systems",
+      "frontend-architecture",
       "frontend-governance",
       "developer-experience-engineering",
     ],
     hasServiceOffering: true,
     serviceDescription:
-      "Treating Storybook as governed platform infrastructure for component contracts, visual states, accessibility review, and shared understanding.",
+      "Treating Storybook as governed platform infrastructure for component contracts, shared UI governance, visual regression, and adoption practices that teams can trust.",
   },
   "nx-monorepos": {
     slug: "nx-monorepos",
@@ -161,7 +136,7 @@ export const EXPERTISE_BY_SLUG: Record<ExpertiseSlug, ExpertiseDefinition> = {
     ],
     relatedExpertise: [
       "frontend-architecture",
-      "design-systems",
+      "platform-engineering",
       "storybook-ecosystems",
     ],
     hasServiceOffering: true,
@@ -255,22 +230,21 @@ export const EXPERTISE_LIST = EXPERTISE_SLUGS.map(
 
 export const EXPERTISE_NAVIGATION_GROUPS = [
   {
-    label: "Architecture",
-    slugs: ["frontend-architecture", "design-systems"] as const,
-  },
-  {
-    label: "Platforms",
+    label: "Platform",
     slugs: [
-      "storybook-ecosystems",
+      "frontend-architecture",
+      "platform-engineering",
       "nx-monorepos",
-      "frontend-governance",
     ] as const,
   },
   {
-    label: "Operations",
+    label: "Components & DX",
+    slugs: ["storybook-ecosystems", "developer-experience-engineering"] as const,
+  },
+  {
+    label: "Governance",
     slugs: [
-      "platform-engineering",
-      "developer-experience-engineering",
+      "frontend-governance",
       "angular-enterprise-patterns",
     ] as const,
   },
@@ -282,7 +256,6 @@ export const EXPERTISE_NAVIGATION_GROUPS = [
 /** @deprecated Use EXPERTISE_BY_SLUG — retained for existing imports */
 export const AUTHORITY_CLUSTERS = {
   FRONTEND_ARCHITECTURE: pickCluster("frontend-architecture"),
-  DESIGN_SYSTEMS: pickCluster("design-systems"),
   STORYBOOK_ECOSYSTEMS: pickCluster("storybook-ecosystems"),
   NX_MONOREPOS: pickCluster("nx-monorepos"),
   FRONTEND_GOVERNANCE: pickCluster("frontend-governance"),
@@ -316,9 +289,9 @@ export const CONTENT_RELATIONSHIPS = {
 
 export const PLATFORM_POSITIONING = {
   tagline:
-    "Enterprise frontend architecture authority. Semantic engineering for scalable platforms.",
+    "Enterprise frontend platform engineering. The shared infrastructure that scales frontend organizations.",
   description:
-    "Al Marfa focuses on the architectural and governance thinking that sustainable frontend systems require.",
+    "Al Marfa provides architecture advisory for the platform layer — monorepo structure, component governance, developer experience, and the shared infrastructure that lets frontend organizations scale.",
   authority_areas: EXPERTISE_LIST.map((area) => area.label),
 } as const;
 

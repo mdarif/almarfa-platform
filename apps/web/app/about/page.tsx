@@ -9,7 +9,7 @@ import {
 
 export const metadata = createPageMetadata({
   description:
-    "Al Marfa is an enterprise frontend architecture authority platform focused on sustainable systems thinking and technical leadership.",
+    "Al Marfa is an enterprise frontend platform engineering consultancy focused on monorepo architecture, component governance, and the shared infrastructure that scales engineering organizations.",
   pathname: "/about",
   title: "About",
 });
@@ -20,7 +20,7 @@ export default function AboutPage() {
       <PageEditorialHero
         atmosphere="publication"
         eyebrow="About"
-        title="Al Marfa is an enterprise frontend architecture authority platform."
+        title="Al Marfa is an enterprise frontend platform engineering consultancy."
         description="We focus on the architectural thinking, governance patterns, and operational practices that sustainable frontend platforms require. Our work centers on the decisions that shape how teams organize, share, and evolve their systems."
       />
       <PhilosophySection />
@@ -134,7 +134,7 @@ function PublicationModelSection() {
                     className="editorial-link text-sm font-medium no-underline hover:underline"
                     href="/expertise"
                   >
-                    Eight authority clusters →
+                    Seven authority clusters →
                   </Link>
                 </div>
                 <div>

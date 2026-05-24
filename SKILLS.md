@@ -6,7 +6,7 @@ This file defines the stable implementation capabilities that future AI-assisted
 
 Use it as a capability registry, not a feature backlog. New work should preserve the platform direction:
 
-- enterprise frontend architecture authority
+- enterprise frontend platform engineering consultancy
 - semantic engineering publication ecosystem
 - static-first technical knowledge platform
 - calm editorial composition

@@ -31,7 +31,7 @@ export type SiteConfig = {
 export const siteConfig: SiteConfig = {
   contactEmail: "hello@almarfa.co",
   description:
-    "Enterprise frontend architecture, design systems, and scalable UI platform strategy.",
+    "Enterprise frontend platform engineering — monorepo architecture, component governance, Storybook infrastructure, and developer experience for engineering organizations at scale.",
   locale: "en_US",
   name: "Al Marfa Technologies",
   siteUrl: resolveSiteUrl(),

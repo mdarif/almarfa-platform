@@ -6,7 +6,11 @@
       "Bash(pnpm format *)",
       "Bash(pnpm lint *)",
       "WebFetch(domain:www.almarfa.co)",
-      "WebFetch(domain:almarfa-platform.pages.dev)"
+      "WebFetch(domain:almarfa-platform.pages.dev)",
+      "WebFetch(domain:almarfa.co)",
+      "Bash(SITE_URL=https://almarfa.co pnpm build)",
+      "Bash(pnpm check-types *)",
+      "Bash(pnpm build *)"
     ]
   }
 }

@@ -37,7 +37,7 @@ function ExpertiseAreasSection() {
         <Stack gap="xl">
           <EditorialSectionIntro eyebrow="Focus Areas">
             <Heading>
-              Seven expertise domains that compound your platform&apos;s
+              Six expertise domains that compound your platform&apos;s
               effectiveness.
             </Heading>
           </EditorialSectionIntro>

@@ -8,7 +8,7 @@ import {
 
 export const metadata = createPageMetadata({
   description:
-    "Start an architecture conversation with Al Marfa about frontend platforms, design systems, and enterprise engineering governance.",
+    "Start an architecture conversation with Al Marfa about frontend platform engineering, component governance, and enterprise engineering systems.",
   pathname: "/contact",
   title: "Contact",
 });
@@ -149,7 +149,7 @@ function InquirySection() {
 }
 
 const contactContextPrompts = [
-  "Which frontend platform, design system, Storybook, monorepo, or governance challenge needs architectural clarity?",
+  "Which frontend platform, Storybook governance, monorepo structure, component systems, or DX challenge needs architectural clarity?",
   "What scale, team structure, or ownership model is shaping the decision?",
   "What would a useful advisory conversation help you decide next?",
 ] as const;

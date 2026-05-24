@@ -10,7 +10,7 @@ import { EXPERTISE_LIST, getExpertisePath } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
   description:
-    "Frontend architecture authority clusters covering systems design, governance, platforms, and technical leadership.",
+    "Frontend platform engineering authority clusters covering architecture, component governance, developer experience, and technical leadership.",
   pathname: "/expertise",
   title: "Expertise",
 });
@@ -21,7 +21,7 @@ export default function ExpertisePage() {
       <PageEditorialHero
         atmosphere="expertise"
         eyebrow="Expertise"
-        title="Eight authority clusters that organize our technical knowledge."
+        title="Seven authority clusters that organize our technical knowledge."
         description="Our expertise is organized into semantic clusters that compound over time. Each cluster represents a deep knowledge domain where we develop and share implementation patterns, architectural thinking, and governance approaches."
       />
       <ClustersSection />

@@ -13,7 +13,7 @@ import { EXPERTISE_LIST, getExpertisePath } from "@/lib/expertise";
 
 export const metadata = createPageMetadata({
   description:
-    "Enterprise frontend architecture, design systems, Storybook governance, and shared UI platform strategy.",
+    "Enterprise frontend platform engineering — monorepo architecture, component governance, Storybook infrastructure, and developer experience for engineering organizations at scale.",
   pathname: "/",
 });
 
@@ -157,9 +157,9 @@ function ContactSection() {
             direction.
           </Heading>
           <Body size="large">
-            For engineering organizations evaluating design systems, Storybook
-            governance, monorepo structure, or frontend platform strategy, Al
-            Marfa can help clarify the architecture path.
+            For engineering organizations evaluating monorepo structure,
+            Storybook governance, component systems, or frontend platform
+            strategy, Al Marfa can help clarify the architecture path.
           </Body>
           <Link
             className="editorial-link mt-rhythm-sm inline-flex w-fit text-sm font-medium no-underline hover:underline"
