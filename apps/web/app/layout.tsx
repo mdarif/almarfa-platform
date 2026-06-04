@@ -5,6 +5,7 @@ import {
   createWebSiteSchema,
   siteConfig,
 } from "@repo/seo";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
@@ -47,6 +48,9 @@ export default function RootLayout({
         />
         <PlatformShell>{children}</PlatformShell>
       </body>
+      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+      )}
     </html>
   );
 }
