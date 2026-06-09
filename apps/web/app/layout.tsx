@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     // and placed at apps/web/public/apple-touch-icon.png before re-enabling:
     // apple: "/apple-touch-icon.png",
   },
+  other: {
+    "theme-color": "#ffffff",
+  },
 };
 
 export default function RootLayout({
@@ -42,6 +45,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${siteConfig.name} Engineering Insights`}
+          href="/rss.xml"
+        />
+      </head>
       <body className="font-sans antialiased">
         <JsonLdScript
           data={[createOrganizationSchema(), createWebSiteSchema()]}

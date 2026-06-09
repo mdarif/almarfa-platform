@@ -25,6 +25,9 @@ export function createPageMetadata({
     description,
     openGraph: {
       description,
+      images: [
+        { alt: resolvedTitle, height: 630, url: "/og-image.png", width: 1200 },
+      ],
       locale: siteConfig.locale,
       siteName: siteConfig.name,
       title: resolvedTitle,

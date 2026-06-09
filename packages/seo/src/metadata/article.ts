@@ -42,6 +42,7 @@ export function createArticleMetadata(
     keywords,
     openGraph: {
       description,
+      images: [{ alt: title, height: 630, url: "/og-image.png", width: 1200 }],
       locale: siteConfig.locale,
       publishedTime: article.frontmatter.publishedAt,
       siteName: siteConfig.name,
